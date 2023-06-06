@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     }
     button{
         cursor: pointer;
+        font-family: "Inter";
+        border: none;
     }
     :root{
 
@@ -50,6 +52,9 @@ export const GlobalStyle = createGlobalStyle`
         --color-random10:#6100FF;
         --color-random11:#5700E3;
         --color-random12:#30007D;
+
+        --radius-1:8px;
+        --radius-2:4px;
 
         --font-family-lexend: 'Lexend', sans-serif;
         --font-family-inter: 'Inter', sans-serif;
