@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  padding-top: 65px;
   background-image: linear-gradient(
     to top,
-    var(--color-grey8) 60%,
-    var(--color-brand1) 40%
+    var(--color-grey8) 65%,
+    var(--color-brand1) 35%
   );
   display: flex;
   flex-direction: column;
   @media (min-width: 1100px) {
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 0px;
   }
 `;
 
@@ -61,7 +61,15 @@ export const Main = styled.main`
       font-size: var(--text-heading6);
       font-weight: var(--text-weight600);
     }
-
+    button {
+      width: 60%;
+      @media (min-width: 375px) {
+        display: block;
+      }
+      @media (min-width: 700px) {
+        width: 40%;
+      }
+    }
     .car_detail {
       display: flex;
       flex-direction: column;

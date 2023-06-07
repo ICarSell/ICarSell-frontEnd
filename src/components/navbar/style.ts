@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const NavMain = styled.nav`
+  position: fixed;
+  z-index: 3;
   width: 100%;
   height: 70px;
   box-shadow: 0px 33px 44px -19px rgba(0, 0, 0, 0.18);
   display: flex;
   justify-content: space-between;
-  position: relative;
+
+  background-color: var(--color-white-fixed);
   .logo {
     padding: 20px 25px;
     height: 70px;
