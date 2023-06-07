@@ -1,9 +1,9 @@
-import { Footer } from "../footer";
-import { Navbar } from "../navbar";
+import { Footer } from "../../components/footer";
+import { Navbar } from "../../components/navbar";
 import { AsideStyled, Container, Main } from "./style";
 import Car from "../../assets/EXTERIOR-frontSidePilotNear-1653845164710-removebg-preview 1.png";
 import imgPerfil from "../../assets/perfil.png";
-import { Button } from "../button";
+import { Button } from "../../components/button";
 
 export const ProductPage = () => {
   return (

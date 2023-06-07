@@ -13,6 +13,10 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Inter";
         border: none;
     }
+
+    li{
+        list-style: none;
+    }
     :root{
 
         --color-brand1:#4529E6;
