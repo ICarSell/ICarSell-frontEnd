@@ -38,6 +38,7 @@ export const CardStyled = styled.li`
     height: 48px;
 
     max-height: 48px;
+    text-overflow: ellipsis;
     overflow: hidden;
 
     font-family: "Inter";
@@ -51,7 +52,7 @@ export const CardStyled = styled.li`
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 126px;
+    width: auto;
     height: 32px;
 
     div {
@@ -90,7 +91,7 @@ export const CardStyled = styled.li`
       align-items: center;
       padding: 4px 8px;
       gap: 10px;
-      width: 51px;
+      width: auto;
       height: 32px;
       background: #edeafd;
       border-radius: 4px;

@@ -15,7 +15,8 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         `;
       case "filters":
         return css`
-          padding: 12px 28px 12px 28px;
+          width: 279px;
+          height: 48px;
           font-size: var(--text-body1);
           border-radius: var(--radius-2);
           background-color: var(--color-brand2);

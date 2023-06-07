@@ -1,38 +1,36 @@
-import car from "../../assets/GM-Brazil-2015-Chevrolet-Prisma-001.jpg";
+import carImg from "../../assets/GM-Brazil-2015-Chevrolet-Prisma-001.jpg";
+
 import { CardStyled } from "./styled";
 
-export const Card = () => {
+export const Card = (car: any) => {
+  console.log(car);
   return (
     <CardStyled>
       <div className="cardImg">
-        <img src={car} alt="" />
+        <img src={carImg} alt="" />
       </div>
 
       <div>
-        <p className="cardTitle">Chevrolet - Prisma</p>
+        <p className="cardTitle">
+          {car.mark} - {car.model}
+        </p>
       </div>
-      <p className="cardDescription">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut,
-        corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit
-        corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam
-        aperiam? Atque, quas.
-      </p>
+      <p className="cardDescription">{car.description}</p>
       <div className="cardUser">
         <div></div>
-        <p>Vendedor</p>
+        <p>{car.advertiser}</p>
       </div>
       <div className="cardInfo">
         <div className="cardInfoDiv">
           <div className="cardProperty">
-            <p>0 KM</p>
+            <p>{car.mileage} KM</p>
           </div>
           <div className="cardProperty">
-            <p>2019</p>
+            <p>{car.year}</p>
           </div>
         </div>
         <div className="cardPrice">
-          <p>R$ 00.000,00</p>
+          <p>R$ {car.price}</p>
         </div>
       </div>
     </CardStyled>
