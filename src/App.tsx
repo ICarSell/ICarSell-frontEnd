@@ -1,9 +1,7 @@
-import { ProductPage } from "./components/productPage";
-
 function App() {
   return (
     <>
-      <ProductPage />
+      <h1>Vite + React</h1>
     </>
   );
 }

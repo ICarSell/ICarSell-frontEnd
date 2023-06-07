@@ -1,14 +1,27 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const Container = styled.div`
   background-image: linear-gradient(
     to top,
-    var(--color-grey8) 70%,
-    var(--color-brand1) 30%
+    var(--color-grey8) 60%,
+    var(--color-brand1) 40%
   );
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 1100px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+`;
+
+export const Main = styled.main`
+  @media (min-width: 1100px) {
+    width: 70%;
+  }
   width: 100%;
   padding: 35px 0px 10px 0px;
-  .img_user {
+  .img_car {
     width: 80%;
     height: 255px;
     background-color: var(--color-white-fixed);
@@ -16,8 +29,20 @@ export const Main = styled.main`
     display: flex;
     align-items: center;
     border-radius: 4px;
+    padding: 15px 10px;
     img {
       margin: 0 auto;
+      width: 100%;
+      padding: 17px 7px;
+      @media (min-width: 680px) {
+        width: 60%;
+      }
+      @media (min-width: 1070px) {
+        width: 45%;
+      }
+      @media (min-width: 2070px) {
+        width: 35%;
+      }
     }
   }
   .car_info {
@@ -37,10 +62,17 @@ export const Main = styled.main`
       font-weight: var(--text-weight600);
     }
 
-    div {
+    .car_detail {
       display: flex;
       flex-direction: column;
+
       gap: 25px;
+      @media (min-width: 1100px) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 15px;
+      }
       p {
         font-family: var(--font-family-lexend);
         margin-bottom: 15px;
@@ -83,9 +115,13 @@ export const Main = styled.main`
 `;
 
 export const AsideStyled = styled.aside`
-  background-color: var(--color-grey8);
+  @media (min-width: 1100px) {
+    width: 40%;
+    padding: 50px 50px 50px 0;
+  }
+  margin: 0 auto;
   width: 100%;
-  padding: 50px;
+
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -93,7 +129,7 @@ export const AsideStyled = styled.aside`
     background-color: var(--color-grey10);
     padding: 15px 28px;
     margin: 0 auto;
-    width: 95%;
+    width: 80%;
     border-radius: 4px;
   }
   ul {
@@ -112,13 +148,14 @@ export const AsideStyled = styled.aside`
     display: flex;
     justify-content: center;
     img {
-      padding: 27px 7px;
-      width: 50%;
+      padding: 18px 7px;
+      width: 100%;
     }
   }
   .perfil-column {
     padding: 15px 28px;
-    width: 98%;
+    width: 80%;
+    margin: 0 auto;
     background-color: var(--color-grey10);
     border-radius: 4px;
     display: flex;
@@ -126,6 +163,18 @@ export const AsideStyled = styled.aside`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-bottom: 20px;
+    h2 {
+      font-family: var(--font-family-lexend);
+      font-size: var(--text-heading6);
+      font-weight: var(--text-weight600);
+    }
+    p {
+      font-family: var(--font-family-inter);
+      padding: 25px 28px;
+      font-size: var(--text-body1);
+      font-weight: var(--text-weight400);
+    }
     img {
       border-radius: 100%;
       width: 77px;
