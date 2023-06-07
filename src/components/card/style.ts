@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardStyled = styled.li`
+export const StyledListCar = styled.li`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

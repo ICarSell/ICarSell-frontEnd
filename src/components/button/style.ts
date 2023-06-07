@@ -22,6 +22,10 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           background-color: var(--color-brand2);
           color: var(--color-white-fixed);
           font-weight: var(--text-weight600);
+
+          @media (min-width: 375px) {
+            display: none;
+          }
         `;
       case "filterMaxAndMin":
         return css`
@@ -31,6 +35,16 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-family: "Lexend";
           background-color: var(--color-grey5);
           color: var(--color-grey3);
+          font-weight: var(--text-weight600);
+        `;
+      case "nextPage":
+        return css`
+          width: 125px;
+          height: 37px;
+          font-size: var(--text-body1);
+          font-family: "Lexend";
+          color: var(--color-brand1);
+          background-color: transparent;
           font-weight: var(--text-weight600);
         `;
     }
