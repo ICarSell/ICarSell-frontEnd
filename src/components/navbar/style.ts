@@ -19,7 +19,7 @@ export const NavMain = styled.nav`
       height: 100%;
     }
     img {
-      height: 35px;
+      height: 30px;
       padding-top: 14px;
       padding-right: 14px;
 
@@ -71,8 +71,8 @@ export const NavMain = styled.nav`
   }
   .dropDown-div {
     img {
-      height: 35px;
-      padding-top: 14px;
+      height: 40px;
+      padding-top: 24px;
       padding-right: 14px;
     }
     div {
