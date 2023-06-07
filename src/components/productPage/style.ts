@@ -7,7 +7,7 @@ export const Main = styled.main`
     var(--color-brand1) 30%
   );
   width: 100%;
-  padding: 35px 0;
+  padding: 35px 0px 10px 0px;
   .img_user {
     width: 80%;
     height: 255px;
@@ -78,6 +78,68 @@ export const Main = styled.main`
       padding: 25px 28px;
       font-size: var(--text-body1);
       font-weight: var(--text-weight400);
+    }
+  }
+`;
+
+export const AsideStyled = styled.aside`
+  background-color: var(--color-grey8);
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .aside-div {
+    background-color: var(--color-grey10);
+    padding: 15px 28px;
+    margin: 0 auto;
+    width: 95%;
+    border-radius: 4px;
+  }
+  ul {
+    background-color: var(--color-grey10);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  li {
+    background-color: var(--color-grey7);
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    img {
+      padding: 27px 7px;
+      width: 50%;
+    }
+  }
+  .perfil-column {
+    padding: 15px 28px;
+    width: 98%;
+    background-color: var(--color-grey10);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    img {
+      border-radius: 100%;
+      width: 77px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      background-color: black;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 4px;
     }
   }
 `;

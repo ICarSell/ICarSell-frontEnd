@@ -1,7 +1,8 @@
 import { Footer } from "../footer";
 import { Navbar } from "../navbar";
-import { Main } from "./style";
+import { AsideStyled, Main } from "./style";
 import Car from "../../assets/EXTERIOR-frontSidePilotNear-1653845164710-removebg-preview 1.png";
+import imgPerfil from "../../assets/perfil.png";
 import { Button } from "../button";
 
 export const ProductPage = () => {
@@ -35,6 +36,41 @@ export const ProductPage = () => {
           </p>
         </div>
       </Main>
+      <AsideStyled>
+        <div className="aside-div">
+          <h2>Fotos</h2>
+          <ul>
+            <li>
+              <img src={Car} alt="" />
+            </li>
+            <li>
+              <img src={Car} alt="" />
+            </li>
+            <li>
+              <img src={Car} alt="" />
+            </li>
+            <li>
+              <img src={Car} alt="" />
+            </li>
+            <li>
+              <img src={Car} alt="" />
+            </li>
+          </ul>
+        </div>
+        <div className="perfil-column">
+          <div>
+            <img src={imgPerfil} alt="" />
+          </div>
+          <h2>Samuel Leão</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            quod id cumque optio voluptate fuga ratione excepturi reprehenderit
+            neque, magni ipsa, earum pariatur sit cum laborum numquam quasi
+            nobis praesentium?
+          </p>
+          <button>Ver todos os anuncios</button>
+        </div>
+      </AsideStyled>
       <Footer />
     </>
   );
