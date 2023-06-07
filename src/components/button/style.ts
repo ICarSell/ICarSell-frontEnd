@@ -7,8 +7,8 @@ export const StyledButton = styled.button<iStyledButtonProps>`
       case "register":
         return css`
           padding: 10px 20px;
-          font-size: 16px;
           border: 2px solid var(--color-grey4);
+          font-size: var(--text-body1);
           border-radius: var(--radius-2);
           background-color: var(--color-grey10);
           font-weight: var(--text-weight600);
@@ -17,7 +17,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         return css`
           width: 279px;
           height: 48px;
-          font-size: 16px;
+          font-size: var(--text-body1);
           border-radius: var(--radius-2);
           background-color: var(--color-brand2);
           color: var(--color-white-fixed);
@@ -27,7 +27,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         return css`
           width: 125px;
           height: 37px;
-          font-size: 16px;
+          font-size: var(--text-body1);
           font-family: "Lexend";
           background-color: var(--color-grey5);
           color: var(--color-grey3);
