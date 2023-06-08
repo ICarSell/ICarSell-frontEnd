@@ -169,7 +169,6 @@ export const Home = () => {
             <Button type="button" buttonVariation="filters">
               Filtros
             </Button>
-  
             <div>
               <p>
                 <span>1 </span> de 2
@@ -180,7 +179,6 @@ export const Home = () => {
             </div>
           </div>
         </StyledHome>
-  
         <Footer />
       </>
     )

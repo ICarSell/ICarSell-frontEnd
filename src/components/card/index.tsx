@@ -2,13 +2,16 @@ import { cars } from "../../mock";
 import { StyledListCar } from "./style";
 
 export const ListCarHome = () => {
+
   return (
     <>
       {cars.map((car) => (
-        // <Card key={car.id} car={car} />
         <StyledListCar key={car.id}>
           <div className="cardImg">
             <img src={car.imgCover} alt="" />
+            <div className={car.priceFipe > 60000 ? "lowestPriceFipe" : "outFipe"}>
+              $
+            </div>
           </div>
 
           <div>

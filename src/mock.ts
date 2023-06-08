@@ -1,3 +1,5 @@
+import carList from "./assets/carList.png";
+
 export const cars = [
   {
     id: "d2a63a8e-2146-4c8e-8eef-36a3d7c3e530",
@@ -10,8 +12,7 @@ export const cars = [
     price: 90500,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Paulo Rodrigues",
   },
@@ -26,8 +27,7 @@ export const cars = [
     price: 95000,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Roberto Carlos",
   },
@@ -42,8 +42,7 @@ export const cars = [
     price: 55000,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Jorge Lafond",
   },
@@ -58,8 +57,7 @@ export const cars = [
     price: 90500,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Paulo Rodrigues",
   },
@@ -74,8 +72,7 @@ export const cars = [
     price: 95000,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Roberto Carlos",
   },
@@ -90,8 +87,7 @@ export const cars = [
     price: 55000,
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus ut, corrupti dignissimos Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt. Aliquam vero voluptatum earum, consequuntur odit corrupti recusandae nemo optio quaerat ea eos laboriosam qui nobis quam aperiam? Atque, quas.",
-    imgCover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmkFlROZ0d8GMAR4BfwmJwF8V4nnm-5g0j0fT2d7SXcMLkbBqZz4Cpy6KU7OBtArAhdHI&usqp=CAU",
+    imgCover: carList,
     isActive: true,
     advertiser: "Jorge Lafond",
   },

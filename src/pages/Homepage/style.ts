@@ -111,14 +111,16 @@ export const StyledHome = styled.main`
 
       .km {
         .containerButton {
+          padding-top: 25px;
           display: flex;
-          gap: 10px;
+          gap: 15px;
         }
       }
       .preco {
         .containerButton {
+          padding-top: 25px;
           display: flex;
-          gap: 10px;
+          gap: 15px;
         }
       }
     }
