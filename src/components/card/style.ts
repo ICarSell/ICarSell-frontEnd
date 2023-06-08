@@ -18,6 +18,29 @@ export const StyledListCar = styled.li`
     height: 152px;
     background: #e9ecef;
     border: 2px solid #e9ecef;
+    gap: 0px;
+
+    .outFipe{
+      display: none;
+    }
+
+    .lowestPriceFipe {
+      width: 16px;
+      height: 27px;
+      font-size: var(--text-button-medium);
+      font-weight: var(--text-weight500);
+      font-family: "Inter";
+      background-color: var(--color-random7);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white-fixed);
+      position: relative;
+      z-index: 0;
+      top: -62px;
+      right: -17px;
+    }
   }
 
   .cardImg img {
