@@ -47,6 +47,17 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           background-color: transparent;
           font-weight: var(--text-weight600);
         `;
+      case "enter":
+        return css`
+          width: 100%;
+          height: 48px;
+          margin-top: 10px;
+          font-size: var(--text-body1);
+          border-radius: var(--radius-2);
+          background-color: var(--color-brand2);
+          color: var(--color-white-fixed);
+          font-weight: var(--text-weight600);
+        `;
     }
   }}
 `;
