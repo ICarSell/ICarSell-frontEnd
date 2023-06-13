@@ -11,7 +11,9 @@ export const Input = ({
 }: iInputProps) => {
   return (
     <StyledInput>
-      <label>{label}</label>
+      <label>
+        <strong>{label}</strong>
+      </label>
       <input
         type={type}
         placeholder={placeholder}

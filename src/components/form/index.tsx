@@ -1,9 +1,18 @@
 import { iFormProps } from "./type";
-import { StyledForm } from "./style"
+import { StyledForm } from "./style";
 
-export const Form = ({ children, noValidate, onSubmit }: iFormProps) => {
+export const Form = ({
+  children,
+  noValidate,
+  onSubmit,
+  className,
+}: iFormProps) => {
   return (
-    <StyledForm noValidate={noValidate} onSubmit={onSubmit}>
+    <StyledForm
+      className={className}
+      noValidate={noValidate}
+      onSubmit={onSubmit}
+    >
       {children}
     </StyledForm>
   );
