@@ -1,10 +1,11 @@
+import { UserProvider } from "./context";
 import { RoutesMain } from "./routes";
 
 function App() {
   return (
-    <>
-      <RoutesMain/>
-    </>
+    <UserProvider>
+      <RoutesMain />
+    </UserProvider>
   );
 }
 
