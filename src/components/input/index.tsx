@@ -8,6 +8,7 @@ export const Input = ({
   register,
   defaultValue,
   onChange,
+  onInput,
 }: iInputProps) => {
   return (
     <StyledInput>
@@ -19,6 +20,7 @@ export const Input = ({
         placeholder={placeholder}
         defaultValue={defaultValue}
         onChange={onChange}
+        onInput={onInput}
         {...register}
       />
     </StyledInput>
