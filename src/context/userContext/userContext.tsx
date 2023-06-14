@@ -4,10 +4,18 @@ import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import { iUserContext, iUserContextProps } from "./types";
+import {
+  tUserReq,
+  tUserReturnWithoutPass,
+} from "../../pages/registerPage/type";
+import { api } from "../../services/api";
+
 
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
+  const [user, setUser] = useState<tUserReturnWithoutPass | null>(null);
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
 
@@ -36,9 +44,31 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   };
 
+  async function register(registerData: tUserReq) {
+    const {
+      passwordConfirm: _,
+      dateOfBirth: date,
+      ...userRequest
+    } = registerData;
+    const dateOfBirth = Number(date);
+    const newUserData = { dateOfBirth, ...userRequest };
+    try {
+      const { data } = await api.post<tUserReturnWithoutPass>(
+        "/user",
+        newUserData
+      );
+
+      setUser(null);
+      navigate("/login");
+      console.log("Conta Criada!", data);
+    } catch (err: any) {
+      console.log(err.response.data.message);
+    }
+  }
+
   return (
     <UserContext.Provider
-      value={{ navigate, submitLogin, unauthorized, setUnauthorized }}
+      value={{ navigate, submitLogin, unauthorized, setUnauthorized, register }}
     >
       {children}
     </UserContext.Provider>
