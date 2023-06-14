@@ -1,19 +1,14 @@
 import { StyledListCar } from "./style";
+import escanor from "../../assets/perfil.png";
 
 export const ListCarHome = ({ announcements }) => {
   console.log(announcements);
   return (
     <>
-      {announcements.map((car) => (
+      {announcements.map((car: any) => (
         <StyledListCar key={car.id}>
           <div className="cardImg">
-            <img
-              src={`http://localhost:3000/${car.imgCover.path.replace(
-                /\\/g,
-                "/"
-              )}`}
-              alt={car.imgCover.fileName}
-            />
+            <img src={escanor} alt={car.imgCover.fileName} />
             <div
               className={car.priceFipe > 60000 ? "lowestPriceFipe" : "outFipe"}
             >
