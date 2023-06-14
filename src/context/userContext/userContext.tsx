@@ -4,13 +4,10 @@ import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { iUserContext, iUserContextProps } from "./types";
 import {
   tUserReq,
   tUserReturnWithoutPass,
 } from "../../pages/registerPage/type";
-import { api } from "../../services/api";
-
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -30,7 +27,6 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
-
     } catch (error) {
       const currentError = error as AxiosError;
 
