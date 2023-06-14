@@ -6,7 +6,7 @@ export const StyledConatainerRL = styled.main`
   justify-content: center;
   background-color: var(--color-grey8);
   padding: 100px 15px;
-  height: auto;
+  min-height: 100vh;
 
   .formLogin {
     padding: 44px 48px 44px 48px;
