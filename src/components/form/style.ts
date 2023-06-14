@@ -10,4 +10,9 @@ export const StyledForm = styled.form`
     padding-bottom: 15px;
     font-family: var(--font-family-lexend);
   }
+
+  .errorMessage{
+    font-size: 14px;
+    color: var(--color-alert1);
+  }
 `;
