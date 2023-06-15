@@ -5,9 +5,11 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
+import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
+  const [modalAdd, setModalAdd] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -29,6 +31,14 @@ export const Home = () => {
           </div>
         </div>
         <div className="containerList">
+          <button
+            className="clientbutton"
+            type="button"
+            onClick={() => setModalAdd(true)}
+          >
+            Cadastrar
+          </button>
+          {modalAdd && <AnuncioCarroForm setModalAdd={setModalAdd} />}
           <aside className="filtro">
             <div className="marca">
               <h3>Marca</h3>

@@ -25,7 +25,9 @@ export const ListCarHome = ({ announcements }) => {
               alt={car.imgCover.fileName}
             />
             <div
-              className={car.priceFipe > 60000 ? "lowestPriceFipe" : "outFipe"}
+              className={
+                car.price < car.priceFipe * 0.95 ? "lowestPriceFipe" : "outFipe"
+              }
             >
               $
             </div>
