@@ -10,6 +10,7 @@ import { tUserReq } from "./type";
 import { userCreateSchema } from "../../schemas/registerSchemas";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/userContext/userContext";
+import { ToastContainer } from "react-toastify";
 
 export const Register = () => {
   const { register: registerUser } = useContext(UserContext);
@@ -24,7 +25,7 @@ export const Register = () => {
 
   const onHandleSubmit: SubmitHandler<tUserReq> = (data) => {
     registerUser(data);
-    console.log(data);
+
     reset();
   };
 
@@ -32,6 +33,7 @@ export const Register = () => {
     <>
       <Navbar />
       <StyledConatainerRL>
+        <ToastContainer />
         <div className="formRegister">
           <Form className="formLogin" onSubmit={handleSubmit(onHandleSubmit)}>
             <h2>Cadastro</h2>
