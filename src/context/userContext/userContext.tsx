@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
@@ -8,7 +8,6 @@ import {
   tUserReq,
   tUserReturnWithoutPass,
 } from "../../pages/registerPage/type";
-
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -58,8 +57,9 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       setUser(null);
       navigate("/login");
       console.log("Conta Criada!", data);
-    } catch (err: any) {
-      console.log(err.response.data.message);
+    } catch (err) {
+      const currentError = err as AxiosError;
+      console.log(currentError.message);
     }
   }
 
@@ -80,7 +80,14 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   return (
     <UserContext.Provider
-      value={{ navigate, submitLogin, unauthorized, setUnauthorized, register, postAnnouncement }}
+      value={{
+        navigate,
+        submitLogin,
+        unauthorized,
+        setUnauthorized,
+        register,
+        postAnnouncement,
+      }}
     >
       {children}
     </UserContext.Provider>

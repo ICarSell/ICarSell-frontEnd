@@ -2,21 +2,26 @@ import { NavMain } from "./style";
 import MainLogo from "../../assets/Motors shop.svg";
 import Bars from "../../assets/bars.svg";
 import CloseX from "../../assets/xmark.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DropDownMenu } from "../dropDown";
 import { Button } from "../button";
+import { UserContext } from "../../context/userContext/userContext";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const { navigate } = useContext(UserContext);
+  const token = localStorage.getItem("@TOKEN");
   const [dropDownOn, setDropDownOn] = useState(false);
   const [dropDownOnUser, setDropDownOnUser] = useState(false);
   const [userOn, setUserOn] = useState(false);
+  console.log(token);
   return (
     <NavMain>
       <img
         src={MainLogo}
         alt="Motor shop"
         className="logo"
-        onClick={() => setUserOn(!userOn)}
+        onClick={() => navigate("/")}
       />
 
       {!dropDownOn && (
@@ -28,15 +33,19 @@ export const Navbar = () => {
               onClick={() => setDropDownOn(true)}
             />
           )}
-          {!userOn && (
+          {!token && (
             <div className="desktop-div">
-              <a href="">Fazer Login</a>
-              <Button type="button" buttonVariation="register">
+              <Link to={"/login"}>Fazer Login</Link>
+              <Button
+                type="button"
+                buttonVariation="register"
+                onClick={() => navigate("/register")}
+              >
                 Cadastrar
               </Button>
             </div>
           )}
-          {userOn && (
+          {token && (
             <div className="desktop-div-user">
               <div
                 className="img-user"
@@ -58,8 +67,12 @@ export const Navbar = () => {
             onClick={() => setDropDownOn(false)}
           />
           <div>
-            <a href="">Fazer Login</a>
-            <Button type="button" buttonVariation="register">
+            <Link to={"/login"}>Fazer Login</Link>
+            <Button
+              type="button"
+              buttonVariation="register"
+              onClick={() => navigate("/register")}
+            >
               Cadastrar
             </Button>
           </div>
