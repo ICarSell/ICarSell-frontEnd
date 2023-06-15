@@ -13,7 +13,7 @@ export const ListCarHome = ({ announcements }) => {
           onClick={() => {
             setAnnouncementId(car.id);
             localStorage.setItem("@CARID", car.id);
-            navigate("/product")
+            navigate("/product");
           }}
         >
           <div className="cardImg">
@@ -26,7 +26,9 @@ export const ListCarHome = ({ announcements }) => {
             />
             <div
               className={
-                car.price < car.priceFipe * 0.95 ? "lowestPriceFipe" : "outFipe"
+                parseFloat(car.price) < parseFloat(car.priceFipe) * 0.95
+                  ? "lowestPriceFipe"
+                  : "outFipe"
               }
             >
               $
@@ -40,9 +42,10 @@ export const ListCarHome = ({ announcements }) => {
           </div>
           <p className="cardDescription">{car.description}</p>
           <div className="cardUser">
-            <div></div>
-            <p>{}</p>
-            <p>{car.advertiser}</p>
+            <div>
+              <p>{car.user.name[0].toUpperCase()}</p>
+            </div>
+            <p>{car.user.name}</p>
           </div>
           <div className="cardInfo">
             <div className="cardInfoDiv">

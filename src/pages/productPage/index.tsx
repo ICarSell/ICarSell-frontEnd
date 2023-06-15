@@ -19,11 +19,13 @@ export const ProductPage = () => {
                 /\\/g,
                 "/"
               )}`}
-              alt=""
+              alt={announcement.imgCover.fileName}
             />
           </div>
           <div className="car_info">
-            <h2>{announcement?.mark} - {announcement?.model}</h2>
+            <h2>
+              {announcement?.mark} - {announcement?.model}
+            </h2>
             <div className="car_detail">
               <div>
                 <p>{announcement?.year}</p>
@@ -44,14 +46,14 @@ export const ProductPage = () => {
           <div className="aside-div">
             <h2>Fotos</h2>
             <ul>
-              {announcement?.gallery.map((value: { path: string; }) => (
-                <li>
+              {announcement?.gallery.map((value: { path: string }, index) => (
+                <li key={index}>
                   <img
                     src={`http://localhost:3000/${value?.path.replace(
                       /\\/g,
                       "/"
                     )}`}
-                    alt=""
+                    alt={announcement.imgCover.fileName}
                   />
                 </li>
               ))}
