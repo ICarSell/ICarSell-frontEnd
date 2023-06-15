@@ -12,6 +12,7 @@ export const Container = styled.div`
   @media (min-width: 1100px) {
     flex-direction: row;
     justify-content: space-evenly;
+    min-height: 100vh;
   }
 `;
 
