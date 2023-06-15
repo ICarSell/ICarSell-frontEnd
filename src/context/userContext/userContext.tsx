@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
@@ -8,6 +8,7 @@ import {
   tUserReq,
   tUserReturnWithoutPass,
 } from "../../pages/registerPage/type";
+
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -62,9 +63,24 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   }
 
+  const postAnnouncement = async (formData: any) => {
+    try {
+      const response = await api.post(`/announcement`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log(response.data);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <UserContext.Provider
-      value={{ navigate, submitLogin, unauthorized, setUnauthorized, register }}
+      value={{ navigate, submitLogin, unauthorized, setUnauthorized, register, postAnnouncement }}
     >
       {children}
     </UserContext.Provider>

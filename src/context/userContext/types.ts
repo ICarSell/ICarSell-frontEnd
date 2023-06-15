@@ -11,7 +11,7 @@ export interface iUserContext {
   unauthorized: string;
   setUnauthorized: React.Dispatch<SetStateAction<string>>;
   register: (registerItem: tUserReq) => void;
-
+  postAnnouncement: (formData) => void;
 }
 
 export interface iLoginData {
