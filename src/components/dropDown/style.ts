@@ -19,6 +19,7 @@ export const DropDownMain = styled.section`
       color: var(--color-grey2);
       font-size: var(--text-body1);
       font-weight: var(--text-weight400);
+      cursor: pointer;
     }
   }
 `;

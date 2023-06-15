@@ -8,6 +8,7 @@ import { api } from "../../services/api";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
+
   useEffect(() => {
     (async () => {
       const response = await api.get("/announcement");

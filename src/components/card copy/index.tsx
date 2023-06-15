@@ -2,7 +2,6 @@ import { StyledListCar } from "./style";
 import escanor from "../../assets/perfil.png";
 
 export const ListCarHome = ({ announcements }) => {
-  console.log(announcements);
   return (
     <>
       {announcements.map((car: any) => (

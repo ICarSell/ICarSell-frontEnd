@@ -1,7 +1,6 @@
 import { StyledListCar } from "./style";
 
 export const ListCarHome = ({ announcements }) => {
-  console.log(announcements);
   return (
     <>
       {announcements.map((car) => (
