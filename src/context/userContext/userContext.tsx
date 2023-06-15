@@ -92,18 +92,24 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
       setUser(null);
       navigate("/login");
-      console.log("Conta Criada!", data);
-    } catch (err) {
-      const currentError = err as AxiosError;
-      console.log(currentError.message);
+      toast.success("Conta Criada!");
+    } catch (err: any) {
+      if (err.response?.data.message === "Email already exists") {
+        toast.error("Email ja Cadastrado");
+      }
+      if (err.response?.data.message === "CPF already exists") {
+        toast.error("CPF ja Cadastrado");
+      }
     }
   }
 
   const postAnnouncement = async (formData: any) => {
+    const token = localStorage.getItem("@TOKEN");
     try {
       const response = await api.post(`/announcement`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${JSON.parse(token!)}`,
         },
       });
 
