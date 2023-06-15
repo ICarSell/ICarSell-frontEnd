@@ -1,6 +1,9 @@
 import React, { SetStateAction } from "react";
 import { NavigateFunction } from "react-router-dom";
-import { tUserReq } from "../../pages/registerPage/type";
+import {
+  tUserReq,
+  tUserReturnWithoutPass,
+} from "../../pages/registerPage/type";
 
 export interface iUserContextProps {
   children: React.ReactNode;
@@ -11,7 +14,9 @@ export interface iUserContext {
   unauthorized: string;
   setUnauthorized: React.Dispatch<SetStateAction<string>>;
   register: (registerItem: tUserReq) => void;
-  postAnnouncement: (formData) => void;
+  postAnnouncement: (formData: any) => void;
+  user: tUserReturnWithoutPass | null;
+  setUser: React.Dispatch<React.SetStateAction<tUserReturnWithoutPass | null>>;
 }
 
 export interface iLoginData {

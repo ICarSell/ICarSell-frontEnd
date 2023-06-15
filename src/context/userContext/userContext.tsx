@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
@@ -16,16 +16,36 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
 
+  useEffect(() => {
+    async function getUser() {
+      const userId = localStorage.getItem("@USERID");
+
+      if (userId && user === null) {
+        try {
+          const { data } = await api.get<tUserReturnWithoutPass>(
+            `/user/${JSON.parse(userId!)}`
+          );
+
+          setUser(data);
+        } catch (err) {
+          const currentError = err as AxiosError;
+          console.log(currentError.message);
+        }
+      }
+    }
+    getUser();
+  }, [user]);
   const submitLogin = async (formData: iLoginData) => {
     try {
-      const response = await api.post("/login", formData);
-      const { token } = response.data;
+      const { data } = await api.post("/login", formData);
 
-      localStorage.setItem("@TOKEN", JSON.stringify(token));
+      localStorage.setItem("@TOKEN", JSON.stringify(data.token));
+      localStorage.setItem("@USERID", JSON.stringify(data.userId));
       toast.success("Entrando...");
 
       setTimeout(() => {
         navigate("/");
+        window.location.reload();
       }, 3000);
     } catch (error) {
       const currentError = error as AxiosError;
@@ -87,6 +107,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setUnauthorized,
         register,
         postAnnouncement,
+        user,
+        setUser
       }}
     >
       {children}

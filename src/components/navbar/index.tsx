@@ -9,12 +9,12 @@ import { UserContext } from "../../context/userContext/userContext";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-  const { navigate } = useContext(UserContext);
+  const { navigate, user } = useContext(UserContext);
   const token = localStorage.getItem("@TOKEN");
   const [dropDownOn, setDropDownOn] = useState(false);
   const [dropDownOnUser, setDropDownOnUser] = useState(false);
   const [userOn, setUserOn] = useState(false);
-  console.log(token);
+
   return (
     <NavMain>
       <img
@@ -52,7 +52,7 @@ export const Navbar = () => {
                 onClick={() => setDropDownOnUser(!dropDownOnUser)}
               ></div>
               <h3 onClick={() => setDropDownOnUser(!dropDownOnUser)}>
-                Diego André
+                {user?.name}
               </h3>
               {dropDownOnUser && <DropDownMenu />}
             </div>
