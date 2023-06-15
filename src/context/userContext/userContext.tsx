@@ -13,6 +13,8 @@ export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
   const [user, setUser] = useState<tUserReturnWithoutPass | null>(null);
+  const [announcement, setAnnouncement] = useState(null);
+  const [announcementId, setAnnouncementId] = useState("");
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
 
@@ -35,6 +37,20 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
     getUser();
   }, [user]);
+
+  useEffect(() => {
+    const idCar = localStorage.getItem("@CARID");
+    const getAnnouncement = async () => {
+      try {
+        const response = await api.get(`/announcement/${idCar}`);
+        setAnnouncement(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAnnouncement();
+  }, [announcementId, setAnnouncement]);
+
   const submitLogin = async (formData: iLoginData) => {
     try {
       const { data } = await api.post("/login", formData);
@@ -108,7 +124,10 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         register,
         postAnnouncement,
         user,
-        setUser
+        setUser,
+        setAnnouncementId,
+        announcementId,
+        announcement,
       }}
     >
       {children}

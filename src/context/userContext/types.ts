@@ -17,6 +17,9 @@ export interface iUserContext {
   postAnnouncement: (formData: any) => void;
   user: tUserReturnWithoutPass | null;
   setUser: React.Dispatch<React.SetStateAction<tUserReturnWithoutPass | null>>;
+  setAnnouncementId: React.Dispatch<SetStateAction<string>>;
+  announcementId: string;
+  announcement: any;
 }
 
 export interface iLoginData {

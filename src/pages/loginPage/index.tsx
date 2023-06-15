@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
 
 export const Login = () => {
-  const { submitLogin, unauthorized, setUnauthorized, navigate } =
+  const { submitLogin, unauthorized, setUnauthorized } =
     useContext(UserContext);
 
   const {
@@ -60,11 +60,7 @@ export const Login = () => {
           <div className="noHaveAccount">
             <p>Ainda não possui conta?</p>
           </div>
-          <Button
-            buttonVariation="register"
-            type="button"
-            onClick={() => navigate("/register")}
-          >
+          <Button buttonVariation="register" type="button">
             Cadastrar
           </Button>
         </Form>
