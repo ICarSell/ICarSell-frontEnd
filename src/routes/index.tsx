@@ -6,6 +6,7 @@ import { PerfilPage } from "../pages/perfilPage";
 // Adicionar rota personalizada no path "perfil-page"
 import { Register } from "../pages/registerPage";
 
+
 export const RoutesMain = () => {
   const navigate = useNavigate();
 

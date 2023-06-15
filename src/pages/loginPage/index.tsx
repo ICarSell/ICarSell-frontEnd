@@ -6,7 +6,7 @@ import { Input } from "../../components/input";
 import { Navbar } from "../../components/navbar";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginData, loginSchema } from "./loginSchema";
+import { LoginData, loginSchema } from "../../schemas/loginSchema";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
