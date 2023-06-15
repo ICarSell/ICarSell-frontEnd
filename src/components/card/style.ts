@@ -20,7 +20,7 @@ export const StyledListCar = styled.li`
     border: 2px solid #e9ecef;
     gap: 0px;
 
-    .outFipe{
+    .outFipe {
       display: none;
     }
 

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iLoginData, iUserContext, iUserContextProps } from "./types";
 import { api } from "../../services/api";
@@ -57,14 +57,37 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       setUser(null);
       navigate("/login");
       console.log("Conta Criada!", data);
-    } catch (err: any) {
-      console.log(err.response.data.message);
+    } catch (err) {
+      const currentError = err as AxiosError;
+      console.log(currentError.message);
     }
   }
 
+  const postAnnouncement = async (formData: any) => {
+    try {
+      const response = await api.post(`/announcement`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log(response.data);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <UserContext.Provider
-      value={{ navigate, submitLogin, unauthorized, setUnauthorized, register }}
+      value={{
+        navigate,
+        submitLogin,
+        unauthorized,
+        setUnauthorized,
+        register,
+        postAnnouncement,
+      }}
     >
       {children}
     </UserContext.Provider>
