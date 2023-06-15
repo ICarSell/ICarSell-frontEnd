@@ -5,4 +5,5 @@ export interface iUserContextProps {
 }
 export interface iUserContext {
   navigate: NavigateFunction;
+  postAnnouncement: (formData) => void;
 }
