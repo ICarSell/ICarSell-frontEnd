@@ -4,9 +4,10 @@ import { useContext, useState } from "react";
 
 export const DropDownMenu = () => {
   const [userAdmin, setUserAdmin] = useState(false);
-  const { navigate } = useContext(UserContext);
+  const { navigate, user, setUser } = useContext(UserContext);
   const exit = () => {
     localStorage.clear();
+    setUser(null);
     navigate("/");
   };
 
@@ -15,7 +16,7 @@ export const DropDownMenu = () => {
       <div>
         <p>Editar Perfil</p>
         <p>Editar Endereço</p>
-        {userAdmin && <p>Meus Anuncios</p>}
+        {user?.isSeller && <p>Meus Anuncios</p>}
         <p onClick={() => exit()}>Sair</p>
       </div>
     </DropDownMain>
