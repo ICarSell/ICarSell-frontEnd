@@ -6,7 +6,6 @@ import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
 import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
-import { ListCarPerfil } from "../../components/card copy 2";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -185,7 +184,7 @@ export const Home = () => {
             </div>
           </aside>
           <ul className="carListContainar">
-            <ListCarPerfil announcements={announcements} />
+            <ListCarHome announcements={announcements} />
           </ul>
         </div>
 
