@@ -8,6 +8,9 @@ export const NavMain = styled.nav`
   box-shadow: 0px 33px 44px -19px rgba(0, 0, 0, 0.18);
   display: flex;
   justify-content: space-between;
+  img {
+    cursor: pointer;
+  }
 
   background-color: var(--color-white-fixed);
   .logo {
