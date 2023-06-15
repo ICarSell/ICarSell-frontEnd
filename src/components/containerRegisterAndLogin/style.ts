@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledConatainerRL = styled.main`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-grey8);
-  padding: 0 15px;
+  padding: 100px 15px;
+  min-height: 100vh;
 
   .formLogin {
     padding: 44px 48px 44px 48px;
@@ -34,6 +34,38 @@ export const StyledConatainerRL = styled.main`
       p {
         font-size: var(--text-body2);
         font-weight: var(--text-weight500);
+      }
+    }
+  }
+  .formRegister {
+    .formDoubleInput {
+      display: flex;
+      width: 100%;
+      input {
+        width: 90%;
+      }
+    }
+    span {
+      color: var(--color-alert1);
+      font-weight: var(--text-weight600);
+      width: 100%;
+    }
+    .formButtonSeller {
+      display: flex;
+      gap: 15px;
+      button {
+        width: 90%;
+        height: 40px;
+        border-radius: 8px;
+        font-weight: var(--text-weight600);
+        background-color: var(--color-white-fixed);
+        border: 2px solid var(--color-grey3);
+        :focus {
+          background-color: var(--color-brand2);
+          color: var(--color-white-fixed);
+          border: none;
+          outline: 0;
+        }
       }
     }
   }

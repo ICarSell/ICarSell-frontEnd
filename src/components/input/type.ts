@@ -8,4 +8,5 @@ export interface iInputProps {
   register?: UseFormRegisterReturn;
   defaultValue?: number | string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
