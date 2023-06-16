@@ -17,9 +17,15 @@ export const ListCarPerfil = ({ announcements }) => {
               )}`}
               alt={car.imgCover.fileName}
             />
-            <div className="tag">
-              <p>Ativo</p>
-            </div>
+            {car.isActive ? (
+              <div className="active">
+                <p>Ativo</p>
+              </div>
+            ) : (
+              <div className="notActive">
+                <p>Inativo</p>
+              </div>
+            )}
           </div>
 
           <div>
