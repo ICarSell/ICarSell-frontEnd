@@ -19,7 +19,7 @@ export const ProductPage = () => {
                 /\\/g,
                 "/"
               )}`}
-              alt={announcement.imgCover.fileName}
+              alt={announcement?.imgCover.fileName}
             />
           </div>
           <div className="car_info">
@@ -53,7 +53,7 @@ export const ProductPage = () => {
                       /\\/g,
                       "/"
                     )}`}
-                    alt={announcement.imgCover.fileName}
+                    alt={announcement?.imgCover.fileName}
                   />
                 </li>
               ))}
