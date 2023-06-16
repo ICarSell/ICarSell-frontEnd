@@ -104,6 +104,22 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   }
 
+  async function getUser() {
+    const userId = localStorage.getItem("@USERID");
+    if (userId) {
+      try {
+        setLoading(true);
+        const { data } = await api.get(`/user/${JSON.parse(userId!)}`);
+        setUser(data);
+      } catch (err) {
+        const currentError = err as AxiosError;
+        console.log(currentError.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+  }
+
   const postAnnouncement = async (formData: any) => {
     const token = localStorage.getItem("@TOKEN");
     try {
@@ -115,6 +131,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       });
 
       console.log(response.data);
+      getUser();
       return response;
     } catch (error) {
       console.error(error);

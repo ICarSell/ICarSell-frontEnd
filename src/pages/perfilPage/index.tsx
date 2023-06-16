@@ -27,7 +27,11 @@ export const PerfilPage = () => {
             <h2>{user.name}</h2>
             <p>Anunciante</p>
           </div>
-          <p>{user.description}</p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
           <button
             className="button-create-announcement"
             type="button"
