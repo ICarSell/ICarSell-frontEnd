@@ -26,7 +26,7 @@ export const Navbar = () => {
 
       {!dropDownOn && (
         <div className="desktop-div-main">
-          {!userOn && (
+          {!token && (
             <img
               src={Bars}
               alt="Options bars"
