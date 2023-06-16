@@ -79,6 +79,16 @@ export const PerfilPageStyle = styled.div`
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    border: 1px solid blue;
+
+    border: 1.5px solid #4529e6;
+    border-radius: 4px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 0px;
+
+    color: #4529e6;
   }
 `;

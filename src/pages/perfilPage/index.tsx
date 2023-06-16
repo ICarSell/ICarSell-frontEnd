@@ -3,10 +3,12 @@ import { Navbar } from "../../components/navbar";
 import { PerfilPageStyle } from "./style";
 import { ListCarPerfil } from "../../components/card copy 2";
 import { UserContext } from "../../context/userContext/userContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 
 export const PerfilPage = () => {
   const { user } = useContext(UserContext);
+  const [modalAdd, setModalAdd] = useState(false);
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -26,7 +28,13 @@ export const PerfilPage = () => {
             <p>Anunciante</p>
           </div>
           <p>{user.description}</p>
-          <button className="button-create-announcement">Criar anúncio</button>
+          <button
+            className="button-create-announcement"
+            type="button"
+            onClick={() => setModalAdd(true)}
+          >
+            Criar anúncio
+          </button>
         </div>
         <div className="card-list-cars">
           <ul>
@@ -36,6 +44,7 @@ export const PerfilPage = () => {
       </PerfilPageStyle>
 
       <Footer />
+      {modalAdd && <AnuncioCarroForm setModalAdd={setModalAdd} />}
     </>
   );
 };
