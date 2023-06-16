@@ -1,21 +1,14 @@
 import { useContext } from "react";
-import { StyledListCar } from "./style";
+import { StyledListCarPerfil } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 
-export const ListCarHome = ({ announcements }) => {
+export const ListCarPerfil = ({ announcements }) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   return (
     <>
       {announcements.map((car) => (
-        <StyledListCar
-          key={car.id}
-          onClick={() => {
-            setAnnouncementId(car.id);
-            localStorage.setItem("@CARID", car.id);
-            navigate("/product");
-          }}
-        >
+        <StyledListCarPerfil key={car.id}>
           <div className="cardImg">
             <img
               src={`http://localhost:3000/${car.imgCover.path.replace(
@@ -24,15 +17,15 @@ export const ListCarHome = ({ announcements }) => {
               )}`}
               alt={car.imgCover.fileName}
             />
-            <div
-              className={
-                parseFloat(car.price) < parseFloat(car.priceFipe) * 0.95
-                  ? "lowestPriceFipe"
-                  : "outFipe"
-              }
-            >
-              $
-            </div>
+            {car.isActive ? (
+              <div className="active">
+                <p>Ativo</p>
+              </div>
+            ) : (
+              <div className="notActive">
+                <p>Inativo</p>
+              </div>
+            )}
           </div>
 
           <div>
@@ -41,12 +34,6 @@ export const ListCarHome = ({ announcements }) => {
             </p>
           </div>
           <p className="cardDescription">{car.description}</p>
-          <div className="cardUser">
-            <div>
-              <p>{car.user.name[0].toUpperCase()}</p>
-            </div>
-            <p>{car.user.name}</p>
-          </div>
           <div className="cardInfo">
             <div className="cardInfoDiv">
               <div className="cardProperty">
@@ -60,7 +47,20 @@ export const ListCarHome = ({ announcements }) => {
               <p>R$ {car.price}</p>
             </div>
           </div>
-        </StyledListCar>
+          <div className="buttonsPerfilCard">
+            <button className="buttonEditar">Editar</button>
+            <button
+              className="buttonEditar"
+              onClick={() => {
+                setAnnouncementId(car.id);
+                localStorage.setItem("@CARID", car.id);
+                navigate("/product");
+              }}
+            >
+              Ver detalhes
+            </button>
+          </div>
+        </StyledListCarPerfil>
       ))}
     </>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledListCar = styled.li`
+export const StyledListCarPerfil = styled.li`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -20,26 +20,72 @@ export const StyledListCar = styled.li`
     border: 2px solid #e9ecef;
     gap: 0px;
 
-    .outFipe {
-      display: none;
+    position: relative;
+
+    .tag {
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      background: #4529e6;
+      color: white;
+
+      width: 51px;
+      height: 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 8px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #ffffff;
+    }
+    .active {
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      background: #4529e6;
+
+      width: 51px;
+      height: 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 8px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #ffffff;
     }
 
-    .lowestPriceFipe {
-      width: 16px;
-      height: 27px;
-      font-size: var(--text-button-medium);
-      font-weight: var(--text-weight500);
-      font-family: "Inter";
-      background-color: var(--color-random7);
-      border-radius: 2px;
+    .notActive {
+      position: absolute;
+      top: 10px;
+      left: 25px;
+      background: #adb5bd;
+
+      width: 61px;
+      height: 24px;
       display: flex;
-      align-items: center;
+      flex-direction: row;
       justify-content: center;
-      color: var(--color-white-fixed);
-      position: relative;
-      z-index: 0;
-      top: -62px;
-      right: -17px;
+      align-items: center;
+      padding: 0px 8px;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #ffffff;
     }
   }
 
@@ -144,6 +190,34 @@ export const StyledListCar = styled.li`
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
+      color: #212529;
+    }
+  }
+  .buttonsPerfilCard {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+
+    .buttonEditar {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
+      gap: 10px;
+
+      width: auto;
+      height: 38px;
+
+      border: 1.5px solid #212529;
+      border-radius: 4px;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 0px;
+
       color: #212529;
     }
   }

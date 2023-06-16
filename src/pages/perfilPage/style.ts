@@ -2,65 +2,117 @@ import styled from "styled-components";
 
 export const PerfilPageStyle = styled.div`
   position: relative;
-  height: 2000px;
+  height: 1500px;
   width: 100%;
 
-  div:nth-child(1) {
+  .div-color-purple {
     height: 20%;
     width: 100%;
     background-color: var(--color-brand1);
   }
-  div:nth-child(2) {
+  .div-color-white {
     height: 80%;
     width: 100%;
     background-color: var(--color-grey8);
   }
-  div:nth-child(3) {
+  .card-perfil-user {
     position: absolute;
     background-color: var(--color-white-fixed);
     width: 80%;
-    top: 25%;
+    top: 32%;
     left: 50%;
     transform: translate(-50%, -85%);
-  }
-  div:nth-child(4) {
-    position: absolute;
-    background-color: red;
-    width: 90%;
-    top: calc(35% + 30vh);
-    left: 50%;
-    height: 500px;
-    transform: translate(-50%, -50%);
-  }
-  .card-perfil-user {
     display: flex;
     flex-direction: column;
     padding: 40px;
-    gap: 20px;
-    div:nth-child(1) {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    div:nth-child(2) {
-      background-color: var(--color-white-fixed);
+    gap: 35px;
+    height: 400px;
+  }
+  .card-list-cars {
+    position: absolute;
+    background-color: var(--color-grey8);
+    width: 90%;
+    top: calc(50% + 30vh);
+    left: 50%;
+    height: 900px;
+    transform: translate(-50%, -50%);
+    ul {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      height: 30px;
-      p {
-        padding: 10px;
-        background-color: var(--color-brand3);
-        color: var(--color-brand2);
-        border-radius: 8px;
-        max-width: 100%;
-      }
+      flex-direction: row;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
     }
+  }
+
+  .image-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 53px;
+      color: #ffffff;
+    }
+  }
+  .perfil-info-text {
+    background-color: var(--color-white-fixed);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    h2 {
+      font-family: "Lexend";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 25px;
+
+      color: #212529;
+    }
+    p {
+      padding: 10px;
+
+      max-width: 100%;
+
+      background: #edeafd;
+      border-radius: 4px;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #4529e6;
+    }
+  }
+  .button-create-announcement {
+    padding: 20px;
+    height: 48px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    border: 1.5px solid #4529e6;
+    border-radius: 4px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 0px;
+
+    color: #4529e6;
   }
 `;

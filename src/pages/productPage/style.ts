@@ -12,6 +12,7 @@ export const Container = styled.div`
   @media (min-width: 1100px) {
     flex-direction: row;
     justify-content: space-evenly;
+    min-height: 100vh;
   }
 `;
 
@@ -24,6 +25,7 @@ export const Main = styled.main`
   .img_car {
     width: 80%;
     height: 255px;
+
     background-color: var(--color-white-fixed);
     margin: 0 auto 20px auto;
     display: flex;
@@ -34,14 +36,18 @@ export const Main = styled.main`
       margin: 0 auto;
       width: 100%;
       padding: 17px 7px;
+      max-height: 100%;
       @media (min-width: 680px) {
         width: 60%;
+        max-height: 100%;
       }
       @media (min-width: 1070px) {
         width: 45%;
+        max-height: 100%;
       }
       @media (min-width: 2070px) {
         width: 35%;
+        max-height: 100%;
       }
     }
   }

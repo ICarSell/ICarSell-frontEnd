@@ -15,8 +15,12 @@ export interface iUserContext {
   setUnauthorized: React.Dispatch<SetStateAction<string>>;
   register: (registerItem: tUserReq) => void;
   postAnnouncement: (formData: any) => void;
-  user: tUserReturnWithoutPass | null;
-  setUser: React.Dispatch<React.SetStateAction<tUserReturnWithoutPass | null>>;
+  user: any;
+  setUser: React.Dispatch<React.SetStateAction<any>>;
+  setAnnouncementId: React.Dispatch<SetStateAction<string>>;
+  announcementId: string;
+  announcement: any;
+  loading: boolean;
 }
 
 export interface iLoginData {

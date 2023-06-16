@@ -5,6 +5,7 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
+import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -24,7 +25,7 @@ export const Home = () => {
       <StyledHome>
         <div className="containerGradient">
           <div className="containerImg">
-            <h1>Motor Shop</h1>
+            <h1>Motors Shop</h1>
             <p>A melhor plataforma de anúncios de carros do país</p>
           </div>
         </div>

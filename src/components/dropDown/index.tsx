@@ -16,7 +16,9 @@ export const DropDownMenu = () => {
       <div>
         <p>Editar Perfil</p>
         <p>Editar Endereço</p>
-        {user?.isSeller && <p>Meus Anuncios</p>}
+        {user?.isSeller && (
+          <p onClick={() => navigate("/perfil-page")}>Meus Anuncios</p>
+        )}
         <p onClick={() => exit()}>Sair</p>
       </div>
     </DropDownMain>
