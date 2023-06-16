@@ -19,13 +19,14 @@ export const PerfilPageStyle = styled.div`
     position: absolute;
     background-color: var(--color-white-fixed);
     width: 80%;
-    top: 25%;
+    top: 32%;
     left: 50%;
     transform: translate(-50%, -85%);
     display: flex;
     flex-direction: column;
     padding: 40px;
-    gap: 20px;
+    gap: 35px;
+    height: 400px;
   }
   .card-list-cars {
     position: absolute;
@@ -37,9 +38,10 @@ export const PerfilPageStyle = styled.div`
     transform: translate(-50%, -50%);
     ul {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 20px;
       padding: 20px;
+      flex-wrap: wrap;
     }
   }
 
@@ -53,8 +55,12 @@ export const PerfilPageStyle = styled.div`
     justify-content: center;
     align-items: center;
     p {
-      font-size: 50px;
-      color: white;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 53px;
+      color: #ffffff;
     }
   }
   .perfil-info-text {
@@ -63,12 +69,30 @@ export const PerfilPageStyle = styled.div`
     align-items: center;
     gap: 10px;
     height: 30px;
+    h2 {
+      font-family: "Lexend";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 25px;
+
+      color: #212529;
+    }
     p {
       padding: 10px;
-      background-color: var(--color-brand3);
-      color: var(--color-brand2);
-      border-radius: 8px;
+
       max-width: 100%;
+
+      background: #edeafd;
+      border-radius: 4px;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
+      color: #4529e6;
     }
   }
   .button-create-announcement {
