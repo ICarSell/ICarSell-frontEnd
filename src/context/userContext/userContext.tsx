@@ -12,7 +12,8 @@ import {
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
-  const [user, setUser] = useState<tUserReturnWithoutPass | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
   const [announcement, setAnnouncement] = useState(null);
   const [announcementId, setAnnouncementId] = useState("");
   const navigate = useNavigate();
@@ -21,22 +22,22 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   useEffect(() => {
     async function getUser() {
       const userId = localStorage.getItem("@USERID");
-
-      if (userId && user === null) {
+      if (userId) {
         try {
-          const { data } = await api.get<tUserReturnWithoutPass>(
-            `/user/${JSON.parse(userId!)}`
-          );
-
+          setLoading(true);
+          const { data } = await api.get(`/user/${JSON.parse(userId!)}`);
           setUser(data);
         } catch (err) {
           const currentError = err as AxiosError;
           console.log(currentError.message);
+        } finally {
+          setLoading(false);
         }
       }
     }
+
     getUser();
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     const idCar = localStorage.getItem("@CARID");
@@ -134,6 +135,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setAnnouncementId,
         announcementId,
         announcement,
+        loading,
       }}
     >
       {children}
