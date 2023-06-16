@@ -20,7 +20,7 @@ export const StyledListCar = styled.li`
     border: 2px solid #e9ecef;
     gap: 0px;
 
-    .outFipe{
+    .outFipe {
       display: none;
     }
 
@@ -134,6 +134,34 @@ export const StyledListCar = styled.li`
       font-size: 16px;
       line-height: 20px;
       color: #212529;
+    }
+    .cardButtons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .editButton,
+    .detailsButton {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      background-color: #eee;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .editButton:hover,
+    .detailsButton:hover {
+      background-color: #ccc;
+    }
+
+    .editButton > svg,
+    .detailsButton > svg {
+      margin-right: 5px;
     }
   }
 `;
