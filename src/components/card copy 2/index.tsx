@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { StyledListCarPerfil } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 
-export const ListCarPerfil = ({ announcements }) => {
+export const ListCarPerfil = ({ announcements, setDeleteModal }) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   return (
@@ -58,6 +58,14 @@ export const ListCarPerfil = ({ announcements }) => {
               }}
             >
               Ver detalhes
+            </button>
+            <button
+              onClick={() => {
+                setDeleteModal(true);
+                setAnnouncementId(car.id);
+              }}
+            >
+              Deletar carro
             </button>
           </div>
         </StyledListCarPerfil>

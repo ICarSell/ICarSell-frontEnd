@@ -5,16 +5,19 @@ import { ListCarPerfil } from "../../components/card copy 2";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
 import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
+import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
 
 export const PerfilPage = () => {
   const { user } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
+  const [modalDelete, setModalDelete] = useState<boolean>(false);
 
   if (!user) {
     return <div>Carregando...</div>;
   }
   return (
     <>
+      {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
@@ -42,7 +45,10 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
-            <ListCarPerfil announcements={user.announcement} />
+            <ListCarPerfil
+              announcements={user.announcement}
+              setDeleteModal={setModalDelete}
+            />
           </ul>
         </div>
       </PerfilPageStyle>

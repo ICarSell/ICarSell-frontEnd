@@ -1,0 +1,68 @@
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext/userContext";
+import { ModalDeleteAnnouncementStyle } from "./styled";
+import { api } from "../../services/api";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+export const ModalAnnouncementDelete = ({
+  modal,
+}: {
+  modal: (value: boolean) => void;
+}) => {
+  const { announcementId, setAnnouncementChange, announcementChange } =
+    useContext(UserContext);
+
+  const token: string | null = localStorage.getItem(String("@TOKEN"));
+
+  const deleteAnnouncement = async (id: string) => {
+    try {
+      const response = await api.delete(
+        `http://localhost:3000/announcement/${id}`,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            Authorization: `Bearer ${JSON.parse(token!)}`,
+          },
+        }
+      );
+      toast.success("Anúncio deletado com sucesso!");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          toast.error(error.response.status, error.response.data.message);
+        }
+      } else {
+        console.log(error);
+      }
+    } finally {
+      modal(false);
+      setAnnouncementChange(!announcementChange);
+    }
+  };
+
+  return (
+    <ModalDeleteAnnouncementStyle>
+      <div className="container-modal-delete">
+        <div className="delete-annountcement-closed">
+          <p>Excluir anúncio</p>
+          <p onClick={() => modal(false)} className="button-closed">
+            X
+          </p>
+        </div>
+        <h2>Tem certeza que deseja remover este anúncio?</h2>
+        <p className="description-text">
+          Essa ação não pode ser desfeita. Isso excluirá permanentemente sua
+          conta e removerá seus dados de nossos servidores.
+        </p>
+        <div className="div-button">
+          <button onClick={() => modal(false)}>Fechar</button>
+          <button onClick={() => deleteAnnouncement(announcementId)}>
+            Deletar anúncio
+          </button>
+        </div>
+      </div>
+    </ModalDeleteAnnouncementStyle>
+  );
+};

@@ -18,6 +18,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [announcementId, setAnnouncementId] = useState("");
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
+  const [announcementChange, setAnnouncementChange] = useState(false);
 
   useEffect(() => {
     async function getUser() {
@@ -37,7 +38,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
 
     getUser();
-  }, []);
+  }, [announcementChange]);
 
   useEffect(() => {
     const idCar = localStorage.getItem("@CARID");
@@ -153,6 +154,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         announcementId,
         announcement,
         loading,
+        setAnnouncementChange,
+        announcementChange,
       }}
     >
       {children}
