@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StuledModalAnnouncement = styled.div`
+export const StyledEditModalAnnouncement = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,16 @@ export const StuledModalAnnouncement = styled.div`
     background: #ffffff;
     border-radius: 8px;
     padding: 18px 24px 18px 24px;
+
+    input:focus {
+      outline: 1px solid #4529e6;
+    }
+    select:focus {
+      outline: 1px solid #4529e6;
+    }
+    textarea:focus {
+      outline: 1px solid #4529e6;
+    }
 
     .divTitle {
       display: flex;
@@ -243,7 +253,7 @@ export const StuledModalAnnouncement = styled.div`
       height: 90%;
     }
   }
-  @media (max-width: 425px) {
+  @media (max-width: 426px) {
     form {
       height: auto;
       width: 97%;
@@ -252,12 +262,25 @@ export const StuledModalAnnouncement = styled.div`
         width: 100%;
         .year {
           input {
-            width: 165px;
+            width: 150px;
+          }
+        }
+      }
+      .published {
+        div {
+          button {
+            width: 150px;
           }
         }
       }
       .buttons {
         justify-content: space-between;
+        .buttonCancelar {
+          line-height: 15px;
+        }
+        .enviar {
+          line-height: 15px;
+        }
       }
     }
   }
@@ -275,7 +298,7 @@ export const StuledModalAnnouncement = styled.div`
       padding: 12px 28px;
       gap: 10px;
 
-      width: 126px;
+      width: 270px;
       height: 48px;
 
       background: #dee2e6;
@@ -321,7 +344,7 @@ export const StuledModalAnnouncement = styled.div`
     }
   }
 
-  .imgCover {
+  .published {
     display: flex;
     flex-direction: column;
 
@@ -330,31 +353,84 @@ export const StuledModalAnnouncement = styled.div`
     margin-bottom: 15px;
 
     label {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #e9ecef;
-      color: #212529;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-
-      font-family: "Inter";
+      font-family: Inter;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
       line-height: 17px;
+      color: rgb(33, 37, 41);
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
 
-      color: #212529;
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 28px;
+        gap: 10px;
 
-      &:hover {
-        background-color: #ced4da;
-      }
+        width: 228px;
+        height: 48px;
 
-      input[type="file"] {
-        display: none;
+        background: white;
+
+        border: 1.5px solid #4529e6;
+        border-radius: 4px;
+
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 0px;
       }
     }
+
+    .selected {
+      background-color: #4529e6;
+      color: #fff;
+    }
+  }
+
+  .imgCover {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+  }
+  .imgCover label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    color: #212529;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #212529;
+  }
+
+  .imgCover label:hover {
+    background-color: #ced4da;
+  }
+
+  .imgCover input[type="file"] {
+    display: none;
+  }
+  .imgCover label.selected {
+    background: #4529e6;
+    color: white;
   }
 `;
