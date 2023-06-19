@@ -5,6 +5,7 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
+
 import { ModalUpdateAddress } from "../../globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
 
