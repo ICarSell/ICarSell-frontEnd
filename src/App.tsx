@@ -1,10 +1,12 @@
-import { UserProvider } from "./context";
+import { UserProvider, ModalProvider } from "./context";
 import { RoutesMain } from "./routes";
 
 function App() {
   return (
     <UserProvider>
-      <RoutesMain />
+      <ModalProvider>
+        <RoutesMain />
+      </ModalProvider>
     </UserProvider>
   );
 }
