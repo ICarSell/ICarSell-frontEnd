@@ -10,8 +10,7 @@ export const ModalAnnouncementDelete = ({
 }: {
   modal: (value: boolean) => void;
 }) => {
-  const { announcementId, setAnnouncementChange, announcementChange } =
-    useContext(UserContext);
+  const { announcementId, getUser } = useContext(UserContext);
 
   const token: string | null = localStorage.getItem(String("@TOKEN"));
 
@@ -38,7 +37,7 @@ export const ModalAnnouncementDelete = ({
       }
     } finally {
       modal(false);
-      setAnnouncementChange(!announcementChange);
+      getUser();
     }
   };
 

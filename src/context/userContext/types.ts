@@ -21,8 +21,7 @@ export interface iUserContext {
   announcementId: string;
   announcement: any;
   loading: boolean;
-  setAnnouncementChange: (value: boolean) => void;
-  announcementChange: boolean;
+  getUser: () => void;
 }
 
 export interface iLoginData {
