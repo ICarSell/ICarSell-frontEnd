@@ -153,6 +153,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         announcementId,
         announcement,
         loading,
+        getUser,
       }}
     >
       {children}
