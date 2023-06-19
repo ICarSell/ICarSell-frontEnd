@@ -11,6 +11,7 @@ export const StyledInput = styled.div`
   }
 
   input {
+    width: 100%;
     height: 40px;
     margin-top: 5px;
     padding-left: 10px;
@@ -20,5 +21,13 @@ export const StyledInput = styled.div`
     border-radius: var(--radius-2);
     border: 2px solid var(--color-grey6);
     color: var(--color-grey3);
+
   }
-`;
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  `;

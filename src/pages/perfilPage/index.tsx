@@ -4,21 +4,30 @@ import { PerfilPageStyle } from "./style";
 import { ListCarPerfil } from "../../components/cardPerfilPage";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
-import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
-import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
+import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 
 export const PerfilPage = () => {
-  const { user } = useContext(UserContext);
+  const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
-  const [modalEdit, setModalEdit] = useState(false);
-
-  const [editCar, setEditCar] = useState({});
 
   if (!user) {
     return <div>Carregando...</div>;
   }
+
+  const checkUser = () => {
+    const token = localStorage.getItem("@TOKEN");
+    const userType = user.isSeller;
+
+    if (!token || !userType) {
+      navigate("/homepage");
+    }
+  };
+
+  checkUser();
+
   return (
     <>
+      {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
@@ -46,14 +55,7 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
-            {user.announcement.map((car) => (
-              <ListCarPerfil
-                key={car.id}
-                car={car}
-                setEditCar={setEditCar}
-                setModalEdit={setModalEdit}
-              />
-            ))}
+            <ListCarPerfil announcements={user.announcement} />
           </ul>
         </div>
       </PerfilPageStyle>

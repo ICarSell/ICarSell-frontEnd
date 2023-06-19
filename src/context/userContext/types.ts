@@ -21,6 +21,7 @@ export interface iUserContext {
   announcementId: string;
   announcement: any;
   loading: boolean;
+  getUser: () => void;
   updateAnnouncement: (formData: any, idCar: string) => void;
 }
 

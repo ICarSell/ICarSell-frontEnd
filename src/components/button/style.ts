@@ -58,6 +58,32 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           color: var(--color-white-fixed);
           font-weight: var(--text-weight600);
         `;
+      case "closeModalHeader":
+        return css`
+          font-size: var(--text-body1);
+          color: var(--color-grey4);
+          background-color: transparent;
+        `;
+
+      case "closeModal":
+        return css`
+          width: 126px;
+          height: 48px;
+          border-radius: var(--radius-2);
+          background-color: var(--color-grey6);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+        `;
+      case "updateAddress":
+        return css`
+          width: 193px;
+          height: 48px;
+          color: var(--color-brand4);
+          background-color: var(--color-brand3);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+          border-radius: var(--radius-2);
+        `;
     }
   }}
 `;

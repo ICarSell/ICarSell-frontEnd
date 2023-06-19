@@ -5,13 +5,17 @@ import imgPerfil from "../../assets/perfil.png";
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext } from "react";
+import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const ProductPage = () => {
   const { announcement } = useContext(UserContext);
+  const { openModalUpdateAddress } = useContext(ModalContext)
   return (
     <>
       <Navbar />
       <Container>
+        {openModalUpdateAddress && <ModalUpdateAddress/>}
         <Main>
           <div className="img_car">
             <img
