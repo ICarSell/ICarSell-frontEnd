@@ -3,18 +3,30 @@ import { Navbar } from "../../components/navbar";
 import { PerfilPageStyle } from "./style";
 import { ListCarPerfil } from "../../components/card copy 2";
 import { UserContext } from "../../context/userContext/userContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
 
 export const PerfilPage = () => {
-  const { user } = useContext(UserContext);
+  const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalDelete, setModalDelete] = useState<boolean>(false);
 
   if (!user) {
     return <div>Carregando...</div>;
   }
+
+  const checkUser = () => {
+    const token = localStorage.getItem("@TOKEN");
+    const userType = user.isSeller;
+
+    if (!token || !userType) {
+      navigate("/homepage");
+    }
+  };
+
+  checkUser();
+
   return (
     <>
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
