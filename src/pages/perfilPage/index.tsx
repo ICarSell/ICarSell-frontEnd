@@ -1,14 +1,18 @@
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { PerfilPageStyle } from "./style";
-import { ListCarPerfil } from "../../components/card copy 2";
+import { ListCarPerfil } from "../../components/cardPerfilPage";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
-import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
+import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
+import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 
 export const PerfilPage = () => {
   const { user } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
+
+  const [editCar, setEditCar] = useState({});
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -42,13 +46,26 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
-            <ListCarPerfil announcements={user.announcement} />
+            {user.announcement.map((car) => (
+              <ListCarPerfil
+                key={car.id}
+                car={car}
+                setEditCar={setEditCar}
+                setModalEdit={setModalEdit}
+              />
+            ))}
           </ul>
         </div>
       </PerfilPageStyle>
 
       <Footer />
       {modalAdd && <AnuncioCarroForm setModalAdd={setModalAdd} />}
+      {modalEdit && (
+        <EditAnnouncementCarForm
+          editCar={editCar}
+          setModalEdit={setModalEdit}
+        />
+      )}
     </>
   );
 };

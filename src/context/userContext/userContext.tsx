@@ -8,6 +8,7 @@ import {
   tUserReq,
   tUserReturnWithoutPass,
 } from "../../pages/registerPage/type";
+import { Headers } from "node-fetch";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -130,7 +131,31 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         },
       });
 
-      console.log(response.data);
+      getUser();
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const updateAnnouncement = async (formData: any, idCar: string) => {
+    const token = localStorage.getItem("@TOKEN");
+
+    try {
+      let headers: Headers = {
+        Authorization: `Bearer ${JSON.parse(token!)}`,
+      };
+
+      if (formData.get("imgCover") || formData.get("gallery")) {
+        headers = {
+          ...headers,
+          "Content-Type": "multipart/form-data",
+        };
+      }
+      const response = await api.patch(`/announcement/${idCar}`, formData, {
+        headers,
+      });
+
       getUser();
       return response;
     } catch (error) {
@@ -153,6 +178,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         announcementId,
         announcement,
         loading,
+        updateAnnouncement,
       }}
     >
       {children}

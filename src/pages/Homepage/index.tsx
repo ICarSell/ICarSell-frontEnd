@@ -5,7 +5,7 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
-import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
+import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
