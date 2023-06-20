@@ -20,6 +20,17 @@ export const userUpdateSchema = z
   })
   .partial();
 
+export const addressUpdateSchema = z
+  .object({
+    zipCode: z.string().max(10),
+    state: z.string().max(50),
+    city: z.string().max(50),
+    street: z.string().max(50),
+    number: z.string().max(10),
+    complement: z.string().max(100),
+  })
+  .partial();
+
 export const userCreateSchema = z
   .object({
     name: z.string().max(30).min(4),

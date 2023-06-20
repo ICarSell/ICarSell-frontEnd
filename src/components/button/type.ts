@@ -3,6 +3,7 @@ export interface iButtonProps {
   type: "button" | "submit" | "reset";
   onClick?: () => void;
   buttonVariation?: string;
+  disabled?: boolean
 }
 
 export interface iStyledButtonProps {

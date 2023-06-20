@@ -1,8 +1,14 @@
 import { useState, createContext, useContext } from "react";
-import { iModalProps, iModalProviderProps, tUserUpdateReq } from "./types";
+import {
+  iModalProps,
+  iModalProviderProps,
+  tAddressUpdateReq,
+  tUserUpdateReq,
+} from "./types";
 import { tUserReturnWithoutPass } from "../../pages/registerPage/type";
 import { api } from "../../services/api";
 import { UserContext } from "../userContext/userContext";
+import { toast } from "react-toastify";
 
 export const ModalContext = createContext({} as iModalProps);
 
@@ -110,6 +116,21 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     }
   };
 
+  const updateAddress = (formData: tAddressUpdateReq) => {
+    console.log(formData);
+    const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
+    try {
+      api.patch(`/address/${user.address.id}`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      getUser();
+      setOpenModalUpdateAddress(false);
+      toast.success("Endereço atualizado");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -118,6 +139,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         openModalUpdateUser,
         setOpenModalUpdateUser,
         updateUser,
+        updateAddress,
       }}
     >
       {children}

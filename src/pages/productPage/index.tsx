@@ -7,12 +7,14 @@ import { UserContext } from "../../context/userContext/userContext";
 import { useContext } from "react";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
+import { ToastContainer } from "react-toastify";
 
 export const ProductPage = () => {
   const { announcement } = useContext(UserContext);
   const { openModalUpdateAddress } = useContext(ModalContext);
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <Container>
         {openModalUpdateAddress && <ModalUpdateAddress />}

@@ -1,5 +1,8 @@
 import React, { SetStateAction } from "react";
-import { userUpdateSchema } from "../../schemas/registerSchemas";
+import {
+  addressUpdateSchema,
+  userUpdateSchema,
+} from "../../schemas/registerSchemas";
 import { z } from "zod";
 
 export interface iModalProps {
@@ -8,6 +11,7 @@ export interface iModalProps {
   openModalUpdateUser: boolean;
   setOpenModalUpdateUser: React.Dispatch<SetStateAction<boolean>>;
   updateUser: (updateData: tUserUpdateReq) => void;
+  updateAddress: (updateData: tAddressUpdateReq) => void;
 }
 
 export interface iModalProviderProps {
@@ -15,3 +19,4 @@ export interface iModalProviderProps {
 }
 
 export type tUserUpdateReq = z.infer<typeof userUpdateSchema>;
+export type tAddressUpdateReq = z.infer<typeof addressUpdateSchema>;
