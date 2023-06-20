@@ -24,19 +24,14 @@ export const StyledContainerModal = styled.main`
 
   .modalUpdateAddress {
     padding: 16px 24px 16px 24px;
-    width: 520px;
+    width: 450px;
     border-radius: var(--radius-1);
 
-    .stateAndCity {
+    .containerInput {
       display: flex;
       gap: 10px;
     }
-
-    .numberAndComplement {
-      display: flex;
-      gap: 10px;
-    }
-
+    
     .containerButton {
       width: 100%;
       display: flex;

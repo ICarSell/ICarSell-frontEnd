@@ -9,6 +9,7 @@ import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
+import { ToastContainer } from "react-toastify";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
@@ -35,6 +36,7 @@ export const PerfilPage = () => {
 
   return (
     <>
+      <ToastContainer />
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       {openModalUpdateAddress && <ModalUpdateAddress />}
       <Navbar />
