@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { Button } from "../components/button";
-import { ContainerModal } from "../components/containerModal";
-import { Form } from "../components/form";
-import { HeaderModal } from "../components/headerModal";
-import { Input } from "../components/input";
-import { ModalContext } from "../context/modalContext/modalContext";
+import { Button } from "../button";
+import { ContainerModal } from "../containerModal";
+import { Form } from "../form";
+import { HeaderModal } from "../headerModal";
+import { Input } from "../input";
+import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const ModalUpdateAddress = () => {
   const { setOpenModalUpdateAddress } = useContext(ModalContext);

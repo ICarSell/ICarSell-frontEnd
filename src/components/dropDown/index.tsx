@@ -6,18 +6,18 @@ import { useContext, useState } from "react";
 export const DropDownMenu = () => {
   const [userAdmin, setUserAdmin] = useState(false);
   const { navigate, user, setUser } = useContext(UserContext);
-  const { setOpenModalUpdateAddress } = useContext(ModalContext);
+  const { setOpenModalUpdateAddress, setOpenModalUpdateUser } =
+    useContext(ModalContext);
   const exit = () => {
     localStorage.clear();
     setUser(null);
     navigate("/");
   };
 
-
   return (
     <DropDownMain>
       <div>
-        <p>Editar Perfil</p>
+        <p onClick={() => setOpenModalUpdateUser(true)}>Editar Perfil</p>
         <p onClick={() => setOpenModalUpdateAddress(true)}>Editar Endereço</p>
         {user?.isSeller && (
           <p onClick={() => navigate("/perfil-page")}>Meus Anuncios</p>
