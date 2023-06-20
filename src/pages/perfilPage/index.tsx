@@ -7,14 +7,17 @@ import { useContext, useState } from "react";
 import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
 import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
+import { ModalContext } from "../../context/modalContext/modalContext";
+import { ModalUpdateAddress } from "../../globalModal/updateAddress";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
+  const { openModalUpdateAddress } = useContext(ModalContext);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
-
   const [editCar, setEditCar] = useState(false);
+
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -34,6 +37,7 @@ export const PerfilPage = () => {
   return (
     <>
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
+      {openModalUpdateAddress && <ModalUpdateAddress />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
