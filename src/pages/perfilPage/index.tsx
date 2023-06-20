@@ -1,16 +1,23 @@
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { PerfilPageStyle } from "./style";
-import { ListCarPerfil } from "../../components/card copy 2";
+import { ListCarPerfil } from "../../components/cardPerfilPage";
 import { UserContext } from "../../context/userContext/userContext";
-import { useContext, useEffect, useState } from "react";
-import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
+import { useContext, useState } from "react";
+import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
+import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
+import { ModalContext } from "../../context/modalContext/modalContext";
+import { ModalUpdateAddress } from "../../globalModal/updateAddress";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
-  const [modalDelete, setModalDelete] = useState<boolean>(false);
+  const { openModalUpdateAddress } = useContext(ModalContext);
+  const [modalDelete, setModalDelete] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [editCar, setEditCar] = useState(false);
+
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -30,6 +37,7 @@ export const PerfilPage = () => {
   return (
     <>
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
+      {openModalUpdateAddress && <ModalUpdateAddress />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
@@ -57,16 +65,26 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
-            <ListCarPerfil
-              announcements={user.announcement}
-              setDeleteModal={setModalDelete}
-            />
+            {user.announcement.map((car) => (
+              <ListCarPerfil
+                key={car.id}
+                car={car}
+                setEditCar={setEditCar}
+                setModalEdit={setModalEdit}
+              />
+            ))}
           </ul>
         </div>
       </PerfilPageStyle>
 
       <Footer />
       {modalAdd && <AnuncioCarroForm setModalAdd={setModalAdd} />}
+      {modalEdit && (
+        <EditAnnouncementCarForm
+          editCar={editCar}
+          setModalEdit={setModalEdit}
+        />
+      )}
     </>
   );
 };

@@ -7,6 +7,7 @@ import { DropDownMenu } from "../dropDown";
 import { Button } from "../button";
 import { UserContext } from "../../context/userContext/userContext";
 import { Link } from "react-router-dom";
+import { ModalContext } from "../../context";
 
 export const Navbar = () => {
   const { navigate, user } = useContext(UserContext);

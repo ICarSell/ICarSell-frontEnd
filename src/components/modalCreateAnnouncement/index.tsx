@@ -93,6 +93,13 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
   const handleImgCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setImgCover(file);
+
+    const label = e.target.closest("label");
+    if (file) {
+      label?.classList.add("selected");
+    } else {
+      label?.classList.remove("selected");
+    }
   };
 
   const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +107,13 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
     if (files) {
       const fileList = Array.from(files);
       setGallery(fileList);
+
+      const label = e.target.closest("label");
+      if (fileList.length > 0) {
+        label.classList.add("selected");
+      } else {
+        label.classList.remove("selected");
+      }
     }
   };
 
@@ -234,7 +248,7 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
           />
         </div>
         <div className="imgCover">
-          <label>
+          <label className={imgCover ? "selected" : ""}>
             Imagem de Capa
             <input
               type="file"
@@ -244,7 +258,7 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
           </label>
         </div>
         <div className="imgCover">
-          <label>
+          <label className={gallery.length > 0 ? "selected" : ""}>
             Galeria de Imagens
             <input
               type="file"

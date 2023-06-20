@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "../../components/button";
 import { ListCarHome } from "../../components/card";
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
-import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
+
+import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
+  const { openModalUpdateAddress } = useContext(ModalContext);
 
   useEffect(() => {
     (async () => {
@@ -23,6 +26,7 @@ export const Home = () => {
     <>
       <Navbar />
       <StyledHome>
+        {openModalUpdateAddress && <ModalUpdateAddress />}
         <div className="containerGradient">
           <div className="containerImg">
             <h1>Motors Shop</h1>
