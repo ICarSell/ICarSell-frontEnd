@@ -6,7 +6,7 @@ export const StuledModalAnnouncement = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   position: fixed;
   inset: 0;
@@ -68,9 +68,9 @@ export const StuledModalAnnouncement = styled.div`
     .mark {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
       font-family: "Inter";
       font-style: normal;
@@ -85,7 +85,7 @@ export const StuledModalAnnouncement = styled.div`
         flex-direction: row;
         align-items: center;
         padding: 0px 16px;
-        gap: 10px;
+        gap: 5px;
 
         height: 48px;
 
@@ -105,9 +105,9 @@ export const StuledModalAnnouncement = styled.div`
     .model {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
       font-family: "Inter";
       font-style: normal;
@@ -122,7 +122,7 @@ export const StuledModalAnnouncement = styled.div`
         flex-direction: row;
         align-items: center;
         padding: 0px 16px;
-        gap: 10px;
+        gap: 5px;
 
         height: 48px;
 
@@ -143,14 +143,14 @@ export const StuledModalAnnouncement = styled.div`
       display: flex;
       justify-content: space-between;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .year {
       display: flex;
       flex-direction: column;
 
-      gap: 10px;
+      gap: 5px;
 
       label {
         font-family: "Inter";
@@ -185,9 +185,9 @@ export const StuledModalAnnouncement = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     label {
       font-family: "Inter";
@@ -204,7 +204,7 @@ export const StuledModalAnnouncement = styled.div`
       flex-direction: row;
       align-items: flex-start;
       padding: 8px 16px;
-      gap: 10px;
+      gap: 5px;
 
       height: 75px;
 
@@ -240,19 +240,20 @@ export const StuledModalAnnouncement = styled.div`
 
   @media (max-width: 767px) {
     form {
-      height: 90%;
+      height: auto;
     }
   }
   @media (max-width: 425px) {
     form {
       height: auto;
       width: 97%;
-
+      padding: 18px 15px;
       .yearfuel {
         width: 100%;
+        gap: 10px;
         .year {
           input {
-            width: 165px;
+            width: 100%;
           }
         }
       }
@@ -265,7 +266,7 @@ export const StuledModalAnnouncement = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    gap: 10px;
+    gap: 5px;
 
     .buttonCancelar {
       display: flex;
@@ -325,9 +326,9 @@ export const StuledModalAnnouncement = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   .imgCover label {
     display: flex;
