@@ -45,4 +45,18 @@ export const StyledContainerModal = styled.main`
       padding: 20px 0px;
     }
   }
+  .modalUpdateUser {
+    padding: 16px 24px 16px 24px;
+    width: 450px;
+    .containerButton {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      padding: 20px 0px;
+      button {
+        width: 35%;
+      }
+    }
+  }
 `;

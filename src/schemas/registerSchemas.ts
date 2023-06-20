@@ -9,6 +9,17 @@ export const addressCreateSchema = z.object({
   complement: z.string().max(100),
 });
 
+export const userUpdateSchema = z
+  .object({
+    name: z.string().max(30).min(4),
+    email: z.string().email().max(100),
+    cpf: z.string().max(14),
+    phone: z.string().max(13),
+    dateOfBirth: z.string(),
+    description: z.string(),
+  })
+  .partial();
+
 export const userCreateSchema = z
   .object({
     name: z.string().max(30).min(4),
