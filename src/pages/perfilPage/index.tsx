@@ -6,11 +6,14 @@ import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useEffect, useState } from "react";
 import { AnuncioCarroForm } from "../../components/modalCreateAndUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
+import { ModalContext } from "../../context/modalContext/modalContext";
+import { ModalUpdateAddress } from "../../globalModal/updateAddress";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalDelete, setModalDelete] = useState<boolean>(false);
+  const { openModalUpdateAddress } = useContext(ModalContext);
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -30,6 +33,7 @@ export const PerfilPage = () => {
   return (
     <>
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
+      {openModalUpdateAddress && <ModalUpdateAddress />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
