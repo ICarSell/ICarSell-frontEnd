@@ -5,13 +5,15 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { StyledHome } from "./style";
 import { api } from "../../services/api";
-
-import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
+import { ModalUpdateUser } from "../../components/globalModal/updateUser";
+import { ToastContainer } from "react-toastify";
 
 export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
-  const { openModalUpdateAddress } = useContext(ModalContext);
+  const { openModalUpdateAddress, openModalUpdateUser } =
+    useContext(ModalContext);
 
   useEffect(() => {
     (async () => {
@@ -25,8 +27,10 @@ export const Home = () => {
   return (
     <>
       <Navbar />
+      <ToastContainer />
       <StyledHome>
         {openModalUpdateAddress && <ModalUpdateAddress />}
+        {openModalUpdateUser && <ModalUpdateUser />}
         <div className="containerGradient">
           <div className="containerImg">
             <h1>Motors Shop</h1>

@@ -8,7 +8,7 @@ import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
 import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
 import { ModalContext } from "../../context/modalContext/modalContext";
-import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
@@ -16,7 +16,6 @@ export const PerfilPage = () => {
   const { openModalUpdateAddress } = useContext(ModalContext);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
-
   const [editCar, setEditCar] = useState(false);
 
   if (!user) {
