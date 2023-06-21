@@ -31,6 +31,16 @@ export const addressUpdateSchema = z
   })
   .partial();
 
+export const changePasswordSchema = z
+  .object({
+    password: z.string().min(8).max(120),
+    passwordConfirm: z.string().min(8).max(120),
+  })
+  .refine((data) => data.password === data.passwordConfirm, {
+    message: "Senha precisam ser iguais",
+    path: ["passwordConfirm"],
+  });
+
 export const userCreateSchema = z
   .object({
     name: z.string().max(30).min(4),
