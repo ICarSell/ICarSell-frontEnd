@@ -15,6 +15,11 @@ export const ProductPage = () => {
   const { announcement } = useContext(UserContext);
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
+
+  if (!announcement) {
+    return <h1>Carregando...</h1>;
+  }
+
   return (
     <>
       <ToastContainer />
@@ -57,19 +62,17 @@ export const ProductPage = () => {
           <div className="aside-div">
             <h2>Fotos</h2>
             <ul>
-              {announcement?.gallery.map(
-                (value: { path: string }, index: any) => (
-                  <li key={index}>
-                    <img
-                      src={`http://localhost:3000/${value?.path.replace(
-                        /\\/g,
-                        "/"
-                      )}`}
-                      alt={announcement?.imgCover.fileName}
-                    />
-                  </li>
-                )
-              )}
+              {announcement?.gallery.map((value: any, index: any) => (
+                <li key={index}>
+                  <img
+                    src={`http://localhost:3000/${value?.path.replace(
+                      /\\/g,
+                      "/"
+                    )}`}
+                    alt={announcement?.imgCover.fileName}
+                  />
+                </li>
+              ))}
             </ul>
           </div>
           <div className="perfil-column">
