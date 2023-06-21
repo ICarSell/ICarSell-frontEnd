@@ -50,9 +50,11 @@ export const Navbar = () => {
           {token && (
             <div className="desktop-div-user">
               <div
-                className="img-user"
+                className="image-perfil"
                 onClick={() => setDropDownOnUser(!dropDownOnUser)}
-              ></div>
+              >
+                <p>{user?.name[0].toUpperCase()}</p>
+              </div>
               <h3 onClick={() => setDropDownOnUser(!dropDownOnUser)}>
                 {user?.name}
               </h3>

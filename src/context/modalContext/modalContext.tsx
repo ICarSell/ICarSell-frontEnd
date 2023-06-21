@@ -19,33 +19,6 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
-    if (user.email === updateData.email && user.cpf === updateData.cpf) {
-      const { cpf: _, email: __, ...userRequest } = updateData;
-      const { dateOfBirth: date, ...userUpdated } = userRequest;
-      const dateOfBirth = Number(date);
-      const newUserData = { dateOfBirth, ...userUpdated };
-      try {
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
-        const { data } = await api.patch<tUserReturnWithoutPass>(
-          "/user",
-          newUserData
-        );
-        console.log(data);
-        getUser();
-        setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
-        return;
-      } catch (err: any) {
-        if (err.response?.data.message === "Email already exists") {
-          console.log("Email ja Cadastrado");
-          return;
-        }
-        if (err.response?.data.message === "CPF already exists") {
-          console.log("CPF ja Cadastrado");
-          return;
-        }
-      }
-    }
     if (user.email === updateData.email) {
       const { email: _, ...userRequest } = updateData;
       const { dateOfBirth: date, ...userUpdated } = userRequest;
@@ -60,34 +33,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         console.log(data);
         getUser();
         setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
-        return;
-      } catch (err: any) {
-        if (err.response?.data.message === "Email already exists") {
-          console.log("Email ja Cadastrado");
-          return;
-        }
-        if (err.response?.data.message === "CPF already exists") {
-          console.log("CPF ja Cadastrado");
-          return;
-        }
-      }
-    }
-    if (user.cpf === updateData.cpf) {
-      const { cpf: _, ...userRequest } = updateData;
-      const { dateOfBirth: date, ...userUpdated } = userRequest;
-      const dateOfBirth = Number(date);
-      const newUserData = { dateOfBirth, ...userUpdated };
-      try {
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
-        const { data } = await api.patch<tUserReturnWithoutPass>(
-          "/user",
-          newUserData
-        );
-        console.log(data);
-        getUser();
-        setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
+        toast.success("Conta Atualiza!");
         return;
       } catch (err: any) {
         if (err.response?.data.message === "Email already exists") {
@@ -111,6 +57,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
       );
       getUser();
       setOpenModalUpdateUser(false);
+      toast.success("Conta Atualiza!");
     } catch (err: any) {
       console.log(err.response?.data.message);
     }

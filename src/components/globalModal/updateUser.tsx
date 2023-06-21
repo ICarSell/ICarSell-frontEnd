@@ -58,6 +58,7 @@ export const ModalUpdateUser = () => {
         <Input
           label="CPF"
           type="text"
+          disable={true}
           defaultValue={user.cpf}
           placeholder="000.000.000-00"
           register={register("cpf")}
