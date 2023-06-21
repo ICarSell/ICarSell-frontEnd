@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { iLoginData, iUserContext, iUserContextProps } from "./types";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  iLoginData,
+  iUserContext,
+  iUserContextProps,
+  tPasswordUpdateReq,
+} from "./types";
 import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
@@ -19,6 +24,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [announcementId, setAnnouncementId] = useState("");
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
+  const [passwordToken, setPasswordToken] = useState<undefined | string>();
 
   useEffect(() => {
     async function getUser() {
@@ -163,6 +169,23 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   };
 
+  const recoverPassword = async (formData: tPasswordUpdateReq) => {
+    try {
+      const response = await api.patch(
+        `/reset-password/${passwordToken}`,
+        formData
+      );
+      toast.success("Senha alterada com sucesso");
+      setTimeout(() => {
+        navigate("/login")
+      }, 2000);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -180,6 +203,9 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         loading,
         getUser,
         updateAnnouncement,
+        recoverPassword,
+        setPasswordToken,
+        passwordToken,
       }}
     >
       {children}
