@@ -131,10 +131,12 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         },
       });
 
+      toast.success("Anúncio criado com sucesso!");
       getUser();
       return response;
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao criar anúncio");
     }
   };
 
@@ -157,9 +159,11 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       });
 
       getUser();
+      toast.success("Anúncio editado com sucesso!");
       return response;
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao editar anúncio");
     }
   };
 

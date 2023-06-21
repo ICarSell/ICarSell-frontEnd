@@ -55,7 +55,7 @@ export const Home = () => {
   const [fuel, setFuel] = useState("");
 
   const [announcements, setAnnouncements] = useState([]);
-  const { openModalUpdateAddress, openModalUpdateUser, openModal } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
   const [keysFilter, setKeysFilter] = useState<string[]>([""]);
 
@@ -193,7 +193,7 @@ export const Home = () => {
       <StyledHome>
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
-        <>{openModal && <ModalDeleteUser />}</>
+        <>{openModelDeleteUser && <ModalDeleteUser />}</>
 
         <div className="containerGradient">
           <div className="containerImg">

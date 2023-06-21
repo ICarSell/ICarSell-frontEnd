@@ -11,11 +11,12 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
+import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
-  const { openModalUpdateAddress, openModalUpdateUser } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
@@ -41,6 +42,7 @@ export const PerfilPage = () => {
       <ToastContainer />
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       {openModalUpdateAddress && <ModalUpdateAddress />}
+      {openModelDeleteUser && <ModalDeleteUser />}
       {openModalUpdateUser && <ModalUpdateUser />}
       <Navbar />
       <PerfilPageStyle>
@@ -87,6 +89,7 @@ export const PerfilPage = () => {
         <EditAnnouncementCarForm
           editCar={editCar}
           setModalEdit={setModalEdit}
+          setModalDelete={setModalDelete}
         />
       )}
     </>

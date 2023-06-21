@@ -3,6 +3,7 @@ import {
   iModalProps,
   iModalProviderProps,
   tAddressUpdateReq,
+  tRecoverPassReq,
   tUserUpdateReq,
 } from "./types";
 import { tUserReturnWithoutPass } from "../../pages/registerPage/type";
@@ -16,7 +17,9 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const { getUser, user } = useContext(UserContext);
   const [openModalUpdateAddress, setOpenModalUpdateAddress] = useState(false);
   const [openModalUpdateUser, setOpenModalUpdateUser] = useState(false);
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openModalResetPass, setOpenModalResetPass] = useState(false);
+  const [emailSend, setEmailSend] = useState(false);
+  const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -79,6 +82,16 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     }
   };
 
+  const recoverPass = async (emailData: tRecoverPassReq) => {
+    try {
+      const { data } = await api.patch(`/forgot-password`, emailData);
+      toast.success(data.message);
+      setEmailSend(true);
+    } catch (error: any) {
+      toast.error(error.response?.data.message);
+    }
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -88,8 +101,12 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setOpenModalUpdateUser,
         updateUser,
         updateAddress,
-        openModal,
-        setOpenModal,
+        openModalResetPass,
+        setOpenModalResetPass,
+        emailSend,
+        recoverPass,
+        openModelDeleteUser,
+        setOpenModelDeleteUser,
       }}
     >
       {children}

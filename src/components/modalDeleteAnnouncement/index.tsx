@@ -11,6 +11,7 @@ export const ModalAnnouncementDelete = ({
   modal: (value: boolean) => void;
 }) => {
   const { announcementId, getUser } = useContext(UserContext);
+  console.log(announcementId);
 
   const token: string | null = localStorage.getItem(String("@TOKEN"));
 
