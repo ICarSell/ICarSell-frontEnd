@@ -188,3 +188,35 @@ export const StyledHome = styled.main`
     }
   }
 `;
+
+export interface iStyledButtonProps {
+  variant?: string;
+}
+
+export const PClick = styled.p<iStyledButtonProps>`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: red;
+  ${(props) => {
+    switch (props.variant) {
+      case "primary":
+        return `
+        background-color: blue;
+        color: white;
+      `;
+      case "secondary":
+        return `
+        background-color: gray;
+        color: black;
+      `;
+      case "success":
+        return `
+        background-color: green;
+        color: white;
+      `;
+      default:
+        return "";
+    }
+  }}
+`;

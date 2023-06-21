@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 
