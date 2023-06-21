@@ -7,7 +7,7 @@ export const ListCarHome = ({ announcements }) => {
 
   return (
     <>
-      {announcements.map((car) => (
+      {announcements.map((car: any) => (
         <StyledListCar
           key={car.id}
           onClick={() => {
