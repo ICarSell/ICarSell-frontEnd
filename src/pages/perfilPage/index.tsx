@@ -87,6 +87,7 @@ export const PerfilPage = () => {
         <EditAnnouncementCarForm
           editCar={editCar}
           setModalEdit={setModalEdit}
+          setModalDelete={setModalDelete}
         />
       )}
     </>
