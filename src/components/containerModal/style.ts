@@ -54,5 +54,10 @@ export const StyledContainerModal = styled.main`
         width: 35%;
       }
     }
+    .emailSend {
+      color: var(--color-sucess1);
+      font-weight: var(--text-weight600);
+      font-family: var(--font-family-inter);
+    }
   }
 `;
