@@ -54,15 +54,27 @@ export const NavMain = styled.nav`
     }
     .desktop-div-user {
       display: flex;
-      gap: 22px;
+      gap: 8px;
       position: relative;
       padding-top: 8px;
-      .img-user {
-        background-color: var(--color-random12);
-        border-radius: 100%;
-        height: 30px;
+
+      .image-perfil {
         width: 30px;
-        cursor: pointer;
+        height: 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 20px;
+          color: #ffffff;
+        }
       }
       h3 {
         cursor: pointer;

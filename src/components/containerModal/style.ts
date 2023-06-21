@@ -24,15 +24,10 @@ export const StyledContainerModal = styled.main`
 
   .modalUpdateAddress {
     padding: 16px 24px 16px 24px;
-    width: 520px;
+    width: 450px;
     border-radius: var(--radius-1);
 
-    .stateAndCity {
-      display: flex;
-      gap: 10px;
-    }
-
-    .numberAndComplement {
+    .containerInput {
       display: flex;
       gap: 10px;
     }
@@ -43,6 +38,21 @@ export const StyledContainerModal = styled.main`
       justify-content: end;
       gap: 10px;
       padding: 20px 0px;
+    }
+  }
+  .modalUpdateUser {
+    padding: 16px 24px 16px 24px;
+    width: 450px;
+    border-radius: var(--radius-1);
+    .containerButton {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      padding: 20px 0px;
+      button {
+        width: 35%;
+      }
     }
   }
 `;

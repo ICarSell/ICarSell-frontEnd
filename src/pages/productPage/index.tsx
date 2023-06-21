@@ -5,17 +5,22 @@ import imgPerfil from "../../assets/perfil.png";
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext } from "react";
-import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
+import { ToastContainer } from "react-toastify";
+import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 
 export const ProductPage = () => {
   const { announcement } = useContext(UserContext);
-  const { openModalUpdateAddress } = useContext(ModalContext)
+  const { openModalUpdateAddress, openModalUpdateUser } =
+    useContext(ModalContext);
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <Container>
-        {openModalUpdateAddress && <ModalUpdateAddress/>}
+        {openModalUpdateAddress && <ModalUpdateAddress />}
+        {openModalUpdateUser && <ModalUpdateUser />}
         <Main>
           <div className="img_car">
             <img
@@ -50,17 +55,19 @@ export const ProductPage = () => {
           <div className="aside-div">
             <h2>Fotos</h2>
             <ul>
-              {announcement?.gallery.map((value: { path: string }, index) => (
-                <li key={index}>
-                  <img
-                    src={`http://localhost:3000/${value?.path.replace(
-                      /\\/g,
-                      "/"
-                    )}`}
-                    alt={announcement?.imgCover.fileName}
-                  />
-                </li>
-              ))}
+              {announcement?.gallery.map(
+                (value: { path: string }, index: any) => (
+                  <li key={index}>
+                    <img
+                      src={`http://localhost:3000/${value?.path.replace(
+                        /\\/g,
+                        "/"
+                      )}`}
+                      alt={announcement?.imgCover.fileName}
+                    />
+                  </li>
+                )
+              )}
             </ul>
           </div>
           <div className="perfil-column">

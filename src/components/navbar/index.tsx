@@ -7,14 +7,15 @@ import { DropDownMenu } from "../dropDown";
 import { Button } from "../button";
 import { UserContext } from "../../context/userContext/userContext";
 import { Link } from "react-router-dom";
-import { ModalContext } from "../../context";
+import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const Navbar = () => {
   const { navigate, user } = useContext(UserContext);
+  const { openModalUpdateAddress, openModalUpdateUser } =
+    useContext(ModalContext);
   const token = localStorage.getItem("@TOKEN");
   const [dropDownOn, setDropDownOn] = useState(false);
   const [dropDownOnUser, setDropDownOnUser] = useState(false);
-  const [userOn, setUserOn] = useState(false);
 
   return (
     <NavMain>
@@ -49,13 +50,17 @@ export const Navbar = () => {
           {token && (
             <div className="desktop-div-user">
               <div
-                className="img-user"
+                className="image-perfil"
                 onClick={() => setDropDownOnUser(!dropDownOnUser)}
-              ></div>
+              >
+                <p>{user?.name[0].toUpperCase()}</p>
+              </div>
               <h3 onClick={() => setDropDownOnUser(!dropDownOnUser)}>
                 {user?.name}
               </h3>
-              {dropDownOnUser && <DropDownMenu />}
+              {!openModalUpdateUser &&
+                !openModalUpdateAddress &&
+                dropDownOnUser && <DropDownMenu />}
             </div>
           )}
         </div>
