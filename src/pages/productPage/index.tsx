@@ -9,10 +9,11 @@ import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
+import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 
 export const ProductPage = () => {
   const { announcement } = useContext(UserContext);
-  const { openModalUpdateAddress, openModalUpdateUser } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
   return (
     <>
@@ -21,6 +22,7 @@ export const ProductPage = () => {
       <Container>
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
+        {openModelDeleteUser && <ModalDeleteUser />}
         <Main>
           <div className="img_car">
             <img

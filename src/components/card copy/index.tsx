@@ -67,3 +67,4 @@ export const ListCarHome = ({ announcements }) => {
     </>
   );
 };
+//duplicar card para a page de anuncio
