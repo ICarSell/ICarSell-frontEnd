@@ -116,11 +116,11 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     }
   };
 
-  const updateAddress = (formData: tAddressUpdateReq) => {
+  const updateAddress = async (formData: tAddressUpdateReq) => {
     console.log(formData);
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
     try {
-      api.patch(`/address/${user.address.id}`, formData, {
+      await api.patch(`/address/${user.address.id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       getUser();
