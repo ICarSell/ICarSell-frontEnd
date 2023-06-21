@@ -318,7 +318,7 @@ export const EditAnnouncementCarForm = ({
         </div>
         <div className="imgCover">
           <label className={gallery.length > 0 ? "selected" : ""}>
-            Galeria de Imagens (Max 6 imagens)
+            Galeria de Imagens ({gallery.length}/6 imagens)
             <input
               type="file"
               accept="image/*"
