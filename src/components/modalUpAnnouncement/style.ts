@@ -6,7 +6,7 @@ export const StyledEditModalAnnouncement = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   position: fixed;
   inset: 0;
@@ -73,14 +73,14 @@ export const StyledEditModalAnnouncement = styled.div`
       color: #000000;
 
       height: 24px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     .mark {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
       font-family: "Inter";
       font-style: normal;
@@ -115,9 +115,9 @@ export const StyledEditModalAnnouncement = styled.div`
     .model {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
       font-family: "Inter";
       font-style: normal;
@@ -153,14 +153,14 @@ export const StyledEditModalAnnouncement = styled.div`
       display: flex;
       justify-content: space-between;
 
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .year {
       display: flex;
       flex-direction: column;
 
-      gap: 10px;
+      gap: 5px;
 
       label {
         font-family: "Inter";
@@ -195,9 +195,9 @@ export const StyledEditModalAnnouncement = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     label {
       font-family: "Inter";
@@ -214,7 +214,7 @@ export const StyledEditModalAnnouncement = styled.div`
       flex-direction: row;
       align-items: flex-start;
       padding: 8px 16px;
-      gap: 10px;
+      gap: 5px;
 
       height: 75px;
 
@@ -250,19 +250,20 @@ export const StyledEditModalAnnouncement = styled.div`
 
   @media (max-width: 767px) {
     form {
-      height: 90%;
+      height: auto;
     }
   }
   @media (max-width: 426px) {
     form {
       height: auto;
       width: 97%;
-
+      padding: 18px 15px;
       .yearfuel {
         width: 100%;
+        gap: 10px;
         .year {
           input {
-            width: 150px;
+            width: 100%;
           }
         }
       }
@@ -288,7 +289,7 @@ export const StyledEditModalAnnouncement = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    gap: 10px;
+    gap: 5px;
 
     .buttonCancelar {
       display: flex;
@@ -348,9 +349,9 @@ export const StyledEditModalAnnouncement = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     label {
       font-family: Inter;
@@ -398,9 +399,9 @@ export const StyledEditModalAnnouncement = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 5px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   .imgCover label {
     display: flex;

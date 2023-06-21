@@ -79,7 +79,27 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           width: 193px;
           height: 48px;
           color: var(--color-brand4);
-          background-color: var(--color-brand3);
+          background-color: var(--color-brand2);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+          border-radius: var(--radius-2);
+        `;
+      case "updateUser":
+        return css`
+          width: 193px;
+          height: 48px;
+          color: var(--color-white-fixed);
+          background-color: var(--color-brand2);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+          border-radius: var(--radius-2);
+        `;
+      case "deleteUser":
+        return css`
+          width: 150px;
+          height: 48px;
+          color: var(--color-alert1);
+          background-color: var(--color-alert2);
           font-size: var(--text-body1);
           font-weight: var(--text-weight600);
           border-radius: var(--radius-2);

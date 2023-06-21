@@ -8,7 +8,8 @@ import { AnuncioCarroForm } from "../../components/modalCreateAnnouncement";
 import { EditAnnouncementCarForm } from "../../components/modalUpAnnouncement";
 import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncement";
 import { ModalContext } from "../../context/modalContext/modalContext";
-import { ModalUpdateAddress } from "../../globalModal/updateAddress";
+import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
+import { ToastContainer } from "react-toastify";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
@@ -17,7 +18,6 @@ export const PerfilPage = () => {
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [editCar, setEditCar] = useState(false);
-
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -36,6 +36,7 @@ export const PerfilPage = () => {
 
   return (
     <>
+      <ToastContainer />
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       {openModalUpdateAddress && <ModalUpdateAddress />}
       <Navbar />
