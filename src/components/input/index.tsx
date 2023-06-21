@@ -7,6 +7,7 @@ export const Input = ({
   label,
   register,
   defaultValue,
+  disable,
   onChange,
   onInput,
 }: iInputProps) => {
@@ -21,6 +22,7 @@ export const Input = ({
         defaultValue={defaultValue}
         onChange={onChange}
         onInput={onInput}
+        disabled={disable}
         {...register}
       />
     </StyledInput>

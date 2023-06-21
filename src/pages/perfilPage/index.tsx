@@ -10,11 +10,13 @@ import { ModalAnnouncementDelete } from "../../components/modalDeleteAnnouncemen
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ToastContainer } from "react-toastify";
+import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
   const [modalAdd, setModalAdd] = useState(false);
-  const { openModalUpdateAddress } = useContext(ModalContext);
+  const { openModalUpdateAddress, openModalUpdateUser } =
+    useContext(ModalContext);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [editCar, setEditCar] = useState(false);
@@ -39,6 +41,7 @@ export const PerfilPage = () => {
       <ToastContainer />
       {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
       {openModalUpdateAddress && <ModalUpdateAddress />}
+      {openModalUpdateUser && <ModalUpdateUser />}
       <Navbar />
       <PerfilPageStyle>
         <div className="div-color-purple"></div>
@@ -66,7 +69,7 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
-            {user.announcement.map((car) => (
+            {user.announcement.map((car: any) => (
               <ListCarPerfil
                 key={car.id}
                 car={car}

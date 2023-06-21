@@ -31,7 +31,7 @@ export const StyledContainerModal = styled.main`
       display: flex;
       gap: 10px;
     }
-    
+
     .containerButton {
       width: 100%;
       display: flex;
@@ -43,6 +43,7 @@ export const StyledContainerModal = styled.main`
   .modalUpdateUser {
     padding: 16px 24px 16px 24px;
     width: 450px;
+    border-radius: var(--radius-1);
     .containerButton {
       width: 100%;
       display: flex;
