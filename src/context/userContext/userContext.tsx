@@ -48,15 +48,17 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   useEffect(() => {
     const idCar = localStorage.getItem("@CARID");
-    const getAnnouncement = async () => {
-      try {
-        const response = await api.get(`/announcement/${idCar}`);
-        setAnnouncement(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAnnouncement();
+    if (idCar) {
+      const getAnnouncement = async () => {
+        try {
+          const response = await api.get(`/announcement/${idCar}`);
+          setAnnouncement(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getAnnouncement();
+    }
   }, [announcementId, setAnnouncement]);
 
   const submitLogin = async (formData: iLoginData) => {
@@ -181,7 +183,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       );
       toast.success("Senha alterada com sucesso");
       setTimeout(() => {
-        navigate("/login")
+        navigate("/login");
       }, 2000);
 
       console.log(response);
