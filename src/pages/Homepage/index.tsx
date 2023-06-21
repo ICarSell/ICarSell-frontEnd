@@ -72,19 +72,47 @@ export const Home = () => {
 
   const verifyCheck = (key: string, value: string) => {
     if (key === "Marca") {
-      setMark(value);
+      if (mark === value) {
+        setMark("");
+      } else {
+        setMark(value);
+      }
     } else if (key === "Modelo") {
-      setModel(value);
+      if (model === value) {
+        setModel("");
+      } else {
+        setModel(value);
+      }
     } else if (key === "Cor") {
-      setColor(value);
+      if (color === value) {
+        setColor("");
+      } else {
+        setColor(value);
+      }
     } else if (key === "Ano") {
-      setYear(value);
+      if (year === value) {
+        setYear("");
+      } else {
+        setYear(value);
+      }
     } else if (key === "Combustivel") {
-      setFuel(value);
+      if (fuel === value) {
+        setFuel("");
+      } else {
+        setFuel(value);
+      }
     } else if (key === "KM") {
-      setMileage(value);
+      if (mileage === value) {
+        setMileage("");
+      } else {
+        setMileage(value);
+      }
     } else if (key === "Preço") {
-      setPrice(value);
+      if (price === value) {
+        setPrice("");
+      } else {
+        setPrice(value);
+      }
     }
   };
 
@@ -101,6 +129,8 @@ export const Home = () => {
       price
     );
     setKeysFilter(filterWords);
+
+    console.log(filterWords);
 
     // Palavras a serem removidas
     const keysRemove = ["Minima", "Máxima", "Minimo", "Máximo"];
@@ -179,7 +209,10 @@ export const Home = () => {
                   <PClick
                     variant={value == markColor ? "primary" : "secondary"}
                     onClick={() => {
-                      verifyCheck("Marca", String(value)), setMarkColor(value);
+                      verifyCheck("Marca", String(value)),
+                        markColor === value
+                          ? setMarkColor("")
+                          : setMarkColor(value);
                     }}
                   >
                     {value}
@@ -193,7 +226,9 @@ export const Home = () => {
                     variant={value == modelColor ? "primary" : "secondary"}
                     onClick={() => {
                       verifyCheck("Modelo", String(value)),
-                        setModelColor(value);
+                        modelColor === value
+                          ? setModelColor("")
+                          : setModelColor(value);
                     }}
                   >
                     {value}
@@ -206,7 +241,10 @@ export const Home = () => {
                   <PClick
                     variant={value == corColor ? "primary" : "secondary"}
                     onClick={() => {
-                      verifyCheck("Cor", String(value)), setCorColor(value);
+                      verifyCheck("Cor", String(value)),
+                        corColor === value
+                          ? setCorColor("")
+                          : setCorColor(value);
                     }}
                   >
                     {value}
@@ -219,7 +257,10 @@ export const Home = () => {
                   <PClick
                     variant={value == anoColor ? "primary" : "secondary"}
                     onClick={() => {
-                      verifyCheck("Ano", String(value)), setAnoColor(value);
+                      verifyCheck("Ano", String(value)),
+                        anoColor === value
+                          ? setAnoColor("")
+                          : setAnoColor(value);
                     }}
                   >
                     {value}
@@ -235,7 +276,9 @@ export const Home = () => {
                     }
                     onClick={() => {
                       verifyCheck("Combustivel", String(value)),
-                        setCombustivelColor(value);
+                        combustivelColor === value
+                          ? setCombustivelColor("")
+                          : setCombustivelColor(value);
                     }}
                   >
                     {value}
@@ -248,7 +291,8 @@ export const Home = () => {
                   <PClick
                     variant={value == kmColor ? "primary" : "secondary"}
                     onClick={() => {
-                      verifyCheck("KM", String(value)), setKmColor(value);
+                      verifyCheck("KM", String(value)),
+                        kmColor === value ? setKmColor("") : setKmColor(value);
                     }}
                   >
                     {value}
@@ -261,7 +305,10 @@ export const Home = () => {
                   <PClick
                     variant={value == priceColor ? "primary" : "secondary"}
                     onClick={() => {
-                      verifyCheck("Preço", String(value)), setPriceColor(value);
+                      verifyCheck("Preço", String(value)),
+                        priceColor === value
+                          ? setPriceColor("")
+                          : setPriceColor(value);
                     }}
                   >
                     {value}
