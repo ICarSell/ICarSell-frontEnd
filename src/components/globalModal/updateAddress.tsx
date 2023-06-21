@@ -22,7 +22,6 @@ export const ModalUpdateAddress = () => {
   } = useForm<tAddressUpdateReq>({
     resolver: zodResolver(addressUpdateSchema),
   });
-  
 
   return (
     <ContainerModal>

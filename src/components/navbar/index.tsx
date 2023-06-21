@@ -11,7 +11,7 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const Navbar = () => {
   const { navigate, user } = useContext(UserContext);
-  const { openModalUpdateAddress, openModalUpdateUser } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModal } =
     useContext(ModalContext);
   const token = localStorage.getItem("@TOKEN");
   const [dropDownOn, setDropDownOn] = useState(false);
@@ -60,6 +60,7 @@ export const Navbar = () => {
               </h3>
               {!openModalUpdateUser &&
                 !openModalUpdateAddress &&
+                !openModal &&
                 dropDownOnUser && <DropDownMenu />}
             </div>
           )}

@@ -12,7 +12,8 @@ import { tUserUpdateReq } from "../../context/modalContext/types";
 import { UserContext } from "../../context/userContext/userContext";
 
 export const ModalUpdateUser = () => {
-  const { setOpenModalUpdateUser, updateUser } = useContext(ModalContext);
+  const { setOpenModalUpdateUser, updateUser, setOpenModal, openModal } =
+    useContext(ModalContext);
   const { user } = useContext(UserContext);
   const { register, handleSubmit, reset } = useForm<tUserUpdateReq>({
     resolver: zodResolver(userUpdateSchema),
@@ -99,7 +100,9 @@ export const ModalUpdateUser = () => {
           <Button
             type="button"
             buttonVariation="deleteUser"
-            onClick={() => setOpenModalUpdateUser(false)}
+            onClick={() => {
+              setOpenModal(!openModal), setOpenModalUpdateUser(false);
+            }}
           >
             Excluir Perfil
           </Button>

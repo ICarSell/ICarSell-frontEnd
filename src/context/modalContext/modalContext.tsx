@@ -16,6 +16,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const { getUser, user } = useContext(UserContext);
   const [openModalUpdateAddress, setOpenModalUpdateAddress] = useState(false);
   const [openModalUpdateUser, setOpenModalUpdateUser] = useState(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -87,6 +88,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setOpenModalUpdateUser,
         updateUser,
         updateAddress,
+        openModal,
+        setOpenModal,
       }}
     >
       {children}

@@ -12,6 +12,8 @@ export interface iModalProps {
   setOpenModalUpdateUser: React.Dispatch<SetStateAction<boolean>>;
   updateUser: (updateData: tUserUpdateReq) => void;
   updateAddress: (updateData: tAddressUpdateReq) => void;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  openModal: boolean;
 }
 
 export interface iModalProviderProps {
