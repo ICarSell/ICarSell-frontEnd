@@ -28,7 +28,7 @@ export const PerfilPage = () => {
     const userType = user.isSeller;
 
     if (!token || !userType) {
-      navigate("/homepage");
+      navigate("/");
     }
   };
 
