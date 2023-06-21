@@ -83,7 +83,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
 
   const recoverPass = async (emailData: tRecoverPassReq) => {
     try {
-      await api.patch(`/forgot-password`, emailData);
+      const { data } = await api.patch(`/forgot-password`, emailData);
+      toast.success(data.message);
       setEmailSend(true);
     } catch (error: any) {
       toast.error(error.response?.data.message);
