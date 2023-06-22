@@ -46,11 +46,11 @@ export const Home = () => {
       setKeysFilter([...keysFilter, value]);
       const filterByMileage = [...filterItens];
       if (value === "Minima") {
-        filterByMileage.sort((a, b) => {
+        filterByMileage.sort((a: any, b: any) => {
           return Number(a.mileage) - Number(b.mileage);
         });
       } else if (value === "Máxima") {
-        filterByMileage.sort((a, b) => {
+        filterByMileage.sort((a: any, b: any) => {
           return Number(b.mileage) - Number(a.mileage);
         });
       }
@@ -61,11 +61,11 @@ export const Home = () => {
       setKeysFilter([...keysFilter, value]);
       const filterByprice = [...filterItens];
       if (value === "Minimo") {
-        filterByprice.sort((a, b) => {
+        filterByprice.sort((a: any, b: any) => {
           return Number(a.price) - Number(b.price);
         });
       } else if (value === "Máximo") {
-        filterByprice.sort((a, b) => {
+        filterByprice.sort((a: any, b: any) => {
           return Number(b.price) - Number(a.price);
         });
       }
@@ -106,7 +106,7 @@ export const Home = () => {
     setKmColor("primary");
     setPriceColor("primary");
   };
-  const renderedString = [];
+  const renderedString: string[] = [];
   return (
     <>
       <Navbar />
@@ -126,7 +126,7 @@ export const Home = () => {
           <aside className="filtro">
             <ul>
               <h2>Marca</h2>
-              {announcements.map((value) => {
+              {announcements.map((value: any) => {
                 if (!renderedString.includes(value.mark)) {
                   renderedString.push(value.mark);
                   return (
@@ -151,7 +151,7 @@ export const Home = () => {
                 return null; // Se a marca já existir, retorna null para não criar um novo elemento
               })}
               <h2>Modelo</h2>
-              {announcements.map((value) => {
+              {announcements.map((value: any) => {
                 if (!renderedString.includes(value.model)) {
                   renderedString.push(value.model);
                   return (
@@ -176,7 +176,7 @@ export const Home = () => {
                 return null; // Se a marca já existir, retorna null para não criar um novo elemento
               })}
               <h2>Cor</h2>
-              {announcements.map((value) => {
+              {announcements.map((value: any) => {
                 if (!renderedString.includes(value.color)) {
                   renderedString.push(value.color);
                   return (
@@ -201,7 +201,7 @@ export const Home = () => {
                 return null; // Se a marca já existir, retorna null para não criar um novo elemento
               })}
               <h2>Ano</h2>
-              {announcements.map((value) => {
+              {announcements.map((value: any) => {
                 if (!renderedString.includes(value.year)) {
                   renderedString.push(value.year);
                   return (
@@ -226,7 +226,7 @@ export const Home = () => {
                 return null; // Se a marca já existir, retorna null para não criar um novo elemento
               })}
               <h2>Combustivel</h2>
-              {announcements.map((value) => {
+              {announcements.map((value: any) => {
                 if (!renderedString.includes(value.fuel)) {
                   renderedString.push(value.fuel);
                   return (
