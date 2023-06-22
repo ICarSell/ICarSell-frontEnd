@@ -7,22 +7,21 @@ import { toast } from "react-toastify";
 
 export const ModalAnnouncementDelete = ({
   modal,
+  idCar,
 }: {
   modal: (value: boolean) => void;
+  idCar: any;
 }) => {
-  const { announcementId, getUser } = useContext(UserContext);
-  console.log(announcementId);
+  const { getUser } = useContext(UserContext);
 
   const token: string | null = localStorage.getItem(String("@TOKEN"));
 
-  const deleteAnnouncement = async (id: string) => {
+  const deleteAnnouncement = async () => {
     try {
       const response = await api.delete(
-        `http://localhost:3000/announcement/${id}`,
+        `http://localhost:3000/announcement/${idCar}`,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             Authorization: `Bearer ${JSON.parse(token!)}`,
           },
         }
