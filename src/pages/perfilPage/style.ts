@@ -100,6 +100,14 @@ export const PerfilPageStyle = styled.div`
       color: #4529e6;
     }
   }
+  .description {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: rgb(33, 37, 41);
+  }
   .button-create-announcement {
     padding: 20px;
     height: 48px;

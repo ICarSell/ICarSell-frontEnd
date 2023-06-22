@@ -97,8 +97,8 @@ export const ProductPage = () => {
             </ul>
           </div>
           <div className="perfil-column">
-            <div>
-              <img src={imgPerfil} alt="" />
+            <div className="image-perfil">
+              <p>{announcement?.user.name[0].toUpperCase()}</p>
             </div>
             <h2>{announcement?.user.name}</h2>
             <p>{announcement?.user.description}</p>

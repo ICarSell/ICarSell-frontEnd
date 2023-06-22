@@ -57,9 +57,7 @@ export const ModalAnnouncementDelete = ({
         </p>
         <div className="div-button">
           <button onClick={() => modal(false)}>Fechar</button>
-          <button onClick={() => deleteAnnouncement(announcementId)}>
-            Deletar anúncio
-          </button>
+          <button onClick={() => deleteAnnouncement()}>Deletar anúncio</button>
         </div>
       </div>
     </ModalDeleteAnnouncementStyle>

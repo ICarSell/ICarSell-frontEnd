@@ -200,7 +200,10 @@ export const Home = () => {
                           value.color === corColor ? "primary" : "secondary"
                         }
                         onClick={() => {
-                          verifyCheck("color", String(value.color));
+                          verifyCheck(
+                            "color",
+                            String(value.color.toLowerCase())
+                          );
                           corColor === value.color
                             ? setCorColor("")
                             : setCorColor(value.color);
@@ -342,12 +345,3 @@ export const Home = () => {
     </>
   );
 };
-function toLowerCase(
-  mark: string,
-  color: string,
-  year: string,
-  fuel: string,
-  price: string
-): any {
-  throw new Error("Function not implemented.");
-}
