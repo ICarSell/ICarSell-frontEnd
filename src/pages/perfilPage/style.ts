@@ -36,14 +36,19 @@ export const PerfilPageStyle = styled.div`
     left: 50%;
     height: 900px;
     transform: translate(-50%, -50%);
+    overflow-x: hidden;
     ul {
       display: flex;
+      align-items: center;
+      justify-content: center;
       flex-direction: row;
       gap: 20px;
       padding: 20px;
       flex-wrap: wrap;
     }
   }
+
+  // Media query: 426px
 
   .image-perfil {
     width: 100px;
@@ -114,5 +119,47 @@ export const PerfilPageStyle = styled.div`
     line-height: 0px;
 
     color: #4529e6;
+  }
+
+  @media (max-width: 426px) {
+    height: 1100px;
+    background-color: var(--color-grey7);
+    .card-perfil-user {
+      position: absolute;
+      background-color: var(--color-white-fixed);
+      width: 80%;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -85%);
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      gap: 35px;
+      height: 400px;
+    }
+    .div-color-white {
+      height: 60%;
+      width: 100%;
+      background-color: var(--color-grey8);
+    }
+    .card-list-cars {
+      position: absolute;
+      background-color: var(--color-grey7);
+      width: 90%;
+      top: calc(45% + 30vh);
+      left: 50%;
+      height: 450px;
+      transform: translate(-50%, -50%);
+      overflow-x: hidden;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+        padding: 20px;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+      }
+    }
   }
 `;

@@ -42,15 +42,20 @@ export const Home = () => {
   const [filterItens, setFilterItens] = useState(announcements);
 
   const verifyCheck = (key: string, value: string) => {
+    console.log(value);
     if (key === "KM") {
       setKeysFilter([...keysFilter, value]);
       const filterByMileage = [...filterItens];
       if (value === "Minima") {
         filterByMileage.sort((a: any, b: any) => {
+          a.mileage = parseFloat(a.mileage).toFixed(3);
+          b.mileage = parseFloat(b.mileage).toFixed(3);
           return Number(a.mileage) - Number(b.mileage);
         });
       } else if (value === "Máxima") {
         filterByMileage.sort((a: any, b: any) => {
+          a.mileage = parseFloat(a.mileage).toFixed(3);
+          b.mileage = parseFloat(b.mileage).toFixed(3);
           return Number(b.mileage) - Number(a.mileage);
         });
       }
@@ -62,10 +67,15 @@ export const Home = () => {
       const filterByprice = [...filterItens];
       if (value === "Minimo") {
         filterByprice.sort((a: any, b: any) => {
+          a.price = parseFloat(a.price).toFixed(3);
+          b.price = parseFloat(b.price).toFixed(3);
+          console.log(a.price);
           return Number(a.price) - Number(b.price);
         });
       } else if (value === "Máximo") {
         filterByprice.sort((a: any, b: any) => {
+          a.price = parseFloat(a.price).toFixed(3);
+          b.price = parseFloat(b.price).toFixed(3);
           return Number(b.price) - Number(a.price);
         });
       }
@@ -73,9 +83,6 @@ export const Home = () => {
       return;
     }
 
-    if (typeof value === "string") {
-      value = value.toLowerCase();
-    }
     if (key === "marca") {
       key = "mark";
     } else if (key === "modelo") {
@@ -183,8 +190,8 @@ export const Home = () => {
               })}
               <h2>Cor</h2>
               {announcements.map((value: any) => {
-                if (!renderedString.includes(value.color)) {
-                  renderedString.push(value.color);
+                if (!renderedString.includes(value.color.toLowerCase())) {
+                  renderedString.push(value.color.toLowerCase());
                   return (
                     <li>
                       <PClick
@@ -245,7 +252,14 @@ export const Home = () => {
                             : "secondary"
                         }
                         onClick={() => {
-                          verifyCheck("fuel", String(value.fuel));
+                          const firstLetter = value.fuel
+                            .charAt(0)
+                            .toUpperCase();
+                          const remainingLetters = value.fuel
+                            .slice(1)
+                            .toLowerCase();
+                          const formattedValue = firstLetter + remainingLetters;
+                          verifyCheck("fuel", formattedValue);
                           combustivelColor === value.fuel
                             ? setCombustivelColor("")
                             : setCombustivelColor(String(value.fuel));
