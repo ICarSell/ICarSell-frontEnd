@@ -89,7 +89,10 @@ export const Home = () => {
     }
 
     const filteredAnnouncements = filterItens.filter((element) => {
-      return element[key] == value;
+      const itensIncludes = element[key].includes(value);
+      if (itensIncludes) {
+        return element;
+      }
     });
     setKeysFilter([...keysFilter, value]);
     setFilterItens(filteredAnnouncements);
@@ -152,8 +155,8 @@ export const Home = () => {
               })}
               <h2>Modelo</h2>
               {announcements.map((value: any) => {
-                if (!renderedString.includes(value.model)) {
-                  renderedString.push(value.model);
+                if (!renderedString.includes(value.model.split(" ")[0])) {
+                  renderedString.push(value.model.split(" ")[0]);
                   return (
                     <li>
                       <PClick
@@ -162,13 +165,16 @@ export const Home = () => {
                           value.model === modelColor ? "primary" : "secondary"
                         }
                         onClick={() => {
-                          verifyCheck("modelo", String(value.model));
+                          verifyCheck(
+                            "modelo",
+                            String(value.model).split(" ")[0]
+                          );
                           modelColor === value.model
                             ? setModelColor("")
                             : setModelColor(value.model);
                         }}
                       >
-                        {value.model}
+                        {value.model.split(" ")[0]}
                       </PClick>
                     </li>
                   );
