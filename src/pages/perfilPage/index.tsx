@@ -20,7 +20,7 @@ export const PerfilPage = () => {
     useContext(ModalContext);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
-  const [editCar, setEditCar] = useState(false);
+  const [editCar, setEditCar] = useState<any>();
 
   if (!user) {
     return <div>Carregando...</div>;
@@ -40,7 +40,9 @@ export const PerfilPage = () => {
   return (
     <>
       <ToastContainer />
-      {modalDelete && <ModalAnnouncementDelete modal={setModalDelete} />}
+      {modalDelete && (
+        <ModalAnnouncementDelete modal={setModalDelete} idCar={editCar.id} />
+      )}
       {openModalUpdateAddress && <ModalUpdateAddress />}
       {openModelDeleteUser && <ModalDeleteUser />}
       {openModalUpdateUser && <ModalUpdateUser />}
