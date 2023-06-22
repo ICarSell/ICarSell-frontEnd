@@ -9,7 +9,7 @@ export const StyledContainerModalDelete = styled.main`
   z-index: 5;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding: 20px 20px 0;
 `;
 
 export const StyledContainModal = styled.div`
@@ -31,7 +31,6 @@ export const StyledContainModal = styled.div`
     background-color: var(--color-grey7);
     border-radius: var(--radius-1);
     margin-top: 20px;
-    
 
     img {
       width: 100%;
