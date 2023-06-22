@@ -4,18 +4,21 @@ import { AsideStyled, Container, Main } from "./style";
 import imgPerfil from "../../assets/perfil.png";
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
+import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
     useContext(UserContext);
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
+  const [galleryImg, setGalleryImg] = useState(null);
+  const [openModalGallery, setOpenModalGallery] = useState(false);
 
   if (!announcement) {
     return <h1>Carregando...</h1>;
@@ -31,6 +34,12 @@ export const ProductPage = () => {
       <ToastContainer />
       <Navbar />
       <Container>
+        {openModalGallery && (
+          <ModalGalleryImgCar
+            galleryImg={galleryImg}
+            setOpenModalGallery={setOpenModalGallery}
+          />
+        )}
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}
@@ -69,7 +78,13 @@ export const ProductPage = () => {
             <h2>Fotos</h2>
             <ul>
               {announcement?.gallery.map((value: any, index: any) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  onClick={() => {
+                    setGalleryImg(value);
+                    setOpenModalGallery(true)
+                  }}
+                >
                   <img
                     src={`http://localhost:3000/${value?.path.replace(
                       /\\/g,
