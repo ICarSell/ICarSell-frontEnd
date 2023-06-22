@@ -60,5 +60,13 @@ export const StyledContainerModal = styled.main`
       font-weight: var(--text-weight600);
       font-family: var(--font-family-inter);
     }
+    .laodingBar {
+      display: flex;
+      gap: 15px;
+      h3 {
+        color: var(--color-brand1);
+        padding-top: 5px;
+      }
+    }
   }
 `;
