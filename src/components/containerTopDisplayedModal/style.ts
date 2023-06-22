@@ -9,7 +9,7 @@ export const StyledContainerModalDelete = styled.main`
   z-index: 5;
   display: flex;
   justify-content: center;
-  padding: 20px 20px 0;
+  padding: 80px 20px 0;
 `;
 
 export const StyledContainModal = styled.div`
