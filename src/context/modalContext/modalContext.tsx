@@ -20,6 +20,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [openModalResetPass, setOpenModalResetPass] = useState(false);
   const [emailSend, setEmailSend] = useState(false);
   const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
+  const [loadingOn, setLoadingOn] = useState(false);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -83,12 +84,18 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   };
 
   const recoverPass = async (emailData: tRecoverPassReq) => {
+    setLoadingOn(true);
     try {
       const { data } = await api.patch(`/forgot-password`, emailData);
       toast.success(data.message);
       setEmailSend(true);
+      setLoadingOn(false);
     } catch (error: any) {
       toast.error(error.response?.data.message);
+      setLoadingOn(false);
+      setEmailSend(false);
+    } finally {
+      setLoadingOn(false);
     }
   };
 
@@ -107,6 +114,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         recoverPass,
         openModelDeleteUser,
         setOpenModelDeleteUser,
+        loadingOn,
+        setLoadingOn,
       }}
     >
       {children}

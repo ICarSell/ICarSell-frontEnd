@@ -9,9 +9,10 @@ import { HeaderModal } from "../headerModal";
 import { Input } from "../input";
 import { Form } from "../form";
 import { recoverPassSchema } from "../../schemas/loginSchema";
+import { LaodingSpin } from "../loadingSpin";
 
 export const ModalResetPassword = () => {
-  const { setOpenModalResetPass, emailSend, recoverPass } =
+  const { setOpenModalResetPass, emailSend, recoverPass, loadingOn } =
     useContext(ModalContext);
   const { register, handleSubmit, reset } = useForm<tRecoverPassReq>({
     resolver: zodResolver(recoverPassSchema),
@@ -43,29 +44,50 @@ export const ModalResetPassword = () => {
           </strong>
         </p>
 
-        <Input
-          label="Email"
-          type="text"
-          placeholder="Ex: Joao@gmail.com"
-          register={register("email")}
-        />
+        {!emailSend && !loadingOn && (
+          <Input
+            label="Email"
+            type="text"
+            placeholder="Ex: Joao@gmail.com"
+            register={register("email")}
+          />
+        )}
         {emailSend && (
           <p className="emailSend">
             O email foi enviado, por favor cheque seu email!
           </p>
         )}
+        {loadingOn && (
+          <div className="laodingBar">
+            <LaodingSpin />
+            <h3>Estamos enviando o email...</h3>
+          </div>
+        )}
 
         <div className="containerButton">
-          <Button
-            type="button"
-            buttonVariation="closeModal"
-            onClick={() => setOpenModalResetPass(false)}
-          >
-            Cancelar
-          </Button>
-          <Button type="submit" buttonVariation="updateUser">
-            Enviar
-          </Button>
+          {emailSend && (
+            <Button
+              type="button"
+              buttonVariation="closeModal"
+              onClick={() => setOpenModalResetPass(false)}
+            >
+              Fechar
+            </Button>
+          )}
+          {!emailSend && !loadingOn && (
+            <>
+              <Button
+                type="button"
+                buttonVariation="closeModal"
+                onClick={() => setOpenModalResetPass(false)}
+              >
+                Cancelar
+              </Button>
+              <Button type="submit" buttonVariation="updateUser">
+                Enviar
+              </Button>
+            </>
+          )}
         </div>
       </Form>
     </ContainerModal>
