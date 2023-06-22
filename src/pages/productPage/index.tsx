@@ -33,13 +33,13 @@ export const ProductPage = () => {
     <>
       <ToastContainer />
       <Navbar />
+      {openModalGallery && (
+        <ModalGalleryImgCar
+          galleryImg={galleryImg}
+          setOpenModalGallery={setOpenModalGallery}
+        />
+      )}
       <Container>
-        {openModalGallery && (
-          <ModalGalleryImgCar
-            galleryImg={galleryImg}
-            setOpenModalGallery={setOpenModalGallery}
-          />
-        )}
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}
@@ -82,7 +82,7 @@ export const ProductPage = () => {
                   key={index}
                   onClick={() => {
                     setGalleryImg(value);
-                    setOpenModalGallery(true)
+                    setOpenModalGallery(true);
                   }}
                 >
                   <img
