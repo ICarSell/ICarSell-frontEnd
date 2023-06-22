@@ -11,7 +11,7 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 
 export const Navbar = () => {
   const { navigate, user } = useContext(UserContext);
-  const { openModalUpdateAddress, openModalUpdateUser } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
   const token = localStorage.getItem("@TOKEN");
   const [dropDownOn, setDropDownOn] = useState(false);
@@ -50,14 +50,17 @@ export const Navbar = () => {
           {token && (
             <div className="desktop-div-user">
               <div
-                className="img-user"
+                className="image-perfil"
                 onClick={() => setDropDownOnUser(!dropDownOnUser)}
-              ></div>
+              >
+                <p>{user?.name[0].toUpperCase()}</p>
+              </div>
               <h3 onClick={() => setDropDownOnUser(!dropDownOnUser)}>
                 {user?.name}
               </h3>
               {!openModalUpdateUser &&
                 !openModalUpdateAddress &&
+                !openModelDeleteUser &&
                 dropDownOnUser && <DropDownMenu />}
             </div>
           )}

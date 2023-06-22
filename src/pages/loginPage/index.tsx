@@ -10,10 +10,14 @@ import { LoginData, loginSchema } from "../../schemas/loginSchema";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
+import { ModalContext } from "../../context/modalContext/modalContext";
+import { ModalResetPassword } from "../../components/globalModal/resetPassword";
 
 export const Login = () => {
   const { submitLogin, unauthorized, setUnauthorized, navigate } =
     useContext(UserContext);
+  const { openModalResetPass, setOpenModalResetPass } =
+    useContext(ModalContext);
 
   const {
     register,
@@ -28,6 +32,7 @@ export const Login = () => {
       <Navbar />
       <ContainerRL>
         <ToastContainer />
+        {openModalResetPass && <ModalResetPassword />}
         <Form className="formLogin" onSubmit={handleSubmit(submitLogin)}>
           <h2>Login</h2>
           <Input
@@ -52,7 +57,9 @@ export const Login = () => {
           )}
           {unauthorized && <span className="errorMessage">{unauthorized}</span>}
           <div className="forgotPassword">
-            <p>Esqueci minha senha</p>
+            <p onClick={() => setOpenModalResetPass(true)}>
+              Esqueci minha senha
+            </p>
           </div>
           <Button buttonVariation="enter" type="submit">
             Entrar

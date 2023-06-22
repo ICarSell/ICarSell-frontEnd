@@ -15,7 +15,11 @@ interface Car {
 
 type MarksWithCars = { [mark: string]: Car[] };
 
-export const EditAnnouncementCarForm = ({ editCar, setModalEdit }) => {
+export const EditAnnouncementCarForm = ({
+  editCar,
+  setModalEdit,
+  setModalDelete,
+}: any) => {
   const { updateAnnouncement } = useContext(UserContext);
 
   const [allMarks, setAllMarks] = useState<string[]>([]);
@@ -138,9 +142,9 @@ export const EditAnnouncementCarForm = ({ editCar, setModalEdit }) => {
 
       const label = e.target.closest("label");
       if (fileList.length > 0) {
-        label.classList.add("selected");
+        label?.classList.add("selected");
       } else {
-        label.classList.remove("selected");
+        label?.classList.remove("selected");
       }
     }
   };
@@ -171,6 +175,11 @@ export const EditAnnouncementCarForm = ({ editCar, setModalEdit }) => {
     const idCar: string = editCar.id;
     updateAnnouncement(formData, idCar);
     setModalEdit(false);
+  };
+
+  const excluir = () => {
+    setModalEdit(false);
+    setModalDelete(true);
   };
 
   return (
@@ -309,7 +318,7 @@ export const EditAnnouncementCarForm = ({ editCar, setModalEdit }) => {
         </div>
         <div className="imgCover">
           <label className={gallery.length > 0 ? "selected" : ""}>
-            Galeria de Imagens (Max 6 imagens)
+            Galeria de Imagens ({gallery.length}/6 imagens)
             <input
               type="file"
               accept="image/*"
@@ -320,7 +329,11 @@ export const EditAnnouncementCarForm = ({ editCar, setModalEdit }) => {
         </div>
 
         <div className="buttons">
-          <button type="button" className="buttonCancelar">
+          <button
+            type="button"
+            className="buttonCancelar"
+            onClick={() => excluir()}
+          >
             Excluir anúncio
           </button>
           <button className="enviar" type="submit">

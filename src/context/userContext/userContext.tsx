@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { iLoginData, iUserContext, iUserContextProps } from "./types";
+import {
+  iLoginData,
+  iUserContext,
+  iUserContextProps,
+  tPasswordUpdateReq,
+} from "./types";
 import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
@@ -19,6 +24,9 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [announcementId, setAnnouncementId] = useState("");
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
+  const [passwordToken, setPasswordToken] = useState<undefined | string>();
+  const [announcementUser, setAnnouncementUser] = useState();
+  const [announcementUserId, setAnnouncementUserId] = useState("");
 
   useEffect(() => {
     async function getUser() {
@@ -42,15 +50,17 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   useEffect(() => {
     const idCar = localStorage.getItem("@CARID");
-    const getAnnouncement = async () => {
-      try {
-        const response = await api.get(`/announcement/${idCar}`);
-        setAnnouncement(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAnnouncement();
+    if (idCar) {
+      const getAnnouncement = async () => {
+        try {
+          const response = await api.get(`/announcement/${idCar}`);
+          setAnnouncement(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getAnnouncement();
+    }
   }, [announcementId, setAnnouncement]);
 
   const submitLogin = async (formData: iLoginData) => {
@@ -131,10 +141,12 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         },
       });
 
+      toast.success("Anúncio criado com sucesso!");
       getUser();
       return response;
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao criar anúncio");
     }
   };
 
@@ -157,11 +169,49 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       });
 
       getUser();
+      toast.success("Anúncio editado com sucesso!");
       return response;
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao editar anúncio");
     }
   };
+
+  const recoverPassword = async (formData: tPasswordUpdateReq) => {
+    try {
+      const response = await api.patch(
+        `/reset-password/${passwordToken}`,
+        formData
+      );
+      toast.success("Senha alterada com sucesso");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const userId = localStorage.getItem("@ANNUSERID");
+    if (userId) {
+      const viewPage = async () => {
+        try {
+          setLoading(true);
+          const { data } = await api.get(`/user/${JSON.parse(userId!)}`);
+          setAnnouncementUser(data);
+        } catch (err) {
+          const currentError = err as AxiosError;
+          console.log(currentError.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+      viewPage();
+    }
+  }, [setAnnouncementUser, announcementUserId]);
 
   return (
     <UserContext.Provider
@@ -180,6 +230,13 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         loading,
         getUser,
         updateAnnouncement,
+        recoverPassword,
+        setPasswordToken,
+        passwordToken,
+        announcementUser,
+        setAnnouncementUser,
+        announcementUserId,
+        setAnnouncementUserId,
       }}
     >
       {children}

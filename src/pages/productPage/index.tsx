@@ -8,16 +8,32 @@ import { useContext } from "react";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ToastContainer } from "react-toastify";
+import { ModalUpdateUser } from "../../components/globalModal/updateUser";
+import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 
 export const ProductPage = () => {
-  const { announcement } = useContext(UserContext);
-  const { openModalUpdateAddress } = useContext(ModalContext);
+  const { announcement, navigate, setAnnouncementUserId } =
+    useContext(UserContext);
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
+    useContext(ModalContext);
+
+  if (!announcement) {
+    return <h1>Carregando...</h1>;
+  }
+  const pageNext = () => {
+    setAnnouncementUserId(announcement.user.id);
+    localStorage.setItem("@ANNUSERID", JSON.stringify(announcement.user.id));
+    navigate("/page-user");
+  };
+
   return (
     <>
       <ToastContainer />
       <Navbar />
       <Container>
         {openModalUpdateAddress && <ModalUpdateAddress />}
+        {openModalUpdateUser && <ModalUpdateUser />}
+        {openModelDeleteUser && <ModalDeleteUser />}
         <Main>
           <div className="img_car">
             <img
@@ -52,7 +68,7 @@ export const ProductPage = () => {
           <div className="aside-div">
             <h2>Fotos</h2>
             <ul>
-              {announcement?.gallery.map((value: { path: string }, index) => (
+              {announcement?.gallery.map((value: any, index: any) => (
                 <li key={index}>
                   <img
                     src={`http://localhost:3000/${value?.path.replace(
@@ -71,7 +87,7 @@ export const ProductPage = () => {
             </div>
             <h2>{announcement?.user.name}</h2>
             <p>{announcement?.user.description}</p>
-            <button>Ver todos os anuncios</button>
+            <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
       </Container>

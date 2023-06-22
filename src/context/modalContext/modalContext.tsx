@@ -3,6 +3,7 @@ import {
   iModalProps,
   iModalProviderProps,
   tAddressUpdateReq,
+  tRecoverPassReq,
   tUserUpdateReq,
 } from "./types";
 import { tUserReturnWithoutPass } from "../../pages/registerPage/type";
@@ -16,36 +17,12 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const { getUser, user } = useContext(UserContext);
   const [openModalUpdateAddress, setOpenModalUpdateAddress] = useState(false);
   const [openModalUpdateUser, setOpenModalUpdateUser] = useState(false);
+  const [openModalResetPass, setOpenModalResetPass] = useState(false);
+  const [emailSend, setEmailSend] = useState(false);
+  const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
-    if (user.email === updateData.email && user.cpf === updateData.cpf) {
-      const { cpf: _, email: __, ...userRequest } = updateData;
-      const { dateOfBirth: date, ...userUpdated } = userRequest;
-      const dateOfBirth = Number(date);
-      const newUserData = { dateOfBirth, ...userUpdated };
-      try {
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
-        const { data } = await api.patch<tUserReturnWithoutPass>(
-          "/user",
-          newUserData
-        );
-        console.log(data);
-        getUser();
-        setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
-        return;
-      } catch (err: any) {
-        if (err.response?.data.message === "Email already exists") {
-          console.log("Email ja Cadastrado");
-          return;
-        }
-        if (err.response?.data.message === "CPF already exists") {
-          console.log("CPF ja Cadastrado");
-          return;
-        }
-      }
-    }
     if (user.email === updateData.email) {
       const { email: _, ...userRequest } = updateData;
       const { dateOfBirth: date, ...userUpdated } = userRequest;
@@ -60,34 +37,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         console.log(data);
         getUser();
         setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
-        return;
-      } catch (err: any) {
-        if (err.response?.data.message === "Email already exists") {
-          console.log("Email ja Cadastrado");
-          return;
-        }
-        if (err.response?.data.message === "CPF already exists") {
-          console.log("CPF ja Cadastrado");
-          return;
-        }
-      }
-    }
-    if (user.cpf === updateData.cpf) {
-      const { cpf: _, ...userRequest } = updateData;
-      const { dateOfBirth: date, ...userUpdated } = userRequest;
-      const dateOfBirth = Number(date);
-      const newUserData = { dateOfBirth, ...userUpdated };
-      try {
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
-        const { data } = await api.patch<tUserReturnWithoutPass>(
-          "/user",
-          newUserData
-        );
-        console.log(data);
-        getUser();
-        setOpenModalUpdateUser(false);
-        // toast.success("Conta Criada!");
+        toast.success("Conta Atualiza!");
         return;
       } catch (err: any) {
         if (err.response?.data.message === "Email already exists") {
@@ -111,16 +61,17 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
       );
       getUser();
       setOpenModalUpdateUser(false);
+      toast.success("Conta Atualiza!");
     } catch (err: any) {
       console.log(err.response?.data.message);
     }
   };
 
-  const updateAddress = (formData: tAddressUpdateReq) => {
+  const updateAddress = async (formData: tAddressUpdateReq) => {
     console.log(formData);
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
     try {
-      api.patch(`/address/${user.address.id}`, formData, {
+      await api.patch(`/address/${user.address.id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       getUser();
@@ -128,6 +79,16 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
       toast.success("Endereço atualizado");
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const recoverPass = async (emailData: tRecoverPassReq) => {
+    try {
+      const { data } = await api.patch(`/forgot-password`, emailData);
+      toast.success(data.message);
+      setEmailSend(true);
+    } catch (error: any) {
+      toast.error(error.response?.data.message);
     }
   };
 
@@ -140,6 +101,12 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setOpenModalUpdateUser,
         updateUser,
         updateAddress,
+        openModalResetPass,
+        setOpenModalResetPass,
+        emailSend,
+        recoverPass,
+        openModelDeleteUser,
+        setOpenModelDeleteUser,
       }}
     >
       {children}

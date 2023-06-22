@@ -9,6 +9,7 @@ import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ToastContainer } from "react-toastify";
+import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 
 const km = ["Minima", "Máxima"];
 const preco = ["Minimo", "Máximo"];
@@ -24,7 +25,7 @@ export const Home = () => {
   const [priceColor, setPriceColor] = useState("primary");
 
   const [announcements, setAnnouncements] = useState([]);
-  const { openModalUpdateAddress, openModalUpdateUser } =
+  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
   const [keysFilter, setKeysFilter] = useState<string[]>([]);
 
@@ -105,9 +106,7 @@ export const Home = () => {
     setKmColor("primary");
     setPriceColor("primary");
   };
-
   const renderedString = [];
-
   return (
     <>
       <Navbar />
@@ -115,6 +114,8 @@ export const Home = () => {
       <StyledHome>
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
+        <>{openModelDeleteUser && <ModalDeleteUser />}</>
+
         <div className="containerGradient">
           <div className="containerImg">
             <h1>Motors Shop</h1>

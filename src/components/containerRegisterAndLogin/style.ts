@@ -69,4 +69,11 @@ export const StyledConatainerRL = styled.main`
       }
     }
   }
+
+  .formChangePassword {
+    padding: 44px 48px 44px 48px;
+    width: 412px;
+    height: auto;
+    border-radius: var(--radius-2);
+  }
 `;

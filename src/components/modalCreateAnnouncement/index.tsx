@@ -259,7 +259,7 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
         </div>
         <div className="imgCover">
           <label className={gallery.length > 0 ? "selected" : ""}>
-            Galeria de Imagens
+            Galeria de Imagens ({gallery.length}/6 imagens)
             <input
               type="file"
               accept="image/*"
