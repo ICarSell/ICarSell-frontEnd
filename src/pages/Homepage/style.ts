@@ -82,6 +82,17 @@ export const StyledHome = styled.main`
 
     .filtro {
       display: none;
+      .ulFilter {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        button {
+          padding: 10px;
+          color: white;
+          border-radius: 8px;
+          background-color: var(--color-brand1);
+        }
+      }
       @media (min-width: 376px) {
         display: flex;
         flex-direction: column;
@@ -149,6 +160,14 @@ export const StyledHome = styled.main`
     }
   }
 
+  .key-filter {
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    background-color: var(--color-brand1);
+    color: white;
+  }
+
   .pagination {
     display: flex;
     flex-direction: column;
@@ -193,30 +212,32 @@ export interface iStyledButtonProps {
   variant?: string;
 }
 
-export const PClick = styled.p<iStyledButtonProps>`
-  padding: 10px 20px;
+export const PClick = styled.button<iStyledButtonProps>`
   border: none;
   border-radius: 4px;
-  background-color: red;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--color-grey3);
+  font-size: 18px;
   ${(props) => {
     switch (props.variant) {
       case "primary":
         return `
-        background-color: blue;
+        background-color: var(--color-brand1);
+        padding: 8px;
         color: white;
       `;
       case "secondary":
         return `
-        background-color: gray;
+        background-color: white;
         color: black;
       `;
       case "success":
         return `
         background-color: green;
-        color: white;
       `;
       default:
         return "";
     }
-  }}
+  }};
 `;
