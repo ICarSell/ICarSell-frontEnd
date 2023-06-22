@@ -322,12 +322,3 @@ export const Home = () => {
     </>
   );
 };
-function toLowerCase(
-  mark: string,
-  color: string,
-  year: string,
-  fuel: string,
-  price: string
-): any {
-  throw new Error("Function not implemented.");
-}

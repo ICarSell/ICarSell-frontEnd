@@ -15,8 +15,9 @@ export const FooterStyled = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 426px) {
     flex-direction: column;
     gap: 60px;
+    width: 425px;
   }
 `;

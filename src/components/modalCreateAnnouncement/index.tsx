@@ -110,9 +110,9 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
 
       const label = e.target.closest("label");
       if (fileList.length > 0) {
-        label.classList.add("selected");
+        label?.classList.add("selected");
       } else {
-        label.classList.remove("selected");
+        label?.classList.remove("selected");
       }
     }
   };

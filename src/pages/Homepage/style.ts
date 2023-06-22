@@ -7,7 +7,7 @@ export const StyledHome = styled.main`
   flex-direction: column;
   align-items: flex-start;
 
-  @media (min-width: 376px) {
+  @media (max-width: 426px) {
     width: 100%;
   }
 
@@ -17,7 +17,7 @@ export const StyledHome = styled.main`
     background-size: cover;
 
     .containerImg {
-      width: 375px;
+      width: 425px;
       height: 625.33px;
       display: flex;
       flex-direction: column;
@@ -50,7 +50,7 @@ export const StyledHome = styled.main`
         position: absolute;
         top: 140px;
       }
-      @media (min-width: 376px) {
+      @media (min-width: 426px) {
         width: 100%;
         display: flex;
         align-items: center;
@@ -65,7 +65,7 @@ export const StyledHome = styled.main`
         }
       }
     }
-    @media (min-width: 376px) {
+    @media (min-width: 426px) {
       background-image: url(${imgDesk});
       background-position: center;
       background-size: cover;
@@ -74,7 +74,7 @@ export const StyledHome = styled.main`
   }
 
   .containerList {
-    @media (min-width: 376px) {
+    @media (min-width: 426px) {
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -93,7 +93,7 @@ export const StyledHome = styled.main`
           background-color: var(--color-brand1);
         }
       }
-      @media (min-width: 376px) {
+      @media (min-width: 426px) {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -109,7 +109,7 @@ export const StyledHome = styled.main`
         flex-direction: column;
       }
       .filterListContainer {
-        @media (min-width: 376px) {
+        @media (min-width: 426px) {
           display: flex;
           flex-direction: column;
           padding-left: 20px;
@@ -137,7 +137,7 @@ export const StyledHome = styled.main`
     }
 
     .carListContainar {
-      width: 375px;
+      width: 425px;
       display: flex;
       flex-direction: row;
       gap: 12px;
@@ -145,12 +145,13 @@ export const StyledHome = styled.main`
       overflow-x: auto;
 
       padding-left: 25px;
+      padding-right: 25px;
 
       margin-top: 50px;
       margin-bottom: 50px;
     }
     .carListContainar {
-      @media (min-width: 376px) {
+      @media (min-width: 426px) {
         overflow-x: hidden;
         flex-wrap: wrap;
         width: 100%;
@@ -183,7 +184,7 @@ export const StyledHome = styled.main`
       align-items: center;
       gap: 10px;
 
-      @media (min-width: 376px) {
+      @media (min-width: 426px) {
         display: flex;
         flex-direction: row;
       }

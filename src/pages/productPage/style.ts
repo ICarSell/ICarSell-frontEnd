@@ -145,6 +145,12 @@ export const AsideStyled = styled.aside`
     margin: 0 auto;
     width: 80%;
     border-radius: 4px;
+
+    h2 {
+      font-family: var(--font-family-lexend);
+      font-size: var(--text-heading6);
+      font-weight: var(--text-weight600);
+    }
   }
   ul {
     background-color: var(--color-grey10);
@@ -178,6 +184,21 @@ export const AsideStyled = styled.aside`
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    .image-perfil {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      width: 75px;
+      height: 75px;
+      background: rgb(69, 41, 230);
+      border-radius: 150px;
+      p {
+        font-size: 40px;
+        color: #fff;
+      }
+    }
     h2 {
       font-family: var(--font-family-lexend);
       font-size: var(--text-heading6);

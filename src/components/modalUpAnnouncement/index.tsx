@@ -186,7 +186,7 @@ export const EditAnnouncementCarForm = ({
     <StyledEditModalAnnouncement>
       <form onSubmit={handleSubmit}>
         <div className="divTitle">
-          <h2>Criar anúncio</h2>
+          <h2>Editar anúncio</h2>
           <button className="buttonX" onClick={() => setModalEdit(false)}>
             X
           </button>
