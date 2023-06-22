@@ -79,10 +79,21 @@ export const StyledListCar = styled.li`
     height: 32px;
 
     div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 32px;
       height: 32px;
       background: #4529e6;
       border-radius: 150px;
+
+      p {
+        font-family: "Inter";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: white;
+      }
     }
 
     p {
@@ -134,34 +145,6 @@ export const StyledListCar = styled.li`
       font-size: 16px;
       line-height: 20px;
       color: #212529;
-    }
-    .cardButtons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-
-    .editButton,
-    .detailsButton {
-      display: flex;
-      align-items: center;
-      padding: 5px 10px;
-      background-color: #eee;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
-    }
-
-    .editButton:hover,
-    .detailsButton:hover {
-      background-color: #ccc;
-    }
-
-    .editButton > svg,
-    .detailsButton > svg {
-      margin-right: 5px;
     }
   }
 `;
