@@ -33,13 +33,13 @@ export const ProductPage = () => {
     <>
       <ToastContainer />
       <Navbar />
+      {openModalGallery && (
+        <ModalGalleryImgCar
+          galleryImg={galleryImg}
+          setOpenModalGallery={setOpenModalGallery}
+        />
+      )}
       <Container>
-        {openModalGallery && (
-          <ModalGalleryImgCar
-            galleryImg={galleryImg}
-            setOpenModalGallery={setOpenModalGallery}
-          />
-        )}
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}

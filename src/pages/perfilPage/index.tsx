@@ -58,7 +58,7 @@ export const PerfilPage = () => {
             <h2>{user.name}</h2>
             <p>Anunciante</p>
           </div>
-          <p>{user.description}</p>
+          <p className="description">{user.description}</p>
           <button
             className="button-create-announcement"
             type="button"

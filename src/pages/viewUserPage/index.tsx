@@ -35,7 +35,7 @@ export const ViewUserPage = () => {
             <h2>{announcementUser?.name}</h2>
             <p>Anunciante</p>
           </div>
-          <p>{announcementUser?.description}</p>
+          <p className="description">{announcementUser?.description}</p>
         </div>
         <div className="card-list-cars">
           <ul>

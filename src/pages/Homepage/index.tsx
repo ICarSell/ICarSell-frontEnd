@@ -193,7 +193,10 @@ export const Home = () => {
                           value.color === corColor ? "primary" : "secondary"
                         }
                         onClick={() => {
-                          verifyCheck("color", String(value.color));
+                          verifyCheck(
+                            "color",
+                            String(value.color.toLowerCase())
+                          );
                           corColor === value.color
                             ? setCorColor("")
                             : setCorColor(value.color);
