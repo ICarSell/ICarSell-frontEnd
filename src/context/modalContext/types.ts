@@ -19,6 +19,8 @@ export interface iModalProps {
   recoverPass: (email: tRecoverPassReq) => void;
   setOpenModelDeleteUser: React.Dispatch<React.SetStateAction<boolean>>;
   openModelDeleteUser: boolean;
+  loadingOn: boolean;
+  setLoadingOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface iModalProviderProps {
