@@ -45,11 +45,6 @@ export const StyledConatainerRL = styled.main`
         width: 90%;
       }
     }
-    span {
-      color: var(--color-alert1);
-      font-weight: var(--text-weight600);
-      width: 100%;
-    }
     .formButtonSeller {
       display: flex;
       gap: 15px;

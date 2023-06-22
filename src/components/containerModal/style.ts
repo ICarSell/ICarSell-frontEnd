@@ -30,6 +30,7 @@ export const StyledContainerModal = styled.main`
     .containerInput {
       display: flex;
       gap: 10px;
+      align-items: center;
     }
 
     .containerButton {
