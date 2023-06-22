@@ -12,13 +12,19 @@ import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 
 export const ProductPage = () => {
-  const { announcement } = useContext(UserContext);
+  const { announcement, navigate, setAnnouncementUserId } =
+    useContext(UserContext);
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
 
   if (!announcement) {
     return <h1>Carregando...</h1>;
   }
+  const pageNext = () => {
+    setAnnouncementUserId(announcement.user.id);
+    localStorage.setItem("@ANNUSERID", JSON.stringify(announcement.user.id));
+    navigate("/page-user");
+  };
 
   return (
     <>
@@ -81,7 +87,7 @@ export const ProductPage = () => {
             </div>
             <h2>{announcement?.user.name}</h2>
             <p>{announcement?.user.description}</p>
-            <button>Ver todos os anuncios</button>
+            <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
       </Container>

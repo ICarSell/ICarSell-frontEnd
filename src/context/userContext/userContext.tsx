@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   iLoginData,
   iUserContext,
@@ -25,6 +25,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const navigate = useNavigate();
   const [unauthorized, setUnauthorized] = useState("");
   const [passwordToken, setPasswordToken] = useState<undefined | string>();
+  const [announcementUser, setAnnouncementUser] = useState();
+  const [announcementUserId, setAnnouncementUserId] = useState("");
 
   useEffect(() => {
     async function getUser() {
@@ -192,6 +194,25 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   };
 
+  useEffect(() => {
+    const userId = localStorage.getItem("@ANNUSERID");
+    if (userId) {
+      const viewPage = async () => {
+        try {
+          setLoading(true);
+          const { data } = await api.get(`/user/${JSON.parse(userId!)}`);
+          setAnnouncementUser(data);
+        } catch (err) {
+          const currentError = err as AxiosError;
+          console.log(currentError.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+      viewPage();
+    }
+  }, [setAnnouncementUser, announcementUserId]);
+
   return (
     <UserContext.Provider
       value={{
@@ -212,6 +233,10 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         recoverPassword,
         setPasswordToken,
         passwordToken,
+        announcementUser,
+        setAnnouncementUser,
+        announcementUserId,
+        setAnnouncementUserId,
       }}
     >
       {children}

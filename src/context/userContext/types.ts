@@ -27,7 +27,11 @@ export interface iUserContext {
   updateAnnouncement: (formData: any, idCar: string) => void;
   recoverPassword: (FormData: tPasswordUpdateReq) => void;
   setPasswordToken: React.Dispatch<SetStateAction<string | undefined>>;
-  passwordToken: string | undefined
+  passwordToken: string | undefined;
+  announcementUser: any;
+  setAnnouncementUser: React.Dispatch<React.SetStateAction<any>>;
+  announcementUserId: string;
+  setAnnouncementUserId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface iLoginData {
