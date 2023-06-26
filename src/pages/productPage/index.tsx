@@ -107,8 +107,8 @@ export const ProductPage = () => {
             <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
-        {/* <AddComents /> */}
       </Container>
+      <AddComents />
       <Footer />
     </>
   );

@@ -32,33 +32,42 @@ export const AddComents = () => {
   return !token ? (
     <StyledCommentsDisabled>
       <div className="container">
-        <form>
-          <textarea placeholder="Escreva um comentario sobre o carro e seu vendedor" />
-          <button type="button" className="buttonComments" disabled>
-            Comentar
-          </button>
-        </form>
+        <div className="containerForm">
+          <form onSubmit={handleSubmit(postComments)}>
+            <textarea
+              id="comments"
+              placeholder="Escreva um comentario sobre o carro e seu vendedor"
+              {...register("comments")}
+              disabled
+            />
+            <button type="button" className="buttonComments" disabled>
+              Comentar
+            </button>
+          </form>
+        </div>
       </div>
     </StyledCommentsDisabled>
   ) : (
     <StyledComments>
       <div className="container">
-        <div className="user">
-          <div className="imgUser">
-            <p>{user.name[0].toUpperCase()}</p>
+        <div className="containerForm">
+          <div className="user">
+            <div className="imgUser">
+              <p>{user.name[0].toUpperCase()}</p>
+            </div>
+            <p>{user.name}</p>
           </div>
-          <p>{user.name}</p>
+          <form onSubmit={handleSubmit(postComments)}>
+            <textarea
+              id="comments"
+              placeholder="Escreva um comentario sobre o carro e seu vendedor"
+              {...register("comments")}
+            />
+            <button type="submit" className="buttonComments">
+              Comentar
+            </button>
+          </form>
         </div>
-        <form onSubmit={handleSubmit(postComments)}>
-          <textarea
-            id="comments"
-            placeholder="Escreva um comentario sobre o carro e seu vendedor"
-            {...register("comments")}
-          />
-          <button type="submit" className="buttonComments">
-            Comentar
-          </button>
-        </form>
       </div>
     </StyledComments>
   );

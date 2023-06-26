@@ -21,6 +21,10 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [emailSend, setEmailSend] = useState(false);
   const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
   const [loadingOn, setLoadingOn] = useState(false);
+<<<<<<< Updated upstream
+=======
+  const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
+>>>>>>> Stashed changes
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
