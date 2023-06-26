@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { AsideStyled, Container, Main } from "./style";
-import imgPerfil from "../../assets/perfil.png";
+
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
+import { AddComents } from "../../components/componentsComments";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -73,6 +74,7 @@ export const ProductPage = () => {
             <p>{announcement?.description}</p>
           </div>
         </Main>
+
         <AsideStyled>
           <div className="aside-div">
             <h2>Fotos</h2>
@@ -105,6 +107,7 @@ export const ProductPage = () => {
             <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
+        {/* <AddComents /> */}
       </Container>
       <Footer />
     </>
