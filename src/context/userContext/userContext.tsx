@@ -13,7 +13,8 @@ import {
   tUserReq,
   tUserReturnWithoutPass,
 } from "../../pages/registerPage/type";
-import { Headers } from "node-fetch";
+
+import { commentsData } from "../../schemas/comments";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -154,7 +155,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     const token = localStorage.getItem("@TOKEN");
 
     try {
-      let headers: Headers = {
+      let headers: any = {
         Authorization: `Bearer ${JSON.parse(token!)}`,
       };
 
@@ -213,6 +214,29 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   }, [setAnnouncementUser, announcementUserId]);
 
+  const getAnnouncement = async () => {
+    const idCar = localStorage.getItem("@CARID");
+    try {
+      const response = await api.get(`/announcement/${idCar}`);
+      setAnnouncement(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const postComments = async (data: commentsData, idCar: string) => {
+    try {
+      const response = await api.post(`/comments/${idCar}`, data);
+
+      toast.success("Comentario adicionado com sucesso");
+      getAnnouncement();
+      return response;
+    } catch (error) {
+      console.log(error);
+      toast.error("Erro ao adicionar um comentario");
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -237,6 +261,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setAnnouncementUser,
         announcementUserId,
         setAnnouncementUserId,
+        postComments,
       }}
     >
       {children}

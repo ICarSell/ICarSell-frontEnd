@@ -133,7 +133,7 @@ export const ProductPage = () => {
           </div>
         </AsideStyled>
       </Container>
-      <AddComents />
+      <AddComents announcementId={announcement.id} />
       <Footer />
     </>
   );
