@@ -43,7 +43,6 @@ export const Home = () => {
   const [filterItens, setFilterItens] = useState(announcements);
 
   const verifyCheck = (key: string, value: string) => {
-    console.log(value);
     if (key === "KM") {
       setKeysFilter([...keysFilter, value]);
       const filterByMileage = [...filterItens];

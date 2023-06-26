@@ -6,6 +6,7 @@ import {
 } from "../../pages/registerPage/type";
 import { changePasswordSchema } from "../../schemas/registerSchemas";
 import { z } from "zod";
+import { commentsData } from "../../schemas/comments";
 
 export interface iUserContextProps {
   children: React.ReactNode;
@@ -32,6 +33,7 @@ export interface iUserContext {
   setAnnouncementUser: React.Dispatch<React.SetStateAction<any>>;
   announcementUserId: string;
   setAnnouncementUserId: React.Dispatch<React.SetStateAction<string>>;
+  postComments: (data: commentsData, idCar: string) => void;
 }
 
 export interface iLoginData {

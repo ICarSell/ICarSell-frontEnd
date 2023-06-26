@@ -122,6 +122,11 @@ export const StyledComments = styled.div`
       }
     }
   }
+  .errorMessage {
+    font-size: 14px;
+    color: var(--color-alert1);
+    font-family: var(--font-family-inter);
+  }
 
   @media (max-width: 1024px) {
     .container {
