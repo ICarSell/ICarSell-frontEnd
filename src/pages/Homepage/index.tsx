@@ -10,6 +10,7 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ToastContainer } from "react-toastify";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
+import { EmptyList } from "../../components/emptyList";
 
 const km = ["Minima", "Máxima"];
 const preco = ["Minimo", "Máximo"];
@@ -323,7 +324,11 @@ export const Home = () => {
             )}
           </aside>
           <ul className="carListContainar">
-            <ListCarHome announcements={filterItens} />
+            {filterItens.length === 0 ? (
+              <EmptyList>Estamos sem nenhum anúncio cadastrado no momento...</EmptyList>
+            ) : (
+              <ListCarHome announcements={filterItens} />
+            )}
           </ul>
         </div>
 
