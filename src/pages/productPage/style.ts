@@ -68,12 +68,12 @@ export const Main = styled.main`
       font-weight: var(--text-weight600);
     }
     button {
-      width: 60%;
+      width: 100px;
       @media (min-width: 375px) {
         display: block;
       }
       @media (min-width: 700px) {
-        width: 40%;
+        width: 100px;
       }
     }
     .car_detail {

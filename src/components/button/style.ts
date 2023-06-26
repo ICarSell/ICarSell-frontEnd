@@ -124,6 +124,35 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-weight: var(--text-weight600);
           border-radius: var(--radius-2);
         `;
+      case "buy":
+        return css`
+          width: 100px;
+          height: 38px;
+          font-size: var(--text-body1);
+          border-radius: var(--radius-2);
+          background-color: var(--color-brand2);
+          color: var(--color-white-fixed);
+          font-weight: var(--text-weight600);
+
+          @media (min-width: 426px) {
+            display: none;
+          }
+        `;
+      case "buyDesibled":
+        return css`
+          width: 100px;
+          height: 38px;
+          font-size: var(--text-body1);
+          border-radius: var(--radius-2);
+          background-color: #ced4da;
+          color: var(--color-white-fixed);
+          font-weight: var(--text-weight600);
+          cursor: default;
+
+          @media (min-width: 426px) {
+            display: none;
+          }
+        `;
     }
   }}
 `;
