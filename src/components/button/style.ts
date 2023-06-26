@@ -104,6 +104,26 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-weight: var(--text-weight600);
           border-radius: var(--radius-2);
         `;
+      case "updateComment":
+        return css`
+          padding: 0 5px;
+          height: 48px;
+          color: var(--color-white-fixed);
+          background-color: var(--color-brand2);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+          border-radius: var(--radius-2);
+        `;
+      case "deleteComment":
+        return css`
+          padding: 10px 15px;
+          height: 48px;
+          color: var(--color-alert1);
+          background-color: var(--color-alert2);
+          font-size: var(--text-body1);
+          font-weight: var(--text-weight600);
+          border-radius: var(--radius-2);
+        `;
     }
   }}
 `;
