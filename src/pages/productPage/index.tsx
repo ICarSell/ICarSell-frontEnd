@@ -30,6 +30,11 @@ export const ProductPage = () => {
     navigate("/page-user");
   };
 
+  const redirectToBuy = (number: string, namecar: string) => {
+    const linkWhatsApp = `https://wa.me/${number}?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20seu%20carro%20${namecar}%20na%20motors%20shop`;
+    window.open(linkWhatsApp, "_blank");
+  };
+
   return (
     <>
       <ToastContainer />
@@ -65,7 +70,13 @@ export const ProductPage = () => {
               </div>
               <p>R$ {announcement?.price}</p>
             </div>
-            <Button type="button" buttonVariation="filters">
+            <Button
+              onClick={() =>
+                redirectToBuy(announcement.user.phone, announcement.model)
+              }
+              type="button"
+              buttonVariation="filters"
+            >
               Comprar
             </Button>
           </div>
