@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { AsideStyled, Container, Main } from "./style";
-import imgPerfil from "../../assets/perfil.png";
+
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
@@ -12,6 +12,7 @@ import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
 import { ModalUpdateComment } from "../../components/modalUpdateComment";
+import { AddComents } from "../../components/componentsComments";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -32,6 +33,11 @@ export const ProductPage = () => {
     setAnnouncementUserId(announcement.user.id);
     localStorage.setItem("@ANNUSERID", JSON.stringify(announcement.user.id));
     navigate("/page-user");
+  };
+
+  const redirectToBuy = (number: string, namecar: string) => {
+    const linkWhatsApp = `https://wa.me/${number}?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20seu%20carro%20${namecar}%20na%20motors%20shop`;
+    window.open(linkWhatsApp, "_blank");
   };
 
   return (
@@ -70,7 +76,13 @@ export const ProductPage = () => {
               </div>
               <p>R$ {announcement?.price}</p>
             </div>
-            <Button type="button" buttonVariation="filters">
+            <Button
+              onClick={() =>
+                redirectToBuy(announcement.user.phone, announcement.model)
+              }
+              type="button"
+              buttonVariation="filters"
+            >
               Comprar
             </Button>
           </div>
@@ -79,6 +91,7 @@ export const ProductPage = () => {
             <p>{announcement?.description}</p>
           </div>
         </Main>
+
         <AsideStyled>
           <div className="aside-div">
             <h2>Fotos</h2>
@@ -111,6 +124,7 @@ export const ProductPage = () => {
             <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
+        {/* <AddComents /> */}
       </Container>
       <Footer />
     </>
