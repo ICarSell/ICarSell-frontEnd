@@ -21,6 +21,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [emailSend, setEmailSend] = useState(false);
   const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
   const [loadingOn, setLoadingOn] = useState(false);
+  const [openModalUpdateComment, setOpenModalUpdateComment] = useState(true);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -116,6 +117,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setOpenModelDeleteUser,
         loadingOn,
         setLoadingOn,
+        openModalUpdateComment,
+        setOpenModalUpdateComment,
       }}
     >
       {children}

@@ -11,13 +11,18 @@ import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
+import { ModalUpdateComment } from "../../components/modalUpdateComment";
 import { AddComents } from "../../components/componentsComments";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
     useContext(UserContext);
-  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
-    useContext(ModalContext);
+  const {
+    openModalUpdateAddress,
+    openModalUpdateUser,
+    openModelDeleteUser,
+    openModalUpdateComment,
+  } = useContext(ModalContext);
   const [galleryImg, setGalleryImg] = useState(null);
   const [openModalGallery, setOpenModalGallery] = useState(false);
 
@@ -49,6 +54,7 @@ export const ProductPage = () => {
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}
+        {openModalUpdateComment && <ModalUpdateComment />}
         <Main>
           <div className="img_car">
             <img

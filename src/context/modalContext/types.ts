@@ -21,6 +21,8 @@ export interface iModalProps {
   openModelDeleteUser: boolean;
   loadingOn: boolean;
   setLoadingOn: React.Dispatch<React.SetStateAction<boolean>>;
+  openModalUpdateComment: boolean;
+  setOpenModalUpdateComment: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface iModalProviderProps {
