@@ -117,6 +117,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setOpenModelDeleteUser,
         loadingOn,
         setLoadingOn,
+        openModalUpdateComment,
+        setOpenModalUpdateComment,
       }}
     >
       {children}

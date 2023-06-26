@@ -10,6 +10,7 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ToastContainer } from "react-toastify";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
+import { EmptyList } from "../../components/emptyList";
 
 const km = ["Minima", "Máxima"];
 const preco = ["Minimo", "Máximo"];
@@ -96,8 +97,10 @@ export const Home = () => {
     }
 
     const filteredAnnouncements = filterItens.filter((element) => {
-      const itensIncludes = element[key].includes(value);
-      if (itensIncludes) {
+      const itemValue = element[key].toLowerCase();
+      const searchValue = value.toLowerCase();
+      const itemIncludes = itemValue.includes(searchValue);
+      if (itemIncludes) {
         return element;
       }
     });
@@ -209,7 +212,8 @@ export const Home = () => {
                             : setCorColor(value.color);
                         }}
                       >
-                        {value.color}
+                        {value.color[0].toUpperCase() +
+                          value.color.substring(1).toLowerCase()}
                       </PClick>
                     </li>
                   );
@@ -323,7 +327,13 @@ export const Home = () => {
             )}
           </aside>
           <ul className="carListContainar">
-            <ListCarHome announcements={filterItens} />
+            {filterItens.length === 0 ? (
+              <EmptyList>
+                Estamos sem nenhum anúncio cadastrado no momento...
+              </EmptyList>
+            ) : (
+              <ListCarHome announcements={filterItens} />
+            )}
           </ul>
         </div>
 

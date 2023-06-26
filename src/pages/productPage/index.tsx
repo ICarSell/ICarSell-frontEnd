@@ -11,13 +11,18 @@ import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
+import { ModalUpdateComment } from "../../components/modalUpdateComment";
 import { AddComents } from "../../components/componentsComments";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
     useContext(UserContext);
-  const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
-    useContext(ModalContext);
+  const {
+    openModalUpdateAddress,
+    openModalUpdateUser,
+    openModelDeleteUser,
+    openModalUpdateComment,
+  } = useContext(ModalContext);
   const [galleryImg, setGalleryImg] = useState(null);
   const [openModalGallery, setOpenModalGallery] = useState(false);
 
@@ -28,6 +33,11 @@ export const ProductPage = () => {
     setAnnouncementUserId(announcement.user.id);
     localStorage.setItem("@ANNUSERID", JSON.stringify(announcement.user.id));
     navigate("/page-user");
+  };
+
+  const redirectToBuy = (number: string, namecar: string) => {
+    const linkWhatsApp = `https://wa.me/${number}?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20seu%20carro%20${namecar}%20na%20motors%20shop`;
+    window.open(linkWhatsApp, "_blank");
   };
 
   return (
@@ -44,6 +54,7 @@ export const ProductPage = () => {
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}
+        {openModalUpdateComment && <ModalUpdateComment />}
         <Main>
           <div className="img_car">
             <img
@@ -65,7 +76,13 @@ export const ProductPage = () => {
               </div>
               <p>R$ {announcement?.price}</p>
             </div>
-            <Button type="button" buttonVariation="filters">
+            <Button
+              onClick={() =>
+                redirectToBuy(announcement.user.phone, announcement.model)
+              }
+              type="button"
+              buttonVariation="filters"
+            >
               Comprar
             </Button>
           </div>

@@ -69,4 +69,23 @@ export const StyledContainerModal = styled.main`
       }
     }
   }
+
+  .modalUpdateComment{
+    border-radius: var(--radius-1);
+    padding: 20px;
+
+    textarea{
+      width: 100%;
+      border: solid 2px var(--color-grey5);
+      font-family: var(--font-family-inter);
+      font-size: var(--text-body1);
+      padding-left: 10px;
+      resize: none;
+    }
+    .containerButton{
+      display: flex;
+      width: 100%;
+      gap: 10px;
+    }
+  }
 `;
