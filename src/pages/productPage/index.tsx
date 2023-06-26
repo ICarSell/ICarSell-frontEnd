@@ -40,6 +40,8 @@ export const ProductPage = () => {
     window.open(linkWhatsApp, "_blank");
   };
 
+  const token = localStorage.getItem("@TOKEN");
+
   return (
     <>
       <ToastContainer />
@@ -76,15 +78,21 @@ export const ProductPage = () => {
               </div>
               <p>R$ {announcement?.price}</p>
             </div>
-            <Button
-              onClick={() =>
-                redirectToBuy(announcement.user.phone, announcement.model)
-              }
-              type="button"
-              buttonVariation="filters"
-            >
-              Comprar
-            </Button>
+            {!token ? (
+              <Button type="button" buttonVariation="buyDesibled" disabled>
+                Comprar
+              </Button>
+            ) : (
+              <Button
+                onClick={() =>
+                  redirectToBuy(announcement.user.phone, announcement.model)
+                }
+                type="button"
+                buttonVariation="buy"
+              >
+                Comprar
+              </Button>
+            )}
           </div>
           <div className="car-desc">
             <h2>Descrição</h2>
