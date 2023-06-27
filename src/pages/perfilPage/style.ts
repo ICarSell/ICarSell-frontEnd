@@ -40,7 +40,7 @@ export const PerfilPageStyle = styled.div`
     ul {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-direction: row;
       gap: 20px;
       padding: 20px;
@@ -163,7 +163,7 @@ export const PerfilPageStyle = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        gap: 20px;
+        gap: 30px;
         padding: 20px;
         flex-wrap: nowrap;
         overflow-y: hidden;

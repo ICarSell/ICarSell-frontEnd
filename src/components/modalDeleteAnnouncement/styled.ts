@@ -18,26 +18,35 @@ export const ModalDeleteAnnouncementStyle = styled.div`
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 45px;
     padding: 20px;
   }
   .delete-annountcement-closed {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    p {
+      font-weight: 700;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
   }
   .button-closed {
     cursor: pointer;
   }
   p {
     font-size: 20px;
+    color: var(--color-grey2);
   }
   h2 {
-    font-size: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
   }
 
   .description-text {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 25px;
+    font-family: sans-serif;
   }
   .div-button {
     display: flex;
@@ -51,8 +60,13 @@ export const ModalDeleteAnnouncementStyle = styled.div`
     button:nth-child(1) {
       background-color: gray;
       color: black;
+      background-color: var(--color-grey5);
+      color: var(--color-grey2);
+      font-weight: 700;
     }
     button:nth-child(2) {
+      width: 170px;
+      font-weight: 700;
       background-color: pink;
       color: red;
     }
