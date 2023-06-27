@@ -2,8 +2,11 @@ import moment from "moment";
 import "moment/dist/locale/pt-br";
 import { StyledListComments } from "./style";
 import { Button } from "../button";
+import { ModalContext } from "../../context/modalContext/modalContext";
+import { useContext } from "react";
 
-export const CommentsSection = ({ comments }: any) => {
+export const CommentsSection = ({ comments, setIndexComment }: any) => {
+  const { setOpenModalUpdateComment, setCommentId } = useContext(ModalContext);
   console.log(comments);
   const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
   moment.locale("pt-br");
@@ -13,7 +16,7 @@ export const CommentsSection = ({ comments }: any) => {
       <div className="listComments">
         <h1>Comentários</h1>
         <ul className="comments">
-          {comments.map((comment: any) => {
+          {comments.map((comment: any, index: number) => {
             const createdAt = moment(comment.createdAt)
               .utcOffset("America/Sao_Paulo")
               .format("YYYY-MM-DD HH:mm");
@@ -33,7 +36,15 @@ export const CommentsSection = ({ comments }: any) => {
                   </div>
                   {token && (
                     <div className="editComment">
-                      <Button type="button" buttonVariation="updateComment">
+                      <Button
+                        type="button"
+                        buttonVariation="updateComment"
+                        onClick={() => {
+                          setOpenModalUpdateComment(true),
+                          setIndexComment(index);
+                          setCommentId(comment.id);
+                        }}
+                      >
                         Editar
                       </Button>
                     </div>

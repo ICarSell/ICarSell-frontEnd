@@ -5,6 +5,7 @@ import {
 } from "../../schemas/registerSchemas";
 import { z } from "zod";
 import { recoverPassSchema } from "../../schemas/loginSchema";
+import { updateCommentsSchema } from "../../schemas/comments";
 
 export interface iModalProps {
   openModalUpdateAddress: boolean;
@@ -23,6 +24,9 @@ export interface iModalProps {
   setLoadingOn: React.Dispatch<React.SetStateAction<boolean>>;
   openModalUpdateComment: boolean;
   setOpenModalUpdateComment: React.Dispatch<React.SetStateAction<boolean>>;
+  updateComment: (updateData: tCommentUpdateReq) => void;
+  setCommentId: React.Dispatch<React.SetStateAction<number>>;
+  commentId: number;
 }
 
 export interface iModalProviderProps {
@@ -32,3 +36,4 @@ export interface iModalProviderProps {
 export type tRecoverPassReq = z.infer<typeof recoverPassSchema>;
 export type tUserUpdateReq = z.infer<typeof userUpdateSchema>;
 export type tAddressUpdateReq = z.infer<typeof addressUpdateSchema>;
+export type tCommentUpdateReq = z.infer<typeof updateCommentsSchema>;
