@@ -8,9 +8,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { tCommentUpdateReq } from "../../context/modalContext/types";
 import { updateCommentsSchema } from "../../schemas/comments";
+import { UserContext } from "../../context/userContext/userContext";
 
-export const ModalUpdateComment = () => {
+export const ModalUpdateComment = ({ indexComment }: any) => {
   const { updateComment } = useContext(ModalContext);
+  const { announcement } = useContext(UserContext);
 
   const {
     handleSubmit,
@@ -42,6 +44,7 @@ export const ModalUpdateComment = () => {
           cols={30}
           rows={5}
           placeholder="Escreva um comentario sobre o carro e seu vendedor"
+          defaultValue={announcement.comments[indexComment].comments}
           {...register("comments")}
         ></textarea>
 

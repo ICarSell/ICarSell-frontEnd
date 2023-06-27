@@ -26,6 +26,7 @@ export const ProductPage = () => {
   } = useContext(ModalContext);
   const [galleryImg, setGalleryImg] = useState(null);
   const [openModalGallery, setOpenModalGallery] = useState(false);
+  const [indexComment, setIndexComment] = useState();
 
   if (!announcement) {
     return <h1>Carregando...</h1>;
@@ -57,7 +58,9 @@ export const ProductPage = () => {
         {openModalUpdateAddress && <ModalUpdateAddress />}
         {openModalUpdateUser && <ModalUpdateUser />}
         {openModelDeleteUser && <ModalDeleteUser />}
-        {openModalUpdateComment && <ModalUpdateComment />}
+        {openModalUpdateComment && (
+          <ModalUpdateComment indexComment={indexComment} />
+        )}
         <Main>
           <div className="img_car">
             <img
@@ -136,7 +139,10 @@ export const ProductPage = () => {
           </div>
         </AsideStyled>
       </Container>
-      <CommentsSection comments={announcement.comments} />
+      <CommentsSection
+        comments={announcement.comments}
+        setIndexComment={setIndexComment}
+      />
       <AddComents announcementId={announcement.id} />
       <Footer />
     </>

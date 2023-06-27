@@ -23,6 +23,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [openModelDeleteUser, setOpenModelDeleteUser] = useState(false);
   const [loadingOn, setLoadingOn] = useState(false);
   const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
+  const [commentId, setCommentId] = useState(0);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -103,9 +104,18 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     }
   };
 
-  const updateComment = (formData: tCommentUpdateReq) => {
-    console.log(formData);
-    
+  const updateComment = async (formData: tCommentUpdateReq) => {
+    const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
+    try {
+      await api.patch(`/comments/${commentId}`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setOpenModalUpdateComment(false);
+      toast.success("Comentário atualizado");
+      getAnnouncement();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -127,7 +137,9 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setLoadingOn,
         openModalUpdateComment,
         setOpenModalUpdateComment,
-        updateComment
+        updateComment,
+        setCommentId,
+        commentId,
       }}
     >
       {children}

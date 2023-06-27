@@ -25,6 +25,8 @@ export interface iModalProps {
   openModalUpdateComment: boolean;
   setOpenModalUpdateComment: React.Dispatch<React.SetStateAction<boolean>>;
   updateComment: (updateData: tCommentUpdateReq) => void;
+  setCommentId: React.Dispatch<React.SetStateAction<number>>;
+  commentId: number;
 }
 
 export interface iModalProviderProps {
