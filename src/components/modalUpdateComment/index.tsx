@@ -41,11 +41,11 @@ export const ModalUpdateComment = ({ indexComment }: any) => {
         </HeaderModal>
         <textarea
           id="comments"
-          cols={30}
-          rows={5}
           placeholder="Escreva um comentario sobre o carro e seu vendedor"
           defaultValue={announcement.comments[indexComment].comments}
           {...register("comments")}
+          rows={7}
+          maxLength={312}
         ></textarea>
 
         {errors.comments?.message && (
@@ -59,9 +59,6 @@ export const ModalUpdateComment = ({ indexComment }: any) => {
             onClick={() => setOpenModalUpdateComment(false)}
           >
             Cancelar
-          </Button>
-          <Button buttonVariation="deleteComment" type="button">
-            Excluir
           </Button>
           <Button buttonVariation="updateComment" type="submit">
             Salvar alterações

@@ -56,6 +56,8 @@ export const AddComents = ({ announcementId }: any) => {
               id="comments"
               placeholder="Escreva um comentario sobre o carro e seu vendedor"
               {...register("comments")}
+              rows={7}
+              maxLength={312}
             />
             {errors.comments?.message && (
               <span className="errorMessage">{errors.comments.message}</span>
