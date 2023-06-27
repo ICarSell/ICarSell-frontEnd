@@ -1,0 +1,23 @@
+ import moment from "moment";
+import "moment/dist/locale/pt-br";
+
+ 
+ 
+  // moment.locale("pt-br");
+  // const createdAt = moment(announcement.comments[13].createdAt)
+  //   .utcOffset("America/Sao_Paulo")
+  //   .format("YYYY-MM-DD HH:mm");
+  // // console.log(createdAt);
+  // console.log(moment(createdAt, "'YYYY-MM-DD hh:mm").fromNow());
+
+
+ const createdAt = moment(announcement.comments[13].createdAt)
+     .utcOffset("America/Sao_Paulo")
+   .format("YYYY-MM-DD HH:mm");
+
+   moment(createdAt, "'YYYY-MM-DD hh:mm").fromNow()
+
+createdAt, "'YYYY-MM-DD hh:mm").fromNow()
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;

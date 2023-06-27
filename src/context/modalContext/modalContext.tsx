@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 export const ModalContext = createContext({} as iModalProps);
 
 export const ModalProvider = ({ children }: iModalProviderProps) => {
-  const { getUser, user } = useContext(UserContext);
+  const { getUser, user, getAnnouncement } = useContext(UserContext);
   const [openModalUpdateAddress, setOpenModalUpdateAddress] = useState(false);
   const [openModalUpdateUser, setOpenModalUpdateUser] = useState(false);
   const [openModalResetPass, setOpenModalResetPass] = useState(false);
@@ -40,6 +40,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         getUser();
         setOpenModalUpdateUser(false);
         toast.success("Conta Atualiza!");
+        getAnnouncement();
         return;
       } catch (err: any) {
         if (err.response?.data.message === "Email already exists") {
@@ -64,6 +65,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
       getUser();
       setOpenModalUpdateUser(false);
       toast.success("Conta Atualiza!");
+      getAnnouncement();
     } catch (err: any) {
       console.log(err.response?.data.message);
     }

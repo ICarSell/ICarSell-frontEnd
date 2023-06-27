@@ -60,8 +60,8 @@ export const StyledListCar = styled.li`
     width: 312px;
     height: 48px;
 
-    max-height: 48px;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 
     font-family: "Inter";

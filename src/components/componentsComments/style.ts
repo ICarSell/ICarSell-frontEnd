@@ -24,7 +24,7 @@ export const StyledComments = styled.div`
 
     border-radius: 4px;
 
-    margin-left: 120px;
+    margin-left: 6%;
     margin-bottom: 40px;
 
     .containerForm {
@@ -142,7 +142,7 @@ export const StyledComments = styled.div`
   }
   @media (max-width: 426px) {
     .container {
-      margin-left: 44px;
+      margin-left: 10%;
       width: 80%;
     }
   }
