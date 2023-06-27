@@ -3,6 +3,7 @@ import {
   iModalProps,
   iModalProviderProps,
   tAddressUpdateReq,
+  tCommentUpdateReq,
   tRecoverPassReq,
   tUserUpdateReq,
 } from "./types";
@@ -100,6 +101,11 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     }
   };
 
+  const updateComment = (formData: tCommentUpdateReq) => {
+    console.log(formData);
+    
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -119,6 +125,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         setLoadingOn,
         openModalUpdateComment,
         setOpenModalUpdateComment,
+        updateComment
       }}
     >
       {children}

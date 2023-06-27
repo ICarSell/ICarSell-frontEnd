@@ -4,12 +4,29 @@ import { ContainerModal } from "../containerModal";
 import { Form } from "../form";
 import { HeaderModal } from "../headerModal";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { tCommentUpdateReq } from "../../context/modalContext/types";
+import { updateCommentsSchema } from "../../schemas/comments";
 
 export const ModalUpdateComment = () => {
+  const { updateComment } = useContext(ModalContext);
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm<tCommentUpdateReq>({
+    resolver: zodResolver(updateCommentsSchema),
+  });
+
   const { setOpenModalUpdateComment } = useContext(ModalContext);
   return (
     <ContainerModal>
-      <Form className="modalUpdateComment">
+      <Form
+        className="modalUpdateComment"
+        onSubmit={handleSubmit(updateComment)}
+      >
         <HeaderModal>
           <h3 className="titleModal">Editar comentário</h3>
           <Button
@@ -20,7 +37,17 @@ export const ModalUpdateComment = () => {
             X
           </Button>
         </HeaderModal>
-        <textarea name="" id="" cols={30} rows={10}></textarea>
+        <textarea
+          id="comments"
+          cols={30}
+          rows={5}
+          placeholder="Escreva um comentario sobre o carro e seu vendedor"
+          {...register("comments")}
+        ></textarea>
+
+        {errors.comments?.message && (
+          <span className="errorMessage">{errors.comments.message}</span>
+        )}
 
         <div className="containerButton">
           <Button
@@ -34,7 +61,7 @@ export const ModalUpdateComment = () => {
             Excluir
           </Button>
           <Button buttonVariation="updateComment" type="submit">
-            Salvar alterçãoes
+            Salvar alterações
           </Button>
         </div>
       </Form>
