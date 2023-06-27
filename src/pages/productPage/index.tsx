@@ -13,6 +13,7 @@ import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
 import { ModalUpdateComment } from "../../components/modalUpdateComment";
 import { AddComents } from "../../components/componentsComments";
+import { CommentsSection } from "../../components/commentsSection";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -128,11 +129,14 @@ export const ProductPage = () => {
               <p>{announcement?.user.name[0].toUpperCase()}</p>
             </div>
             <h2>{announcement?.user.name}</h2>
-            <p>{announcement?.user.description}</p>
+            <p className="perfil-description">
+              {announcement?.user.description}
+            </p>
             <button onClick={() => pageNext()}>Ver todos os anuncios</button>
           </div>
         </AsideStyled>
       </Container>
+      <CommentsSection comments={announcement.comments} />
       <AddComents announcementId={announcement.id} />
       <Footer />
     </>

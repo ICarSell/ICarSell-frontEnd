@@ -13,12 +13,14 @@ export const AddComents = ({ announcementId }: any) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<commentsData>({
     resolver: zodResolver(commentsSchema),
   });
 
   const onSubmit = async (data: commentsData) => {
     postComments(data, announcementId);
+    reset();
   };
 
   return !token ? (
@@ -45,9 +47,9 @@ export const AddComents = ({ announcementId }: any) => {
         <div className="containerForm">
           <div className="user">
             <div className="imgUser">
-              <p>{user.name[0].toUpperCase()}</p>
+              <p>{user?.name[0].toUpperCase()}</p>
             </div>
-            <p>{user.name}</p>
+            <p>{user?.name}</p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <textarea
