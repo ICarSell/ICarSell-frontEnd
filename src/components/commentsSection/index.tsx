@@ -21,6 +21,7 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
               .utcOffset("America/Sao_Paulo")
               .format("YYYY-MM-DD HH:mm");
             const user = "pedro";
+            console.log(createdAt);
             return (
               <li>
                 <div className="userOpt">
@@ -41,7 +42,7 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
                         buttonVariation="updateComment"
                         onClick={() => {
                           setOpenModalUpdateComment(true),
-                          setIndexComment(index);
+                            setIndexComment(index);
                           setCommentId(comment.id);
                         }}
                       >

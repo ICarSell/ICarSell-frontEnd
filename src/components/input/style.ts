@@ -20,8 +20,8 @@ export const StyledInput = styled.div`
     font-family: var(--font-family-inter);
     border-radius: var(--radius-2);
     border: 2px solid var(--color-grey6);
-    color: var(--color-grey3);
-
+    // color: var(--color-grey3);
+    color: black;
   }
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -30,4 +30,4 @@ export const StyledInput = styled.div`
     -moz-appearance: textfield;
     appearance: textfield;
   }
-  `;
+`;

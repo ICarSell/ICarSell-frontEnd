@@ -93,6 +93,7 @@ export const StyledComments = styled.div`
 
           border: 2px solid #e9ecef;
           border-radius: 4px;
+          outline: 0;
         }
         textarea::placeholder {
           font-family: "Inter";
