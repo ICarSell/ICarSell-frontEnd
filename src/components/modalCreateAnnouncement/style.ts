@@ -27,6 +27,16 @@ export const StuledModalAnnouncement = styled.div`
     border-radius: 8px;
     padding: 18px 24px 18px 24px;
 
+    input:focus {
+      outline: 1px solid #4529e6;
+    }
+    select:focus {
+      outline: 1px solid #4529e6;
+    }
+    textarea:focus {
+      outline: 1px solid #4529e6;
+    }
+
     .divTitle {
       display: flex;
       flex-direction: row;
@@ -98,7 +108,7 @@ export const StuledModalAnnouncement = styled.div`
         font-size: 16px;
         line-height: 0px;
 
-        color: #868e96;
+        color: black;
       }
     }
 
@@ -135,7 +145,7 @@ export const StuledModalAnnouncement = styled.div`
         font-size: 16px;
         line-height: 0px;
 
-        color: #868e96;
+        color: black;
       }
     }
 
@@ -177,7 +187,7 @@ export const StuledModalAnnouncement = styled.div`
         font-size: 16px;
         line-height: 0px;
 
-        color: #868e96;
+        color: black;
       }
     }
   }
@@ -219,9 +229,10 @@ export const StuledModalAnnouncement = styled.div`
       font-size: 16px;
       line-height: 28px;
 
-      color: #495057;
+      color: black;
 
       resize: none;
+      outline: 0;
     }
     textarea::-webkit-scrollbar {
       width: 3px;

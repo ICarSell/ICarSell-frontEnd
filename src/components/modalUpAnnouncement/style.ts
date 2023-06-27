@@ -108,7 +108,7 @@ export const StyledEditModalAnnouncement = styled.div`
         font-size: 16px;
         line-height: 0px;
 
-        color: #868e96;
+        color: black;
       }
     }
 
@@ -145,7 +145,7 @@ export const StyledEditModalAnnouncement = styled.div`
         font-size: 16px;
         line-height: 0px;
 
-        color: #868e96;
+        color: black;
       }
     }
 
@@ -229,7 +229,7 @@ export const StyledEditModalAnnouncement = styled.div`
       font-size: 16px;
       line-height: 28px;
 
-      color: #495057;
+      color: black;
 
       resize: none;
     }
