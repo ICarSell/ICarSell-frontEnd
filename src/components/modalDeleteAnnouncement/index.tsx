@@ -56,8 +56,10 @@ export const ModalAnnouncementDelete = ({
           conta e removerá seus dados de nossos servidores.
         </p>
         <div className="div-button">
-          <button onClick={() => modal(false)}>Fechar</button>
-          <button onClick={() => deleteAnnouncement()}>Deletar anúncio</button>
+          <button onClick={() => modal(false)}>Cancelar</button>
+          <button onClick={() => deleteAnnouncement()}>
+            Sim, excluir anúncio
+          </button>
         </div>
       </div>
     </ModalDeleteAnnouncementStyle>
