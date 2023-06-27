@@ -8,8 +8,9 @@ import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId } = useContext(ModalContext);
-  console.log(comments);
+
   const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
+  const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
   moment.locale("pt-br");
 
   return (
@@ -27,23 +28,23 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
               .utcOffset("America/Sao_Paulo")
               .format("YYYY-MM-DD HH:mm");
             const user = "pedro";
-            console.log(createdAt);
+
             return (
               <li>
                 <div className="userOpt">
                   <div className="userInfo">
                     <div className="imgUser">
-                      <p>{user[0].toUpperCase()}</p>
+                      <p>{comment.user.name[0].toUpperCase()}</p>
                     </div>
                     <div className="user">
-                      <h2>Pedro</h2>
+                      <h2>{comment.user.name}</h2>
                       <div className="point"></div>
                       <p className="time">
                         {moment(createdAt, "'YYYY-MM-DD hh:mm").fromNow()}
                       </p>
                     </div>
                   </div>
-                  {token && (
+                  {userId == comment.user.id && (
                     <div className="editComment">
                       <BiMessageAltEdit
                         className="editIcon"
