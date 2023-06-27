@@ -111,6 +111,7 @@ export const Main = styled.main`
 
   .car-desc {
     width: 80%;
+
     background-color: var(--color-grey10);
     margin: 20px auto;
     h2 {
@@ -209,6 +210,12 @@ export const AsideStyled = styled.aside`
       padding: 25px 28px;
       font-size: var(--text-body1);
       font-weight: var(--text-weight400);
+    }
+    .perfil-description {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     img {
       border-radius: 100%;

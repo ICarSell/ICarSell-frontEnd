@@ -225,7 +225,9 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   };
 
   const postComments = async (data: commentsData, idCar: string) => {
+    const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
     try {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
       const response = await api.post(`/comments/${idCar}`, data);
 
       toast.success("Comentario adicionado com sucesso");
@@ -262,6 +264,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         announcementUserId,
         setAnnouncementUserId,
         postComments,
+        getAnnouncement,
       }}
     >
       {children}

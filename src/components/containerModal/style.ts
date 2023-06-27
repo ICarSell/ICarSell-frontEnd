@@ -70,11 +70,11 @@ export const StyledContainerModal = styled.main`
     }
   }
 
-  .modalUpdateComment{
+  .modalUpdateComment {
     border-radius: var(--radius-1);
     padding: 20px;
 
-    textarea{
+    textarea {
       width: 100%;
       border: solid 2px var(--color-grey5);
       font-family: var(--font-family-inter);
@@ -82,7 +82,7 @@ export const StyledContainerModal = styled.main`
       padding-left: 10px;
       resize: none;
     }
-    .containerButton{
+    .containerButton {
       display: flex;
       width: 100%;
       gap: 10px;

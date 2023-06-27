@@ -18,6 +18,5 @@ export const FooterStyled = styled.div`
   @media (max-width: 426px) {
     flex-direction: column;
     gap: 60px;
-    width: 425px;
   }
 `;
