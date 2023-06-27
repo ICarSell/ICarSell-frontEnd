@@ -23,6 +23,19 @@ export const StyledListComments = styled.div`
     margin-left: 6%;
     margin-bottom: 20px;
     font-family: var(--font-family-inter);
+
+    @media (max-width: 426px) {
+      margin-left: 10%;
+      width: 80%;
+    }
+    @media (max-width: 1024px) {
+      margin-left: 10%;
+      width: 80%;
+    }
+    @media (max-width: 769px) {
+      margin-left: 10%;
+      width: 80%;
+    }
     h1 {
       padding-top: 25px;
       padding-left: 25px;
@@ -35,16 +48,32 @@ export const StyledListComments = styled.div`
       display: flex;
       flex-direction: column;
       gap: 50px;
-
+      .emptyComments {
+        padding-left: 25px;
+        color: var(--color-brand1);
+        font-size: var(--text-heading6);
+      }
       li {
         padding-left: 25px;
         .userOpt {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           padding-right: 15px;
           .userInfo {
             display: flex;
             gap: 15px;
+            align-items: center;
+            .user {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              @media (max-width: 426px) {
+                flex-direction: column;
+                align-items: start;
+                gap: 0px;
+              }
+            }
             .imgUser {
               display: flex;
               justify-content: center;
@@ -64,29 +93,42 @@ export const StyledListComments = styled.div`
             }
             h2 {
               font-size: var(--text-body1);
-              padding-top: 5px;
               font-weight: var(--text-weight500);
             }
             .point {
               width: 5px;
               height: 5px;
               border-radius: 100%;
-              margin-top: 12px;
               background-color: var(--color-grey4);
+
+              @media (max-width: 426px) {
+                display: none;
+              }
             }
             .time {
-              padding-top: 5px;
               color: var(--color-grey4);
             }
           }
           .editComment {
-            button {
-              height: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .editIcon {
+              width: 25px;
+              height: 25px;
+              color: var(--color-brand1);
+              cursor: pointer;
+            }
+            .trashIcon {
+              width: 25px;
+              height: 25px;
+              color: var(--color-alert1);
+              cursor: pointer;
             }
           }
         }
         .comment {
-          padding: 18px 55px;
+          padding: 18px 55px 18px 4px;
         }
       }
     }

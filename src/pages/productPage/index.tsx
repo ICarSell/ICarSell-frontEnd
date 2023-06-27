@@ -78,7 +78,7 @@ export const ProductPage = () => {
             <div className="car_detail">
               <div>
                 <p>{announcement?.year}</p>
-                <p>{announcement?.mileage}</p>
+                <p>{announcement?.mileage} KM</p>
               </div>
               <p>R$ {announcement?.price}</p>
             </div>

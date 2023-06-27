@@ -4,6 +4,7 @@ import { StyledListComments } from "./style";
 import { Button } from "../button";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { useContext } from "react";
+import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId } = useContext(ModalContext);
@@ -16,6 +17,11 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
       <div className="listComments">
         <h1>Comentários</h1>
         <ul className="comments">
+          {comments.length == 0 && (
+            <h3 className="emptyComments">
+              Não há comentários por enquanto...
+            </h3>
+          )}
           {comments.map((comment: any, index: number) => {
             const createdAt = moment(comment.createdAt)
               .utcOffset("America/Sao_Paulo")
@@ -29,25 +35,25 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
                     <div className="imgUser">
                       <p>{user[0].toUpperCase()}</p>
                     </div>
-                    <h2>Pedro</h2>
-                    <div className="point"></div>
-                    <p className="time">
-                      {moment(createdAt, "'YYYY-MM-DD hh:mm").fromNow()}
-                    </p>
+                    <div className="user">
+                      <h2>Pedro</h2>
+                      <div className="point"></div>
+                      <p className="time">
+                        {moment(createdAt, "'YYYY-MM-DD hh:mm").fromNow()}
+                      </p>
+                    </div>
                   </div>
                   {token && (
                     <div className="editComment">
-                      <Button
-                        type="button"
-                        buttonVariation="updateComment"
+                      <BiMessageAltEdit
+                        className="editIcon"
                         onClick={() => {
                           setOpenModalUpdateComment(true),
                             setIndexComment(index);
                           setCommentId(comment.id);
                         }}
-                      >
-                        Editar
-                      </Button>
+                      />
+                      <BiMessageAltX className="trashIcon" />
                     </div>
                   )}
                 </div>
