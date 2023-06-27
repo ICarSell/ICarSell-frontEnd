@@ -9,15 +9,14 @@ export const Container = styled.div`
   );
   display: flex;
   flex-direction: column;
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-evenly;
-    min-height: 100vh;
   }
 `;
 
 export const Main = styled.main`
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     width: 70%;
   }
   width: 100%;
@@ -130,7 +129,7 @@ export const Main = styled.main`
 `;
 
 export const AsideStyled = styled.aside`
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     width: 40%;
     padding: 50px 50px 50px 0;
   }
