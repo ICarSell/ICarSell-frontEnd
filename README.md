@@ -1,8 +1,7 @@
 <center>
-  <img src="public/favIco.png"  width="50" height="50">
-
-# iCarSell
-
+  <img src="public/favIco.png"  width="50" height="50"> 
+  
+  # iCarSell
 </center>
 
 $~$
@@ -51,7 +50,7 @@ $~$
 
 ## REST-API
 
-Para este projeto funcionar, foi utilizado o `Express.js, Type ORM e Typescript` para criar a REST-API.\
+Para este projeto funcionar, foi utilizado o **Express.js, Type ORM e Typescript** para criar a REST-API.\
 [Confira a API](https://github.com/ICarSell/ICarSell-backEnd)!
 
 ---
@@ -62,10 +61,10 @@ $~$
 
 Se deseja clonar este projeto para testar algumas mudanças localmente, segue aqui um passo a passo:\
 
-- Clique no botão verde escrito "Code" neste repositório;\
-- Selecione e copie o link de sua preferência (HTTPS, SSH);\
-- Abra um terminal que aceite comandos Git, e insira o comando `git clone <link copiado anteriormente>`\
-- Após realizar o clone, acesse a pasta que foi criada e insira o código `yarn` para baixar todas as bibliotecas necessárias\
+- Clique no botão verde escrito "Code" neste repositório;
+- Selecione e copie o link de sua preferência (HTTPS, SSH);
+- Abra um terminal que aceite comandos Git, e insira o comando `git clone <link copiado anteriormente>`
+- Após realizar o clone, acesse a pasta que foi criada e insira o código `yarn` para baixar todas as bibliotecas necessárias
 - E por fim insira o código `yarn start` para iniciar o servidor local
 
 ---
