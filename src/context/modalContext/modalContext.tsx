@@ -24,6 +24,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
   const [loadingOn, setLoadingOn] = useState(false);
   const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
   const [commentId, setCommentId] = useState(0);
+  const [openModalDeleteComment, setOpenModalDeleteComment] = useState(false);
 
   const updateUser = async (updateData: tUserUpdateReq) => {
     const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
@@ -140,6 +141,8 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         updateComment,
         setCommentId,
         commentId,
+        openModalDeleteComment,
+        setOpenModalDeleteComment,
       }}
     >
       {children}

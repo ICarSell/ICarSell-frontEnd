@@ -40,6 +40,14 @@ export const StyledContainerModal = styled.main`
       gap: 10px;
       padding: 20px 0px;
     }
+
+    .containerButtonDelete {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      padding: 20px 0px;
+      justify-content: space-between;
+    }
   }
   .modalUpdateUser {
     padding: 16px 24px 16px 24px;
