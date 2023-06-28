@@ -57,6 +57,13 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           background-color: var(--color-brand2);
           color: var(--color-white-fixed);
           font-weight: var(--text-weight600);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 35px;
+            height: 35px;
+          }
         `;
       case "closeModalHeader":
         return css`

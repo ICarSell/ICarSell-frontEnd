@@ -6,16 +6,20 @@ import { Button } from "../button";
 import { ContainerModal } from "../containerModal";
 import { HeaderModal } from "../headerModal";
 import { UserContext } from "../../context/userContext/userContext";
+import { toast } from "react-toastify";
 
 export const ModalDeleteComment = () => {
   const { commentId, setOpenModalDeleteComment } = useContext(ModalContext);
   const { getAnnouncement } = useContext(UserContext);
 
   const deleteComment = async () => {
+    const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
     try {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
       await api.delete(`/comments/${commentId}`);
       getAnnouncement();
       setOpenModalDeleteComment(false);
+      toast.success("Comentário Deletado!");
     } catch (error) {
       console.log(error);
     }

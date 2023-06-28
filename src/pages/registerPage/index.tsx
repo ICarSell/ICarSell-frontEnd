@@ -11,9 +11,10 @@ import { userCreateSchema } from "../../schemas/registerSchemas";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/userContext/userContext";
 import { ToastContainer } from "react-toastify";
+import SpinLoading from "../../assets/Spin-1s-200px.gif";
 
 export const Register = () => {
-  const { register: registerUser } = useContext(UserContext);
+  const { register: registerUser, loadinSpin } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -44,28 +45,44 @@ export const Register = () => {
               placeholder="Ex: Samuel Leão"
               register={register("name")}
             />
-            {errors.name ? <span className="errorMessage">{errors.name.message}</span> : <></>}
+            {errors.name ? (
+              <span className="errorMessage">{errors.name.message}</span>
+            ) : (
+              <></>
+            )}
             <Input
               label="Email"
               type="email"
               placeholder="Ex: samuel@kenzie.com.br"
               register={register("email")}
             />
-            {errors.email ? <span className="errorMessage">{errors.email.message}</span> : <></>}
+            {errors.email ? (
+              <span className="errorMessage">{errors.email.message}</span>
+            ) : (
+              <></>
+            )}
             <Input
               label="CPF"
               type="text"
               placeholder="000.000.000-00"
               register={register("cpf")}
             />
-            {errors.cpf ? <span className="errorMessage">{errors.cpf.message}</span> : <></>}
+            {errors.cpf ? (
+              <span className="errorMessage">{errors.cpf.message}</span>
+            ) : (
+              <></>
+            )}
             <Input
               label="Celular"
               type="text"
               placeholder="(DDD) 90000-0000"
               register={register("phone")}
             />
-            {errors.phone ? <span className="errorMessage">{errors.phone.message}</span> : <></>}
+            {errors.phone ? (
+              <span className="errorMessage">{errors.phone.message}</span>
+            ) : (
+              <></>
+            )}
             <Input
               label="Data de Nascimento"
               type="number"
@@ -96,7 +113,9 @@ export const Register = () => {
               register={register("address.zipCode")}
             />
             {errors.address?.zipCode ? (
-              <span className="errorMessage">{errors.address?.zipCode.message}</span>
+              <span className="errorMessage">
+                {errors.address?.zipCode.message}
+              </span>
             ) : (
               <></>
             )}
@@ -108,7 +127,9 @@ export const Register = () => {
                 register={register("address.state")}
               />
               {errors.address?.state ? (
-                <span className="errorMessage">{errors.address?.state.message}</span>
+                <span className="errorMessage">
+                  {errors.address?.state.message}
+                </span>
               ) : (
                 <></>
               )}
@@ -119,7 +140,9 @@ export const Register = () => {
                 register={register("address.city")}
               />
               {errors.address?.city ? (
-                <span className="errorMessage">{errors.address?.city.message}</span>
+                <span className="errorMessage">
+                  {errors.address?.city.message}
+                </span>
               ) : (
                 <></>
               )}
@@ -131,7 +154,9 @@ export const Register = () => {
               register={register("address.street")}
             />
             {errors.address?.street ? (
-              <span className="errorMessage">{errors.address?.street.message}</span>
+              <span className="errorMessage">
+                {errors.address?.street.message}
+              </span>
             ) : (
               <></>
             )}
@@ -143,7 +168,9 @@ export const Register = () => {
                 register={register("address.number")}
               />
               {errors.address?.number ? (
-                <span className="errorMessage">{errors.address?.number.message}</span>
+                <span className="errorMessage">
+                  {errors.address?.number.message}
+                </span>
               ) : (
                 <></>
               )}
@@ -154,7 +181,9 @@ export const Register = () => {
                 register={register("address.complement")}
               />
               {errors.address?.complement ? (
-                <span className="errorMessage">{errors.address?.complement.message}</span>
+                <span className="errorMessage">
+                  {errors.address?.complement.message}
+                </span>
               ) : (
                 <></>
               )}
@@ -181,7 +210,11 @@ export const Register = () => {
               placeholder="Digitar senha"
               register={register("password")}
             />
-            {errors.password ? <span  className="errorMessage">{errors.password.message}</span> : <></>}
+            {errors.password ? (
+              <span className="errorMessage">{errors.password.message}</span>
+            ) : (
+              <></>
+            )}
             <Input
               label="Comfirmar Senha"
               type="password"
@@ -189,14 +222,23 @@ export const Register = () => {
               register={register("passwordConfirm")}
             />
             {errors.passwordConfirm ? (
-              <span className="errorMessage">{errors.passwordConfirm.message}</span>
+              <span className="errorMessage">
+                {errors.passwordConfirm.message}
+              </span>
             ) : (
               <></>
             )}
+            {!loadinSpin && (
+              <Button buttonVariation="enter" type="submit">
+                Finalizar Cadastro
+              </Button>
+            )}
 
-            <Button buttonVariation="enter" type="submit">
-              Finalizar Cadastro
-            </Button>
+            {loadinSpin && (
+              <Button buttonVariation="enter" type="submit" disabled={true}>
+                <img src={SpinLoading} alt="loading" />
+              </Button>
+            )}
           </Form>
         </div>
       </StyledConatainerRL>

@@ -35,6 +35,7 @@ export interface iUserContext {
   setAnnouncementUserId: React.Dispatch<React.SetStateAction<string>>;
   postComments: (data: commentsData, idCar: string) => void;
   getAnnouncement: () => void;
+  loadinSpin: boolean;
 }
 
 export interface iLoginData {

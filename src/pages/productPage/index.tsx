@@ -1,7 +1,6 @@
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
-import { AsideStyled, Container, Main } from "./style";
-
+import { AsideStyled, Container, LoadigPage, Main } from "./style";
 import { Button } from "../../components/button";
 import { UserContext } from "../../context/userContext/userContext";
 import { useContext, useState } from "react";
@@ -15,6 +14,8 @@ import { ModalUpdateComment } from "../../components/modalUpdateComment";
 import { AddComents } from "../../components/componentsComments";
 import { CommentsSection } from "../../components/commentsSection";
 import { ModalDeleteComment } from "../../components/modalDeleteComment";
+import MotorLogo from "../../assets/Motors shop.svg";
+import Spin from "../../assets/Spin-0.8s-194px.gif";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -31,7 +32,12 @@ export const ProductPage = () => {
   const [indexComment, setIndexComment] = useState();
 
   if (!announcement) {
-    return <h1>Carregando...</h1>;
+    return (
+      <LoadigPage>
+        <img src={MotorLogo} alt="Motor Shop" className="logo" />
+        <img src={Spin} alt="Loading" className="spin" />
+      </LoadigPage>
+    );
   }
   const pageNext = () => {
     setAnnouncementUserId(announcement.user.id);
