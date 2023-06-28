@@ -12,9 +12,10 @@ import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { ModalResetPassword } from "../../components/globalModal/resetPassword";
+import SpinLoading from "../../assets/Spin-1s-200px.gif";
 
 export const Login = () => {
-  const { submitLogin, unauthorized, setUnauthorized, navigate } =
+  const { submitLogin, unauthorized, setUnauthorized, navigate, loadinSpin } =
     useContext(UserContext);
   const { openModalResetPass, setOpenModalResetPass } =
     useContext(ModalContext);
@@ -61,9 +62,17 @@ export const Login = () => {
               Esqueci minha senha
             </p>
           </div>
-          <Button buttonVariation="enter" type="submit">
-            Entrar
-          </Button>
+          {!loadinSpin && (
+            <Button buttonVariation="enter" type="submit">
+              Entrar
+            </Button>
+          )}
+
+          {loadinSpin && (
+            <Button buttonVariation="enter" type="submit" disabled={true}>
+              <img src={SpinLoading} alt="loading" />
+            </Button>
+          )}
           <div className="noHaveAccount">
             <p>Ainda não possui conta?</p>
           </div>

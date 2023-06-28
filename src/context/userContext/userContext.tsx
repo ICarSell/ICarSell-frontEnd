@@ -28,6 +28,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [passwordToken, setPasswordToken] = useState<undefined | string>();
   const [announcementUser, setAnnouncementUser] = useState();
   const [announcementUserId, setAnnouncementUserId] = useState("");
+  const [loadinSpin, setLoadingSpin] = useState(false);
 
   useEffect(() => {
     async function getUser() {
@@ -65,6 +66,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   }, [announcementId, setAnnouncement]);
 
   const submitLogin = async (formData: iLoginData) => {
+    setLoadingSpin(true);
     try {
       const { data } = await api.post("/login", formData);
 
@@ -77,6 +79,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         window.location.reload();
       }, 3000);
     } catch (error) {
+      setLoadingSpin(false);
       const currentError = error as AxiosError;
 
       if (currentError.message === "Request failed with status code 401") {
@@ -86,6 +89,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       if (currentError.message === "Network Error") {
         toast.error("Network Error");
       }
+    } finally {
+      setLoadingSpin(false);
     }
   };
 
@@ -239,7 +244,6 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   };
 
-
   return (
     <UserContext.Provider
       value={{
@@ -266,6 +270,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setAnnouncementUserId,
         postComments,
         getAnnouncement,
+        loadinSpin,
       }}
     >
       {children}

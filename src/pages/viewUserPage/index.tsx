@@ -10,12 +10,23 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 import { UserContext } from "../../context/userContext/userContext";
 import { PerfilPageStyle } from "../perfilPage/style";
 import { ListCarViewPage } from "../../components/cardViewUserPage";
+import { LoadigPage } from "../productPage/style";
+import MotorLogo from "../../assets/Motors shop.svg";
+import Spin from "../../assets/Spin-0.8s-194px.gif";
 
 export const ViewUserPage = () => {
   const { announcementUser } = useContext(UserContext);
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
 
+  if (!announcementUser) {
+    return (
+      <LoadigPage>
+        <img src={MotorLogo} alt="Motor Shop" className="logo" />
+        <img src={Spin} alt="Loading" className="spin" />
+      </LoadigPage>
+    );
+  }
   return (
     <>
       <ToastContainer />

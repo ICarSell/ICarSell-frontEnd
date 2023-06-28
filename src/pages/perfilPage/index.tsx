@@ -12,6 +12,9 @@ import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ToastContainer } from "react-toastify";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
+import MotorLogo from "../../assets/Motors shop.svg";
+import Spin from "../../assets/Spin-0.8s-194px.gif";
+import { LoadigPage } from "../productPage/style";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
@@ -23,7 +26,12 @@ export const PerfilPage = () => {
   const [editCar, setEditCar] = useState<any>();
 
   if (!user) {
-    return <div>Carregando...</div>;
+    return (
+      <LoadigPage>
+        <img src={MotorLogo} alt="Motor Shop" className="logo" />
+        <img src={Spin} alt="Loading" className="spin" />
+      </LoadigPage>
+    );
   }
 
   const checkUser = () => {
