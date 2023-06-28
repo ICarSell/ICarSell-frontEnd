@@ -1,8 +1,7 @@
 <center>
-  <img src="public/favIco.png"  width="50" height="50">
-
-# iCarSell
-
+  <img src="public/favIco.png"  width="50" height="50"> 
+  
+  # iCarSell
 </center>
 
 $~$
