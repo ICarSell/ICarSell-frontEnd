@@ -14,6 +14,7 @@ import { ModalGalleryImgCar } from "../../components/modalGalleryImgCar";
 import { ModalUpdateComment } from "../../components/modalUpdateComment";
 import { AddComents } from "../../components/componentsComments";
 import { CommentsSection } from "../../components/commentsSection";
+import { ModalDeleteComment } from "../../components/modalDeleteComment";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -23,6 +24,7 @@ export const ProductPage = () => {
     openModalUpdateUser,
     openModelDeleteUser,
     openModalUpdateComment,
+    openModalDeleteComment,
   } = useContext(ModalContext);
   const [galleryImg, setGalleryImg] = useState(null);
   const [openModalGallery, setOpenModalGallery] = useState(false);
@@ -61,6 +63,7 @@ export const ProductPage = () => {
         {openModalUpdateComment && (
           <ModalUpdateComment indexComment={indexComment} />
         )}
+        {openModalDeleteComment && <ModalDeleteComment />}
         <Main>
           <div className="img_car">
             <img

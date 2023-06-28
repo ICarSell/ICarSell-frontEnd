@@ -1,13 +1,13 @@
 import moment from "moment";
 import "moment/dist/locale/pt-br";
 import { StyledListComments } from "./style";
-import { Button } from "../button";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { useContext } from "react";
 import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
-  const { setOpenModalUpdateComment, setCommentId } = useContext(ModalContext);
+  const { setOpenModalUpdateComment, setCommentId, setOpenModalDeleteComment } =
+    useContext(ModalContext);
 
   const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
   const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
@@ -27,7 +27,6 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
             const createdAt = moment(comment.createdAt)
               .utcOffset("America/Sao_Paulo")
               .format("YYYY-MM-DD HH:mm");
-            const user = "pedro";
 
             return (
               <li>
@@ -54,7 +53,13 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
                           setCommentId(comment.id);
                         }}
                       />
-                      <BiMessageAltX className="trashIcon" />
+                      <BiMessageAltX
+                        className="trashIcon"
+                        onClick={() => {
+                          setOpenModalDeleteComment(true),
+                            setCommentId(comment.id);
+                        }}
+                      />
                     </div>
                   )}
                 </div>
