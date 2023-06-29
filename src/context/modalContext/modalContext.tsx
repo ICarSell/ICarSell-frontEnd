@@ -61,7 +61,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     const newUserData = { dateOfBirth, ...userRequest };
     try {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
-      const { data } = await api.patch<tUserReturnWithoutPass>(
+      const response = await api.patch<tUserReturnWithoutPass>(
         "/user",
         newUserData
       );
@@ -69,6 +69,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
       setOpenModalUpdateUser(false);
       toast.success("Conta Atualiza!");
       getAnnouncement();
+      return response;
     } catch (err: any) {
       console.log(err.response?.data.message);
     }
