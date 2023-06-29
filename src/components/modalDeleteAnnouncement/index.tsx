@@ -18,15 +18,13 @@ export const ModalAnnouncementDelete = ({
 
   const deleteAnnouncement = async () => {
     try {
-      const response = await api.delete(
-        `http://localhost:3000/announcement/${idCar}`,
-        {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(token!)}`,
-          },
-        }
-      );
+      const response = await api.delete(`/announcement/${idCar}`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token!)}`,
+        },
+      });
       toast.success("Anúncio deletado com sucesso!");
+      return response;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
