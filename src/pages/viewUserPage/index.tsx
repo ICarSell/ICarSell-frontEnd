@@ -4,7 +4,6 @@ import { Footer } from "../../components/footer";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { ModalUpdateAddress } from "../../components/globalModal/updateAddress";
 import { ModalUpdateUser } from "../../components/globalModal/updateUser";
-
 import { Navbar } from "../../components/navbar";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { UserContext } from "../../context/userContext/userContext";

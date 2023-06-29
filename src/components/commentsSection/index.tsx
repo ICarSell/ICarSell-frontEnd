@@ -29,7 +29,7 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
               .format("YYYY-MM-DD HH:mm");
 
             return (
-              <li>
+              <li key={index}>
                 <div className="userOpt">
                   <div className="userInfo">
                     <div className="imgUser">

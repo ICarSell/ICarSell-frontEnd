@@ -8,7 +8,7 @@ import { Navbar } from "../../components/navbar";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { tUserReq } from "./type";
 import { userCreateSchema } from "../../schemas/registerSchemas";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/userContext/userContext";
 import { ToastContainer } from "react-toastify";
 import SpinLoading from "../../assets/Spin-1s-200px.gif";

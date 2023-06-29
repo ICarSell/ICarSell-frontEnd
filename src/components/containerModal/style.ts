@@ -73,6 +73,7 @@ export const StyledContainerModal = styled.main`
   .modalUpdateComment {
     border-radius: var(--radius-1);
     padding: 20px;
+    width: 400px;
 
     textarea {
       width: 100%;

@@ -10,7 +10,7 @@ export const ModalAnnouncementDelete = ({
   idCar,
 }: {
   modal: (value: boolean) => void;
-  idCar: any;
+  idCar: string;
 }) => {
   const { getUser } = useContext(UserContext);
 

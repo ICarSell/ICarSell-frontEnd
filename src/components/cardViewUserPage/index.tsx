@@ -1,8 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
+import { iDataCarViewPage } from "../type";
 
-export const ListCarViewPage = ({ car, announcementName }) => {
+export const ListCarViewPage = ({ car, announcementName }:iDataCarViewPage) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   return (
