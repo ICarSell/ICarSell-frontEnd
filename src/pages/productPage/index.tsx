@@ -67,7 +67,7 @@ export const ProductPage = () => {
         <Main>
           <div className="img_car">
             <img
-              src={`http://localhost:3000/${announcement?.imgCover.path.replace(
+              src={`https://i-car-sell-web.onrender.com/${announcement?.imgCover.path.replace(
                 /\\/g,
                 "/"
               )}`}
@@ -120,7 +120,7 @@ export const ProductPage = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:3000/${value?.path.replace(
+                    src={`https://i-car-sell-web.onrender.com/${value?.path.replace(
                       /\\/g,
                       "/"
                     )}`}

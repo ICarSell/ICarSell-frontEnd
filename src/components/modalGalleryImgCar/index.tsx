@@ -20,7 +20,10 @@ export const ModalGalleryImgCar = ({
       </HeaderModal>
       <div className="containerImgGallery">
         <img
-          src={`http://localhost:3000/${galleryImg?.path.replace(/\\/g, "/")}`}
+          src={`https://i-car-sell-web.onrender.com/${galleryImg?.path.replace(
+            /\\/g,
+            "/"
+          )}`}
           alt={galleryImg?.fileName}
         />
       </div>

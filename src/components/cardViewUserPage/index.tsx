@@ -17,7 +17,7 @@ export const ListCarViewPage = ({ car, announcementName }) => {
       >
         <div className="cardImg">
           <img
-            src={`http://localhost:3000/${car.imgCover.path.replace(
+            src={`https://i-car-sell-web.onrender.com/${car.imgCover.path.replace(
               /\\/g,
               "/"
             )}`}
