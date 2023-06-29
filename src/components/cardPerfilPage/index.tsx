@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { StyledListCarPerfil } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
+import { iDataCarPerfil } from "../type";
 
-export const ListCarPerfil = ({ car, setEditCar, setModalEdit }) => {
+export const ListCarPerfil = ({ car, setEditCar, setModalEdit }:iDataCarPerfil) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   const editButton = () => {

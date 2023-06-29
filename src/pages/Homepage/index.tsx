@@ -96,7 +96,7 @@ export const Home = () => {
     }
 
     const filteredAnnouncements = filterItens.filter((element) => {
-      const itemValue = element[key].toLowerCase();
+      const itemValue = element[key] as string;
       const searchValue = value.toLowerCase();
       const itemIncludes = itemValue.includes(searchValue);
       if (itemIncludes) {
@@ -106,7 +106,6 @@ export const Home = () => {
     setKeysFilter([...keysFilter, value]);
     setFilterItens(filteredAnnouncements);
   };
-
   const resetFilter = () => {
     setKeysFilter([]);
     setFilterItens(announcements);
@@ -142,7 +141,7 @@ export const Home = () => {
                 if (!renderedString.includes(value.mark)) {
                   renderedString.push(value.mark);
                   return (
-                    <li>
+                    <li key={value.id}>
                       <PClick
                         disabled={markColor != "primary" ? true : false}
                         variant={
@@ -167,7 +166,7 @@ export const Home = () => {
                 if (!renderedString.includes(value.model.split(" ")[0])) {
                   renderedString.push(value.model.split(" ")[0]);
                   return (
-                    <li>
+                    <li key={value.id}>
                       <PClick
                         disabled={modelColor != "primary" ? true : false}
                         variant={
@@ -195,7 +194,7 @@ export const Home = () => {
                 if (!renderedString.includes(value.color.toLowerCase())) {
                   renderedString.push(value.color.toLowerCase());
                   return (
-                    <li>
+                    <li key={value.id}>
                       <PClick
                         disabled={corColor != "primary" ? true : false}
                         variant={
@@ -224,7 +223,7 @@ export const Home = () => {
                 if (!renderedString.includes(value.year)) {
                   renderedString.push(value.year);
                   return (
-                    <li>
+                    <li key={value.id}>
                       <PClick
                         disabled={anoColor != "primary" ? true : false}
                         variant={
@@ -249,7 +248,7 @@ export const Home = () => {
                 if (!renderedString.includes(value.fuel)) {
                   renderedString.push(value.fuel);
                   return (
-                    <li>
+                    <li key={value.id}>
                       <PClick
                         disabled={combustivelColor != "primary" ? true : false}
                         variant={
@@ -279,8 +278,8 @@ export const Home = () => {
                 return null; // Se a marca já existir, retorna null para não criar um novo elemento
               })}
               <h2>KM</h2>
-              {km.map((value) => (
-                <li>
+              {km.map((value, index: number) => (
+                <li key={index}>
                   <PClick
                     disabled={kmColor != "primary" ? true : false}
                     variant={value == kmColor ? "primary" : "secondary"}
@@ -294,9 +293,9 @@ export const Home = () => {
                 </li>
               ))}
               <h2>Preço</h2>
-              {preco.map((value) => (
-                <div className="column-price-and-KM">
-                  <li>
+              {preco.map((value, index: number) => (
+                <div className="column-price-and-KM" key={index}>
+                  <li key={index}>
                     <PClick
                       disabled={priceColor != "primary" ? true : false}
                       variant={value == priceColor ? "primary" : "secondary"}
@@ -318,8 +317,10 @@ export const Home = () => {
                 <div>
                   <h2>Filtros</h2>
                 </div>
-                {keysFilter.map((e) => (
-                  <li className="key-filter">{e}</li>
+                {keysFilter.map((e, index: number) => (
+                  <li className="key-filter" key={index}>
+                    {e}
+                  </li>
                 ))}
                 <button onClick={() => resetFilter()}>Limpar filtros</button>
               </ul>
