@@ -1,9 +1,6 @@
 import React, { SetStateAction } from "react";
 import { NavigateFunction } from "react-router-dom";
-import {
-  tUserReq,
-  tUserReturnWithoutPass,
-} from "../../pages/registerPage/type";
+import { tUserReq } from "../../pages/registerPage/type";
 import { changePasswordSchema } from "../../schemas/registerSchemas";
 import { z } from "zod";
 import { commentsData } from "../../schemas/comments";
