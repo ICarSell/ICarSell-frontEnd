@@ -9,7 +9,6 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId, setOpenModalDeleteComment } =
     useContext(ModalContext);
 
-  const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
   const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
   moment.locale("pt-br");
 

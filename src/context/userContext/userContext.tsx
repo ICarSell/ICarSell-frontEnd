@@ -111,6 +111,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       setUser(null);
       navigate("/login");
       toast.success("Conta Criada!");
+      return data;
     } catch (err: any) {
       if (err.response?.data.message === "Email already exists") {
         toast.error("Email ja Cadastrado");
