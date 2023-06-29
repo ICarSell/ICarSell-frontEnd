@@ -341,14 +341,6 @@ export const Home = () => {
           <Button type="button" buttonVariation="filters">
             Filtros
           </Button>
-          <div>
-            <p>
-              <span>1 </span> de 2
-            </p>
-            <Button type="button" buttonVariation="nextPage">
-              Seguinte {">"}
-            </Button>
-          </div>
         </div>
       </StyledHome>
       <Footer />
