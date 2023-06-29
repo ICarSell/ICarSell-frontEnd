@@ -95,9 +95,9 @@ export const Home = () => {
       key = "color";
     }
 
-    const filteredAnnouncements = filterItens.filter((element) => {
-      const itemValue = element[key] as string;
-      const searchValue = value.toLowerCase();
+    const filteredAnnouncements = filterItens.filter((element: any) => {
+      const itemValue = element[key].toLowerCase();
+      const searchValue = value;
       const itemIncludes = itemValue.includes(searchValue);
       if (itemIncludes) {
         return element;
