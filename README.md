@@ -48,6 +48,14 @@ O iCarSell é desenvolvido utilizando as seguintes tecnologias:
 
 $~$
 
+## Link do deploy
+
+[Confira o Site](motors-shop-front-olive.vercel.app)
+
+---
+
+$~$
+
 ## REST-API
 
 Para este projeto funcionar, foi utilizado o **Express.js, Type ORM e Typescript** para criar a REST-API.\
