@@ -15,7 +15,7 @@ interface Car {
 
 type MarksWithCars = { [mark: string]: Car[] };
 
-export const AnuncioCarroForm = ({ setModalAdd }: any) => {
+export const AnuncioCarroForm = ( {setModalAdd} : any) => {
   const { postAnnouncement } = useContext(UserContext);
 
   const [allMarks, setAllMarks] = useState<string[]>([]);
