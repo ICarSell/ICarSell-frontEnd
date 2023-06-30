@@ -6,6 +6,7 @@ export const StyledHome = styled.main`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 
   @media (max-width: 426px) {
     width: 100%;
@@ -15,9 +16,10 @@ export const StyledHome = styled.main`
     background-image: url(${imgMobile});
     background-position: center;
     background-size: cover;
+    width: 100%;
 
     .containerImg {
-      width: 425px;
+      width: 100%;
       height: 625.33px;
       display: flex;
       flex-direction: column;
@@ -74,6 +76,7 @@ export const StyledHome = styled.main`
   }
 
   .containerList {
+    width: 100%;
     @media (min-width: 426px) {
       display: flex;
       flex-direction: row;
@@ -137,7 +140,7 @@ export const StyledHome = styled.main`
     }
 
     .carListContainar {
-      width: 425px;
+      width: 100%;
       display: flex;
       flex-direction: row;
       gap: 12px;
