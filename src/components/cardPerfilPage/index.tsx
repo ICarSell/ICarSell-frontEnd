@@ -3,7 +3,11 @@ import { StyledListCarPerfil } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 import { iDataCarPerfil } from "../type";
 
-export const ListCarPerfil = ({ car, setEditCar, setModalEdit }:iDataCarPerfil) => {
+export const ListCarPerfil = ({
+  car,
+  setEditCar,
+  setModalEdit,
+}: iDataCarPerfil) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   const editButton = () => {
@@ -15,13 +19,7 @@ export const ListCarPerfil = ({ car, setEditCar, setModalEdit }:iDataCarPerfil) 
     <>
       <StyledListCarPerfil key={car.id}>
         <div className="cardImg">
-          <img
-            src={`https://i-car-sell-web.onrender.com/${car.imgCover.path.replace(
-              /\\/g,
-              "/"
-            )}`}
-            alt={car.imgCover.fileName}
-          />
+          <img src={car.imgCover.path} alt={car.imgCover.fileName} />
           {car.isActive ? (
             <div className="active">
               <p>Ativo</p>

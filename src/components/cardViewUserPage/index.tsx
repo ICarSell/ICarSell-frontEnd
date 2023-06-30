@@ -3,7 +3,10 @@ import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 import { iDataCarViewPage } from "../type";
 
-export const ListCarViewPage = ({ car, announcementName }:iDataCarViewPage) => {
+export const ListCarViewPage = ({
+  car,
+  announcementName,
+}: iDataCarViewPage) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
 
   return (
@@ -17,13 +20,7 @@ export const ListCarViewPage = ({ car, announcementName }:iDataCarViewPage) => {
         }}
       >
         <div className="cardImg">
-          <img
-            src={`https://i-car-sell-web.onrender.com/${car.imgCover.path.replace(
-              /\\/g,
-              "/"
-            )}`}
-            alt={car.imgCover.fileName}
-          />
+          <img src={car.imgCover.path} alt={car.imgCover.fileName} />
           <div
             className={
               parseFloat(car.price) < parseFloat(car.priceFipe) * 0.95

@@ -46,7 +46,7 @@ export const ProductPage = () => {
   };
 
   const redirectToBuy = (number: string, namecar: string) => {
-    const linkWhatsApp = `https://wa.me/${number}?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20seu%20carro%20${namecar}%20na%20motors%20shop`;
+    const linkWhatsApp = `https://wa.me/${number}?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20seu%20carro%20${namecar}%20na%20Motors%20Shop`;
     window.open(linkWhatsApp, "_blank");
   };
 
@@ -73,10 +73,7 @@ export const ProductPage = () => {
         <Main>
           <div className="img_car">
             <img
-              src={`https://i-car-sell-web.onrender.com/${announcement?.imgCover.path.replace(
-                /\\/g,
-                "/"
-              )}`}
+              src={announcement?.imgCover.path}
               alt={announcement?.imgCover.fileName}
             />
           </div>
@@ -126,10 +123,7 @@ export const ProductPage = () => {
                   }}
                 >
                   <img
-                    src={`https://i-car-sell-web.onrender.com/${value?.path.replace(
-                      /\\/g,
-                      "/"
-                    )}`}
+                    src={value?.path}
                     alt={announcement?.imgCover.fileName}
                   />
                 </li>
