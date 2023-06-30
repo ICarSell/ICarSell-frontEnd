@@ -27,13 +27,7 @@ export const ListCarHome = ({ announcements }: iDataAnnouncement) => {
             }}
           >
             <div className="cardImg">
-              <img
-                src={`https://i-car-sell-web.onrender.com/${car.imgCover.path.replace(
-                  /\\/g,
-                  "/"
-                )}`}
-                alt={car.imgCover.fileName}
-              />
+              <img src={car.imgCover.path} alt={car.imgCover.fileName} />
               <div className={priceComparison}>$</div>
             </div>
 
