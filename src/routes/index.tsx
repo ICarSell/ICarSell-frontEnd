@@ -6,6 +6,7 @@ import { PerfilPage } from "../pages/perfilPage";
 import { Register } from "../pages/registerPage";
 import { ChangePassword } from "../pages/changePassword";
 import { ViewUserPage } from "../pages/viewUserPage";
+import { ErrorPage } from "../components/errorPage";
 
 export const RoutesMain = () => {
   return (
@@ -17,15 +18,7 @@ export const RoutesMain = () => {
       <Route path="/perfil-page" element={<PerfilPage />} />
       <Route path="/page-user" element={<ViewUserPage />} />
       <Route path="/reset-password/:token" element={<ChangePassword />} />
-      <Route
-        path="/*"
-        element={
-          <>
-            <h1>Página não encontrada</h1>
-            {/* Aqui você pode adicionar o conteúdo e o design da sua página 404 */}
-          </>
-        }
-      />
+      <Route path="/*" element={<ErrorPage />} />
     </Routes>
   );
 };
