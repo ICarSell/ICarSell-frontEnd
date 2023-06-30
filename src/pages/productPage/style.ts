@@ -113,6 +113,8 @@ export const Main = styled.main`
 
     background-color: var(--color-grey10);
     margin: 20px auto;
+
+    border-radius: 4px;
     h2 {
       padding: 15px 28px;
       font-family: var(--font-family-lexend);

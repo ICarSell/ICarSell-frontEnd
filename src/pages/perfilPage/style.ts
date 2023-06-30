@@ -13,7 +13,7 @@ export const PerfilPageStyle = styled.div`
   .div-color-white {
     height: 80%;
     width: 100%;
-    background-color: var(--color-grey8);
+    background-color: var(--color-grey7);
   }
   .card-perfil-user {
     position: absolute;
@@ -26,7 +26,8 @@ export const PerfilPageStyle = styled.div`
     flex-direction: column;
     padding: 40px;
     gap: 35px;
-    height: 400px;
+    height: auto;
+    border-radius: 4px;
   }
   .card-list-cars {
     position: absolute;
@@ -37,6 +38,7 @@ export const PerfilPageStyle = styled.div`
     height: 900px;
     transform: translate(-50%, -50%);
     overflow-x: hidden;
+
     ul {
       display: flex;
       align-items: center;
@@ -143,7 +145,7 @@ export const PerfilPageStyle = styled.div`
       flex-direction: column;
       padding: 40px;
       gap: 35px;
-      height: 400px;
+      height: auto;
     }
     .div-color-white {
       height: 60%;
@@ -159,6 +161,7 @@ export const PerfilPageStyle = styled.div`
       height: 450px;
       transform: translate(-50%, -50%);
       overflow-x: hidden;
+
       ul {
         display: flex;
         flex-direction: row;
