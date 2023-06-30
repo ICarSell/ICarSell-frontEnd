@@ -50,7 +50,7 @@ $~$
 
 ## Link do deploy
 
-[Confira o Site](https://motors-shop-front-olive.vercel.app/)
+[Confira o Site](https://motors-shop-mauve.vercel.app/)
 
 
 ---
