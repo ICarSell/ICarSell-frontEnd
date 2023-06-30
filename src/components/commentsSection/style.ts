@@ -13,7 +13,7 @@ export const StyledListComments = styled.div`
   .listComments {
     display: flex;
     flex-direction: column;
-
+    border-radius: 4px;
     gap: 10px;
 
     width: 51%;
