@@ -19,6 +19,7 @@ export const StyledListCarPerfil = styled.li`
     background: #e9ecef;
     border: 2px solid #e9ecef;
     gap: 0px;
+    border-radius: 4px;
 
     position: relative;
 
