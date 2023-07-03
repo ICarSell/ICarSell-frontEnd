@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PClick } from "../../pages/Homepage/style";
 import { ModalFilterStyled } from "./style";
 
