@@ -37,6 +37,18 @@ export const StuledModalAnnouncement = styled.div`
       outline: 1px solid #4529e6;
     }
 
+    .error {
+      color: red;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
     .divTitle {
       display: flex;
       flex-direction: row;
