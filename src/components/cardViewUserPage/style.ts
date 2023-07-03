@@ -78,25 +78,7 @@ export const StyledListCar = styled.li`
     width: auto;
     height: 32px;
 
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: #4529e6;
-      border-radius: 150px;
-
-      p {
-        font-family: "Inter";
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-        color: white;
-      }
-    }
-
-    p {
+    .userName {
       font-family: "Inter";
       font-weight: 500;
       font-size: 14px;

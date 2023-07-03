@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 import { iDataAnnouncement } from "../type";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const ListCarHome = ({ announcements }: iDataAnnouncement) => {
   const { setAnnouncementId, navigate } = useContext(UserContext);
@@ -23,7 +24,7 @@ export const ListCarHome = ({ announcements }: iDataAnnouncement) => {
             onClick={() => {
               setAnnouncementId(car.id);
               localStorage.setItem("@CARID", car.id);
-              navigate("/product");
+              navigate(`/product/${car.id}`);
             }}
           >
             <div className="cardImg">
@@ -38,10 +39,8 @@ export const ListCarHome = ({ announcements }: iDataAnnouncement) => {
             </div>
             <p className="cardDescription">{car.description}</p>
             <div className="cardUser">
-              <div>
-                <p>{car.user.name[0].toUpperCase()}</p>
-              </div>
-              <p>{car.user.name}</p>
+              <ProfilePicture name={car.user?.name} />
+              <p className="carName">{car.user.name}</p>
             </div>
             <div className="cardInfo">
               <div className="cardInfoDiv">

@@ -8,6 +8,7 @@ import { Button } from "../button";
 import { UserContext } from "../../context/userContext/userContext";
 import { Link } from "react-router-dom";
 import { ModalContext } from "../../context/modalContext/modalContext";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const Navbar = () => {
   const { navigate, user } = useContext(UserContext);
@@ -49,12 +50,7 @@ export const Navbar = () => {
           )}
           {token && (
             <div className="desktop-div-user">
-              <div
-                className="image-perfil"
-                onClick={() => setDropDownOnUser(!dropDownOnUser)}
-              >
-                <p>{user?.name[0].toUpperCase()}</p>
-              </div>
+              {user && <ProfilePicture name={user?.name} />}
               <h3 onClick={() => setDropDownOnUser(!dropDownOnUser)}>
                 {user?.name}
               </h3>

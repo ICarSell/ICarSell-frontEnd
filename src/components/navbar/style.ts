@@ -18,10 +18,15 @@ export const NavMain = styled.nav`
     height: 70px;
   }
   .desktop-div-main {
+    width: 130px;
     padding-top: 15px;
+    @media (min-width: 500px) {
+      width: 200px;
+    }
     @media (min-width: 700px) {
+      width: 300px;
       border-left: 3px solid var(--color-grey6);
-      padding: 15px 35px;
+      padding: 15px 0px 15px 45px;
       height: 100%;
     }
     img {
@@ -63,7 +68,7 @@ export const NavMain = styled.nav`
         height: 30px;
         border-radius: 50%;
         overflow: hidden;
-        background-color: blue;
+        background-color: purple;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -77,6 +82,7 @@ export const NavMain = styled.nav`
         }
       }
       h3 {
+        width: 80%;
         cursor: pointer;
         padding-top: 4px;
         padding-right: 35px;
@@ -84,6 +90,9 @@ export const NavMain = styled.nav`
         color: var(--color-grey2);
         font-size: var(--text-body1);
         font-weight: var(--text-weight400);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
     }
   }
