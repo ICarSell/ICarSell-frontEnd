@@ -14,17 +14,23 @@ export const NavMain = styled.nav`
 
   background-color: var(--color-white-fixed);
   .logo {
-    padding: 20px 25px;
     height: 70px;
-  }
-  .desktop-div-main {
-    width: 130px;
-    padding-top: 15px;
-    @media (min-width: 500px) {
-      width: 200px;
+    width: 110px;
+    padding-left: 10px;
+    @media (min-width: 350px) {
+      height: 70px;
+      width: 150px;
+      padding-left: 10px;
     }
     @media (min-width: 700px) {
-      width: 300px;
+      padding: 20px 25px;
+      width: 250px;
+    }
+  }
+  .desktop-div-main {
+    padding-top: 15px;
+
+    @media (min-width: 700px) {
       border-left: 3px solid var(--color-grey6);
       padding: 15px 0px 15px 45px;
       height: 100%;
@@ -43,7 +49,7 @@ export const NavMain = styled.nav`
       display: none;
       @media (min-width: 700px) {
         display: flex;
-        gap: 35px;
+        gap: 15px;
         a {
           text-decoration: none;
           font-family: var(--font-family-inter);
