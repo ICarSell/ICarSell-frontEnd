@@ -41,9 +41,6 @@ export const ListCarViewPage = ({
         <p className="cardDescription">{car.description}</p>
         <div className="cardUser">
           <ProfilePicture name={announcementName} />
-          {/* <div>
-            <p>{announcementName[0].toUpperCase()}</p>
-          </div> */}
           <p className="userName">{announcementName}</p>
         </div>
         <div className="cardInfo">
