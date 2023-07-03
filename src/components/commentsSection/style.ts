@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledListComments = styled.div`
+export const StyledListComments = styled.div<{ color: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,7 +116,7 @@ export const StyledListComments = styled.div`
             .editIcon {
               width: 25px;
               height: 25px;
-              color: var(--color-brand1);
+              color: ${({ color }) => color};
               cursor: pointer;
             }
             .trashIcon {
