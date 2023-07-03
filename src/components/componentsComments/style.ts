@@ -27,6 +27,19 @@ export const StyledComments = styled.div`
     margin-left: 6%;
     margin-bottom: 40px;
 
+    @media (max-width: 769px) {
+      margin-left: 10%;
+      width: 80%;
+    }
+    @media (max-width: 1024px) {
+      margin-left: 10%;
+      width: 80%;
+    }
+    @media (max-width: 426px) {
+      margin-left: 10%;
+      width: 80%;
+    }
+
     .containerForm {
       display: flex;
       flex-direction: column;
@@ -127,25 +140,6 @@ export const StyledComments = styled.div`
     font-size: 14px;
     color: var(--color-alert1);
     font-family: var(--font-family-inter);
-  }
-
-  @media (max-width: 1024px) {
-    .container {
-      margin-left: 102px;
-      width: 80%;
-    }
-  }
-  @media (max-width: 769px) {
-    .container {
-      margin-left: 76px;
-      width: 80%;
-    }
-  }
-  @media (max-width: 426px) {
-    .container {
-      margin-left: 10%;
-      width: 80%;
-    }
   }
 `;
 

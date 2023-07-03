@@ -16,6 +16,7 @@ import { CommentsSection } from "../../components/commentsSection";
 import { ModalDeleteComment } from "../../components/modalDeleteComment";
 import MotorLogo from "../../assets/Motors shop.svg";
 import Spin from "../../assets/Spin-0.8s-194px.gif";
+import { ProfilePicture } from "../../components/profilePerfilImage";
 
 export const ProductPage = () => {
   const { announcement, navigate, setAnnouncementUserId } =
@@ -42,7 +43,7 @@ export const ProductPage = () => {
   const pageNext = () => {
     setAnnouncementUserId(announcement.user.id);
     localStorage.setItem("@ANNUSERID", JSON.stringify(announcement.user.id));
-    navigate("/page-user");
+    navigate(`/page/${announcement.user.name}`);
   };
 
   const redirectToBuy = (number: string, namecar: string) => {
@@ -131,9 +132,10 @@ export const ProductPage = () => {
             </ul>
           </div>
           <div className="perfil-column">
-            <div className="image-perfil">
+            <ProfilePicture name={announcement?.user.name} />
+            {/* <div className="image-perfil">
               <p>{announcement?.user.name[0].toUpperCase()}</p>
-            </div>
+            </div> */}
             <h2>{announcement?.user.name}</h2>
             <p className="perfil-description">
               {announcement?.user.description}

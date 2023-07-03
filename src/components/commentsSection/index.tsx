@@ -4,6 +4,7 @@ import { StyledListComments } from "./style";
 import { ModalContext } from "../../context/modalContext/modalContext";
 import { useContext } from "react";
 import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId, setOpenModalDeleteComment } =
@@ -31,9 +32,7 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
               <li key={index}>
                 <div className="userOpt">
                   <div className="userInfo">
-                    <div className="imgUser">
-                      <p>{comment.user.name[0].toUpperCase()}</p>
-                    </div>
+                    <ProfilePicture name={comment.user.name} />
                     <div className="user">
                       <h2>{comment.user.name}</h2>
                       <div className="point"></div>

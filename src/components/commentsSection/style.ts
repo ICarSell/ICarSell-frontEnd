@@ -23,16 +23,16 @@ export const StyledListComments = styled.div`
     margin-left: 6%;
     margin-bottom: 20px;
     font-family: var(--font-family-inter);
+    @media (max-width: 1024px) {
+      margin-left: 6%;
+      width: 52%;
+    }
 
     @media (max-width: 426px) {
       margin-left: 10%;
       width: 80%;
     }
-    @media (max-width: 1024px) {
-      margin-left: 10%;
-      width: 80%;
-    }
-    @media (max-width: 769px) {
+    @media (max-width: 1008px) {
       margin-left: 10%;
       width: 80%;
     }

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 import { iDataCarViewPage } from "../type";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const ListCarViewPage = ({
   car,
@@ -39,10 +40,11 @@ export const ListCarViewPage = ({
         </div>
         <p className="cardDescription">{car.description}</p>
         <div className="cardUser">
-          <div>
+          <ProfilePicture name={announcementName} />
+          {/* <div>
             <p>{announcementName[0].toUpperCase()}</p>
-          </div>
-          <p>{announcementName}</p>
+          </div> */}
+          <p className="userName">{announcementName}</p>
         </div>
         <div className="cardInfo">
           <div className="cardInfoDiv">

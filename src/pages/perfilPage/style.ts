@@ -28,6 +28,18 @@ export const PerfilPageStyle = styled.div`
     gap: 35px;
     height: auto;
     border-radius: 4px;
+    div:first-child {
+      height: 100px;
+      width: 100px;
+      p {
+        font-size: 40px;
+      }
+    }
+  }
+  .emptyWarning {
+    font-family: var(--font-family-lexend);
+    color: var(--color-brand1);
+    margin-top: 25px;
   }
   .card-list-cars {
     position: absolute;
