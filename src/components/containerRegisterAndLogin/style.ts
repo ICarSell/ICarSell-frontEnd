@@ -48,19 +48,20 @@ export const StyledConatainerRL = styled.main`
     .formButtonSeller {
       display: flex;
       gap: 15px;
-      button {
+      .formButtonSellerButton {
         width: 90%;
         height: 40px;
         border-radius: 8px;
         font-weight: var(--text-weight600);
         background-color: var(--color-white-fixed);
         border: 2px solid var(--color-grey3);
-        :focus {
-          background-color: var(--color-brand2);
-          color: var(--color-white-fixed);
-          border: none;
-          outline: 0;
-        }
+      }
+
+      .formButtonSellerButton.active {
+        background-color: var(--color-brand2);
+        color: var(--color-white-fixed);
+        border: none;
+        outline: 0;
       }
     }
   }
