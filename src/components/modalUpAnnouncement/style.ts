@@ -37,6 +37,18 @@ export const StyledEditModalAnnouncement = styled.div`
       outline: 1px solid #4529e6;
     }
 
+    .error {
+      color: red;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
     .divTitle {
       display: flex;
       flex-direction: row;
@@ -282,6 +294,7 @@ export const StyledEditModalAnnouncement = styled.div`
           }
         }
       }
+
       .published {
         div {
           button {
@@ -318,7 +331,7 @@ export const StyledEditModalAnnouncement = styled.div`
   }
   .buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     gap: 5px;
 

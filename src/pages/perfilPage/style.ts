@@ -44,12 +44,13 @@ export const PerfilPageStyle = styled.div`
   .card-list-cars {
     position: absolute;
     background-color: var(--color-grey8);
-    width: 90%;
+    width: 80%;
     top: calc(50% + 30vh);
     left: 50%;
     height: 900px;
     transform: translate(-50%, -50%);
     overflow-x: hidden;
+    border-radius: 4px;
 
     ul {
       display: flex;
