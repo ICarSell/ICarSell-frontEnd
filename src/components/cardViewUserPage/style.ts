@@ -67,7 +67,7 @@ export const StyledListCar = styled.li`
     font-family: "Inter";
     font-weight: 400;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 26px;
     color: #495057;
   }
 

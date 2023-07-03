@@ -59,7 +59,7 @@ export const ListCarPerfil = ({
             onClick={() => {
               setAnnouncementId(car.id);
               localStorage.setItem("@CARID", car.id);
-              navigate("/product");
+              navigate(`/product/${car.id}`);
             }}
           >
             Ver detalhes
