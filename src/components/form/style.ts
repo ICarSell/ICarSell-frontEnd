@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledForm = styled.form`
   display: flex;
-  gap: 20px;
+  gap: 13px;
   flex-direction: column;
   background-color: var(--color-grey10);
   font-family: var(--font-family-inter);
@@ -11,7 +11,7 @@ export const StyledForm = styled.form`
     font-family: var(--font-family-lexend);
   }
 
-  .errorMessage{
+  .errorMessage {
     font-size: 14px;
     color: var(--color-alert1);
   }
