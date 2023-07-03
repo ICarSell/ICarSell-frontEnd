@@ -15,6 +15,7 @@ import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import MotorLogo from "../../assets/Motors shop.svg";
 import Spin from "../../assets/Spin-0.8s-194px.gif";
 import { LoadigPage } from "../productPage/style";
+import { ProfilePicture } from "../../components/profilePerfilImage";
 
 export const PerfilPage = () => {
   const { user, navigate } = useContext(UserContext);
@@ -59,9 +60,7 @@ export const PerfilPage = () => {
         <div className="div-color-purple"></div>
         <div className="div-color-white"></div>
         <div className="card-perfil-user">
-          <div className="image-perfil">
-            <p>{user.name[0].toUpperCase()}</p>
-          </div>
+          <ProfilePicture name={user.name} />
           <div className="perfil-info-text">
             <h2>{user.name}</h2>
             <p>Anunciante</p>
@@ -77,6 +76,11 @@ export const PerfilPage = () => {
         </div>
         <div className="card-list-cars">
           <ul>
+            {user.announcement.length == 0 && (
+              <h1 className="emptyWarning">
+                Você ainda não publicou nenhum anúncio...
+              </h1>
+            )}
             {user.announcement.map((car: any) => (
               <ListCarPerfil
                 key={car.id}

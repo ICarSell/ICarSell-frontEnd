@@ -12,6 +12,7 @@ import { ListCarViewPage } from "../../components/cardViewUserPage";
 import { LoadigPage } from "../productPage/style";
 import MotorLogo from "../../assets/Motors shop.svg";
 import Spin from "../../assets/Spin-0.8s-194px.gif";
+import { ProfilePicture } from "../../components/profilePerfilImage";
 
 export const ViewUserPage = () => {
   const { announcementUser } = useContext(UserContext);
@@ -38,9 +39,7 @@ export const ViewUserPage = () => {
         <div className="div-color-purple"></div>
         <div className="div-color-white"></div>
         <div className="card-perfil-user">
-          <div className="image-perfil">
-            <p>{announcementUser?.name[0].toUpperCase()}</p>
-          </div>
+          <ProfilePicture name={announcementUser?.name} />
           <div className="perfil-info-text">
             <h2>{announcementUser?.name}</h2>
             <p>Anunciante</p>
