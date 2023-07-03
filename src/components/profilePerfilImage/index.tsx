@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { generateColor } from "../../services/utils";
 
 type ProfilePictureProps = {
   name: string;
@@ -34,14 +35,3 @@ export const ProfilePicture: React.FC<ProfilePictureProps> = ({ name }) => {
     </StyledImagePerfil>
   );
 };
-
-function generateColor(name: string): string {
-  const nameValue = name
-    .split("")
-    .map((char) => char.charCodeAt(0))
-    .reduce((acc, val) => acc + val, 0);
-
-  const hue = nameValue % 360;
-
-  return `hsl(${hue}, 70%, 50%)`;
-}

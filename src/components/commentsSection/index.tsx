@@ -5,16 +5,19 @@ import { ModalContext } from "../../context/modalContext/modalContext";
 import { useContext } from "react";
 import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
 import { ProfilePicture } from "../profilePerfilImage";
+import { generateColor } from "../../services/utils";
+import { UserContext } from "../../context/userContext/userContext";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId, setOpenModalDeleteComment } =
     useContext(ModalContext);
+  const { user } = useContext(UserContext);
 
   const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
   moment.locale("pt-br");
-
+  const userColor = generateColor(user?.name);
   return (
-    <StyledListComments>
+    <StyledListComments color={userColor}>
       <div className="listComments">
         <h1>Comentários</h1>
         <ul className="comments">
