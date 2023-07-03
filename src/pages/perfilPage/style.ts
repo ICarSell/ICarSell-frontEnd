@@ -156,7 +156,7 @@ export const PerfilPageStyle = styled.div`
       position: absolute;
       background-color: var(--color-grey7);
       width: 90%;
-      top: calc(45% + 30vh);
+      top: calc(45% + 45vh);
       left: 50%;
       height: 450px;
       transform: translate(-50%, -50%);

@@ -109,6 +109,9 @@ export const StyledEditModalAnnouncement = styled.div`
         line-height: 0px;
 
         color: black;
+        @media (max-width: 425px) {
+          height: 20px;
+        }
       }
     }
 
@@ -146,6 +149,9 @@ export const StyledEditModalAnnouncement = styled.div`
         line-height: 0px;
 
         color: black;
+        @media (max-width: 425px) {
+          height: 20px;
+        }
       }
     }
 
@@ -251,36 +257,61 @@ export const StyledEditModalAnnouncement = styled.div`
   @media (max-width: 767px) {
     form {
       height: auto;
+      .divTitle {
+        height: 30px;
+      }
     }
   }
   @media (max-width: 426px) {
     form {
       height: auto;
-      width: 97%;
+      width: 89%;
       padding: 18px 15px;
+      margin-left: 8px;
+
+      .divTitle {
+        height: 30px;
+      }
       .yearfuel {
         width: 100%;
         gap: 10px;
         .year {
           input {
             width: 100%;
+            height: 20px;
           }
         }
       }
       .published {
         div {
           button {
-            width: 150px;
+            width: 140px;
+            height: 30px;
           }
+        }
+      }
+      .description {
+        textarea {
+          height: 45px;
+        }
+      }
+      .imgCover {
+        label {
+          padding: 5px 20px;
         }
       }
       .buttons {
         justify-content: space-between;
         .buttonCancelar {
           line-height: 15px;
+          font-size: 14px;
+          width: 100px;
+          height: 35px;
         }
         .enviar {
+          font-size: 14px;
           line-height: 15px;
+          height: 35px;
         }
       }
     }
