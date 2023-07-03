@@ -5,8 +5,7 @@ export const StyledContainerModal = styled.main`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  padding: 0px 15px;
+  padding: 25px 15px;
   position: fixed;
   inset: 0;
   z-index: 5;
@@ -40,9 +39,13 @@ export const StyledContainerModal = styled.main`
       gap: 10px;
       padding: 20px 0px;
     }
+
+    @media (max-width: 376px) {
+      width: 100%;
+    }
   }
   .modalUpdateUser {
-    padding: 16px 24px 16px 24px;
+    padding: 8px 24px 6px 24px;
     width: 450px;
     border-radius: var(--radius-1);
     .containerButton {

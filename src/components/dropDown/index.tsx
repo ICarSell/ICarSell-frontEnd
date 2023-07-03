@@ -19,7 +19,7 @@ export const DropDownMenu = () => {
         <p onClick={() => setOpenModalUpdateUser(true)}>Editar Perfil</p>
         <p onClick={() => setOpenModalUpdateAddress(true)}>Editar Endereço</p>
         {user?.isSeller && (
-          <p onClick={() => navigate("/perfil-page")}>Meus Anuncios</p>
+          <p onClick={() => navigate("/profile-page")}>Meus Anuncios</p>
         )}
         <p onClick={() => exit()}>Sair</p>
       </div>

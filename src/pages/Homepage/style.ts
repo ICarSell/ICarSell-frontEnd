@@ -8,7 +8,7 @@ export const StyledHome = styled.main`
   align-items: flex-start;
   width: 100%;
 
-  @media (max-width: 426px) {
+  @media (max-width: 900px) {
     width: 100%;
   }
 
@@ -77,7 +77,12 @@ export const StyledHome = styled.main`
 
   .containerList {
     width: 100%;
-    @media (min-width: 426px) {
+    @media (min-width: 900px) {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+    @media (max-width: 426px) {
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -93,10 +98,11 @@ export const StyledHome = styled.main`
           padding: 10px;
           color: white;
           border-radius: 8px;
+          width: 170px;
           background-color: var(--color-brand1);
         }
       }
-      @media (min-width: 426px) {
+      @media (min-width: 900px) {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -112,7 +118,7 @@ export const StyledHome = styled.main`
         flex-direction: column;
       }
       .filterListContainer {
-        @media (min-width: 426px) {
+        @media (min-width: 900px) {
           display: flex;
           flex-direction: column;
           padding-left: 20px;
@@ -140,24 +146,37 @@ export const StyledHome = styled.main`
     }
 
     .carListContainar {
-      width: 100%;
+      /* width: 100%; */
       display: flex;
       flex-direction: row;
-      gap: 12px;
+      justify-content: space-evenly;
+
+      @media (max-width: 900px) {
+        justify-content: flex-start;
+      }
+
+      gap: 28px;
 
       overflow-x: auto;
 
-      padding-left: 25px;
-      padding-right: 25px;
+      /* padding-left: 25px;
+      padding-right: 25px; */
 
       margin-top: 50px;
       margin-bottom: 50px;
-    }
-    .carListContainar {
-      @media (min-width: 426px) {
+      margin-left: 10px;
+      margin-right: 10px;
+
+      @media (max-width: 426px) {
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 20px;
+        justify-content: flex-start;
+      }
+      @media (min-width: 900px) {
         overflow-x: hidden;
         flex-wrap: wrap;
-        width: 100%;
+
         align-content: flex-start;
         gap: 86px 48px;
       }
@@ -167,9 +186,10 @@ export const StyledHome = styled.main`
   .key-filter {
     padding: 10px;
     border-radius: 10px;
-    width: 50%;
+    width: max-content;
     background-color: var(--color-brand1);
     color: white;
+    font-family: inter;
   }
 
   .pagination {
@@ -187,12 +207,12 @@ export const StyledHome = styled.main`
       align-items: center;
       gap: 10px;
 
-      @media (min-width: 426px) {
+      @media (min-width: 900px) {
         display: flex;
         flex-direction: row;
       }
       p {
-        font-family: "Lexend";
+        font-family: "inter";
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -223,6 +243,8 @@ export const PClick = styled.button<iStyledButtonProps>`
   border-radius: 8px;
   color: var(--color-grey3);
   font-size: 18px;
+  font-family: "inter";
+  font-size: 17px;
   ${(props) => {
     switch (props.variant) {
       case "primary":
@@ -234,7 +256,7 @@ export const PClick = styled.button<iStyledButtonProps>`
       case "secondary":
         return `
         background-color: white;
-        color: black;
+        color: var(--color-grey3);
       `;
       case "success":
         return `

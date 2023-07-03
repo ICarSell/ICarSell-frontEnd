@@ -186,19 +186,11 @@ export const AsideStyled = styled.aside`
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
-    .image-perfil {
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      justify-content: center;
-      width: 75px;
+    div {
       height: 75px;
-      background: rgb(69, 41, 230);
-      border-radius: 150px;
+      width: 75px;
       p {
         font-size: 40px;
-        color: #fff;
       }
     }
     h2 {

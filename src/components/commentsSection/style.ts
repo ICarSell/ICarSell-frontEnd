@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledListComments = styled.div`
+export const StyledListComments = styled.div<{ color?: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,16 +23,16 @@ export const StyledListComments = styled.div`
     margin-left: 6%;
     margin-bottom: 20px;
     font-family: var(--font-family-inter);
+    @media (max-width: 1024px) {
+      margin-left: 6%;
+      width: 52%;
+    }
 
     @media (max-width: 426px) {
       margin-left: 10%;
       width: 80%;
     }
-    @media (max-width: 1024px) {
-      margin-left: 10%;
-      width: 80%;
-    }
-    @media (max-width: 769px) {
+    @media (max-width: 1008px) {
       margin-left: 10%;
       width: 80%;
     }
@@ -116,7 +116,7 @@ export const StyledListComments = styled.div`
             .editIcon {
               width: 25px;
               height: 25px;
-              color: var(--color-brand1);
+              color: ${({ color }) => color};
               cursor: pointer;
             }
             .trashIcon {

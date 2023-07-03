@@ -15,7 +15,7 @@ interface Car {
 
 type MarksWithCars = { [mark: string]: Car[] };
 
-export const AnuncioCarroForm = ( {setModalAdd} : any) => {
+export const AnuncioCarroForm = ({ setModalAdd }: any) => {
   const { postAnnouncement } = useContext(UserContext);
 
   const [allMarks, setAllMarks] = useState<string[]>([]);
@@ -31,6 +31,8 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
   const [description, setDescription] = useState<string>("");
   const [imgCover, setImgCover] = useState<File | null>(null);
   const [gallery, setGallery] = useState<Array<File>>([]);
+
+  const [formValid, setFormValid] = useState(true);
 
   useEffect(() => {
     fetch("https://kenzie-kars.herokuapp.com/cars")
@@ -117,33 +119,60 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
     }
   };
 
+  const validateForm = () => {
+    if (
+      mark.trim() === "" ||
+      model.trim() === "" ||
+      year.trim() === "" ||
+      fuel.trim() === "" ||
+      mileage.trim() === "" ||
+      color.trim() === "" ||
+      priceFipe === "" ||
+      price.trim() === "" ||
+      description.trim() === "" ||
+      imgCover === null ||
+      gallery.length === 0
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const km = mileage.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    const p = price.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    const isValid = validateForm(); // Validar o formulário
 
-    const formData = new FormData();
-    formData.append("mark", mark);
-    formData.append("model", model);
-    formData.append("year", year);
-    formData.append("fuel", fuel);
-    formData.append("mileage", km);
-    formData.append("color", color);
-    formData.append("priceFipe", priceFipe);
-    formData.append("price", p);
-    formData.append("description", description);
+    if (!isValid) {
+      setFormValid(false);
+      return;
+    } else {
+      setFormValid(true);
+      const km = mileage.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const p = price.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    if (imgCover) {
-      formData.append("imgCover", imgCover);
+      const formData = new FormData();
+      formData.append("mark", mark);
+      formData.append("model", model);
+      formData.append("year", year);
+      formData.append("fuel", fuel);
+      formData.append("mileage", km);
+      formData.append("color", color);
+      formData.append("priceFipe", priceFipe);
+      formData.append("price", p);
+      formData.append("description", description);
+
+      if (imgCover) {
+        formData.append("imgCover", imgCover);
+      }
+
+      for (let i = 0; i < gallery.length; i++) {
+        formData.append("gallery", gallery[i]);
+      }
+
+      postAnnouncement(formData);
+      setModalAdd(false);
     }
-
-    for (let i = 0; i < gallery.length; i++) {
-      formData.append("gallery", gallery[i]);
-    }
-
-    postAnnouncement(formData);
-    setModalAdd(false);
   };
 
   return (
@@ -157,7 +186,7 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
         </div>
         <p>informações do veículo</p>
         <div className="mark">
-          <label>Marca:</label>
+          <label>Marca:*</label>
           <select value={mark} onChange={handleMarkChange}>
             <option value="">Selecione uma marca</option>
             {allMarks.map((mark) => (
@@ -168,7 +197,7 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
           </select>
         </div>
         <div className="model">
-          <label>Modelo:</label>
+          <label>Modelo:*</label>
           <select value={model} onChange={handleModelChange}>
             <option value="">Selecione um modelo</option>
             {mark &&
@@ -203,16 +232,16 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
         </div>
         <div className="yearfuel">
           <div className="year">
-            <label>Quilometragem:</label>
+            <label>Quilometragem:*</label>
             <input
-              type="text"
+              type="number"
               value={mileage}
               placeholder="30.000"
               onChange={(e) => setMileage(e.target.value)}
             />
           </div>
           <div className="year">
-            <label>Cor:</label>
+            <label>Cor:*</label>
             <input
               type="text"
               value={color}
@@ -233,9 +262,9 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
             />
           </div>
           <div className="year">
-            <label>Preço Venda:</label>
+            <label>Preço Venda:*</label>
             <input
-              type="text"
+              type="number"
               value={price}
               placeholder="R$ 45.000"
               onChange={(e) => setPrice(e.target.value)}
@@ -243,7 +272,7 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
           </div>
         </div>
         <div className="description">
-          <label>Descrição:</label>
+          <label>Descrição:*</label>
           <textarea
             value={description}
             placeholder="Descrição do veículo..."
@@ -252,7 +281,7 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
         </div>
         <div className="imgCover">
           <label className={imgCover ? "selected" : ""}>
-            Imagem de Capa
+            Imagem de Capa*
             <input
               type="file"
               accept="image/*"
@@ -262,7 +291,7 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
         </div>
         <div className="imgCover">
           <label className={gallery.length > 0 ? "selected" : ""}>
-            Galeria de Imagens ({gallery.length}/6 imagens)
+            Galeria de Imagens* ({gallery.length}/6 imagens)
             <input
               type="file"
               accept="image/*"
@@ -271,7 +300,9 @@ export const AnuncioCarroForm = ( {setModalAdd} : any) => {
             />
           </label>
         </div>
-
+        {formValid === false && (
+          <p className="error">Preencha todos os campos obrigatórios *</p>
+        )}
         <div className="buttons">
           <button className="buttonCancelar" onClick={() => setModalAdd(false)}>
             Cancelar

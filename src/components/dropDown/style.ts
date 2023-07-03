@@ -4,7 +4,7 @@ export const DropDownMain = styled.section`
   width: 170px;
   padding: 10px 15px;
   position: absolute;
-  left: -30px;
+  left: -10px;
   top: 42px;
   background-color: var(--color-white-fixed);
   box-shadow: 2px 6px 26px 3px rgba(0, 0, 0, 0.2);

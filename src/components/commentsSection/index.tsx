@@ -2,18 +2,30 @@ import moment from "moment";
 import "moment/dist/locale/pt-br";
 import { StyledListComments } from "./style";
 import { ModalContext } from "../../context/modalContext/modalContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
+import { ProfilePicture } from "../profilePerfilImage";
+import { generateColor } from "../../services/utils";
+import { UserContext } from "../../context/userContext/userContext";
 
 export const CommentsSection = ({ comments, setIndexComment }: any) => {
   const { setOpenModalUpdateComment, setCommentId, setOpenModalDeleteComment } =
     useContext(ModalContext);
+  const { user } = useContext(UserContext);
 
   const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
   moment.locale("pt-br");
 
+  const [userColor, setUserColor] = useState("");
+  useEffect(() => {
+    if (userId) {
+      const color = generateColor(user?.name);
+      setUserColor(color);
+    }
+  }, [userId, user?.name]);
+
   return (
-    <StyledListComments>
+    <StyledListComments color={userId ? userColor : undefined}>
       <div className="listComments">
         <h1>Comentários</h1>
         <ul className="comments">
@@ -31,9 +43,7 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
               <li key={index}>
                 <div className="userOpt">
                   <div className="userInfo">
-                    <div className="imgUser">
-                      <p>{comment.user.name[0].toUpperCase()}</p>
-                    </div>
+                    <ProfilePicture name={comment.user.name} />
                     <div className="user">
                       <h2>{comment.user.name}</h2>
                       <div className="point"></div>

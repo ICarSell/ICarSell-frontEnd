@@ -23,7 +23,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           color: var(--color-white-fixed);
           font-weight: var(--text-weight600);
 
-          @media (min-width: 426px) {
+          @media (min-width: 900px) {
             display: none;
           }
         `;

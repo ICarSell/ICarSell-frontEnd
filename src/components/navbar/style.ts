@@ -14,14 +14,25 @@ export const NavMain = styled.nav`
 
   background-color: var(--color-white-fixed);
   .logo {
-    padding: 20px 25px;
     height: 70px;
+    width: 110px;
+    padding-left: 10px;
+    @media (min-width: 350px) {
+      height: 70px;
+      width: 150px;
+      padding-left: 10px;
+    }
+    @media (min-width: 700px) {
+      padding: 20px 25px;
+      width: 250px;
+    }
   }
   .desktop-div-main {
     padding-top: 15px;
+
     @media (min-width: 700px) {
       border-left: 3px solid var(--color-grey6);
-      padding: 15px 35px;
+      padding: 15px 0px 15px 45px;
       height: 100%;
     }
     img {
@@ -38,7 +49,7 @@ export const NavMain = styled.nav`
       display: none;
       @media (min-width: 700px) {
         display: flex;
-        gap: 35px;
+        gap: 15px;
         a {
           text-decoration: none;
           font-family: var(--font-family-inter);
@@ -63,7 +74,7 @@ export const NavMain = styled.nav`
         height: 30px;
         border-radius: 50%;
         overflow: hidden;
-        background-color: blue;
+        background-color: purple;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -77,6 +88,7 @@ export const NavMain = styled.nav`
         }
       }
       h3 {
+        width: 80%;
         cursor: pointer;
         padding-top: 4px;
         padding-right: 35px;
@@ -84,6 +96,9 @@ export const NavMain = styled.nav`
         color: var(--color-grey2);
         font-size: var(--text-body1);
         font-weight: var(--text-weight400);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
     }
   }
