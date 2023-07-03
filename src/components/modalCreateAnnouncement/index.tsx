@@ -150,6 +150,7 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
       setFormValid(true);
       const km = mileage.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       const p = price.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const pF = priceFipe.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
       const formData = new FormData();
       formData.append("mark", mark);
@@ -158,7 +159,7 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
       formData.append("fuel", fuel);
       formData.append("mileage", km);
       formData.append("color", color);
-      formData.append("priceFipe", priceFipe);
+      formData.append("priceFipe", pF);
       formData.append("price", p);
       formData.append("description", description);
 
@@ -169,6 +170,8 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
       for (let i = 0; i < gallery.length; i++) {
         formData.append("gallery", gallery[i]);
       }
+
+      console.log(priceFipe);
 
       postAnnouncement(formData);
       setModalAdd(false);
