@@ -8,13 +8,14 @@ import { Navbar } from "../../components/navbar";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { tUserReq } from "./type";
 import { userCreateSchema } from "../../schemas/registerSchemas";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext/userContext";
 import { ToastContainer } from "react-toastify";
 import SpinLoading from "../../assets/Spin-1s-200px.gif";
 
 export const Register = () => {
   const { register: registerUser, loadinSpin } = useContext(UserContext);
+  const [isSeller, setIsSeller] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -23,8 +24,12 @@ export const Register = () => {
   } = useForm<tUserReq>({
     resolver: zodResolver(userCreateSchema),
   });
+  useEffect(() => {
+    console.log(isSeller);
+  }, [isSeller]);
 
   const onHandleSubmit: SubmitHandler<tUserReq> = (data) => {
+    console.log(data);
     registerUser(data);
 
     reset();
@@ -193,13 +198,23 @@ export const Register = () => {
               <button
                 type="button"
                 autoFocus={true}
-                onClick={() => register("isSeller", { value: false })}
+                className={`${
+                  !isSeller ? "active" : ""
+                } formButtonSellerButton`}
+                onClick={() => {
+                  register("isSeller", { value: false });
+                  setIsSeller(false);
+                }}
               >
                 Comprador
               </button>
               <button
                 type="button"
-                onClick={() => register("isSeller", { value: true })}
+                className={`${isSeller ? "active" : ""} formButtonSellerButton`}
+                onClick={() => {
+                  register("isSeller", { value: true });
+                  setIsSeller(true);
+                }}
               >
                 Anunciante
               </button>
