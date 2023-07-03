@@ -40,6 +40,10 @@ export const StyledContainerModal = styled.main`
       gap: 10px;
       padding: 20px 0px;
     }
+
+    @media (max-width: 376px) {
+      width: 100%;
+    }
   }
   .modalUpdateUser {
     padding: 16px 24px 16px 24px;
