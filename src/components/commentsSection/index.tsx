@@ -2,7 +2,7 @@ import moment from "moment";
 import "moment/dist/locale/pt-br";
 import { StyledListComments } from "./style";
 import { ModalContext } from "../../context/modalContext/modalContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BiMessageAltEdit, BiMessageAltX } from "react-icons/bi";
 import { ProfilePicture } from "../profilePerfilImage";
 import { generateColor } from "../../services/utils";
@@ -15,9 +15,17 @@ export const CommentsSection = ({ comments, setIndexComment }: any) => {
 
   const userId = JSON.parse(`${localStorage.getItem("@USERID")}`);
   moment.locale("pt-br");
-  const userColor = generateColor(user?.name);
+
+  const [userColor, setUserColor] = useState("");
+  useEffect(() => {
+    if (userId) {
+      const color = generateColor(user?.name);
+      setUserColor(color);
+    }
+  }, [userId, user?.name]);
+
   return (
-    <StyledListComments color={userColor}>
+    <StyledListComments color={userId ? userColor : undefined}>
       <div className="listComments">
         <h1>Comentários</h1>
         <ul className="comments">
