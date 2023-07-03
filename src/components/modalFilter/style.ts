@@ -22,21 +22,19 @@ export const ModalFilterStyled = styled.div`
     p {
       font-size: 20px;
       cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: inter;
       color: var(--color-grey5);
     }
     h2 {
       font-size: 16px;
       color: var(--color-grey-1);
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-family: inter;
     }
   }
 
   .ulFilter {
     h2 {
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-family: inter;
       font-size: 28px;
     }
     display: flex;
@@ -48,8 +46,7 @@ export const ModalFilterStyled = styled.div`
       width: 70%;
       border-radius: 8px;
       color: white;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-family: inter;
     }
     .reset-filter {
       margin: 0 auto;
@@ -59,8 +56,7 @@ export const ModalFilterStyled = styled.div`
       border-radius: 8px;
       background-color: var(--color-brand1);
       font-size: 16px;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-family: inter;
       margin-bottom: 20px;
     }
   }
@@ -76,8 +72,7 @@ export const ModalFilterStyled = styled.div`
       border-radius: 8px;
       background-color: var(--color-brand1);
       font-size: 16px;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-family: inter;
     }
   }
 `;

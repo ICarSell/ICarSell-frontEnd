@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledListComments = styled.div<{ color: string }>`
+export const StyledListComments = styled.div<{ color?: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;

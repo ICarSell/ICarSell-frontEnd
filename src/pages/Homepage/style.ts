@@ -98,6 +98,7 @@ export const StyledHome = styled.main`
           padding: 10px;
           color: white;
           border-radius: 8px;
+          width: 170px;
           background-color: var(--color-brand1);
         }
       }
@@ -148,6 +149,12 @@ export const StyledHome = styled.main`
       /* width: 100%; */
       display: flex;
       flex-direction: row;
+      justify-content: space-evenly;
+
+      @media (max-width: 900px) {
+        justify-content: flex-start;
+      }
+
       gap: 28px;
 
       overflow-x: auto;
@@ -164,6 +171,7 @@ export const StyledHome = styled.main`
         margin-left: 10px;
         margin-right: 10px;
         gap: 20px;
+        justify-content: flex-start;
       }
       @media (min-width: 900px) {
         overflow-x: hidden;
@@ -178,9 +186,10 @@ export const StyledHome = styled.main`
   .key-filter {
     padding: 10px;
     border-radius: 10px;
-    width: 50%;
+    width: max-content;
     background-color: var(--color-brand1);
     color: white;
+    font-family: inter;
   }
 
   .pagination {
@@ -198,12 +207,12 @@ export const StyledHome = styled.main`
       align-items: center;
       gap: 10px;
 
-      @media (min-width: 426px) {
+      @media (min-width: 900px) {
         display: flex;
         flex-direction: row;
       }
       p {
-        font-family: "Lexend";
+        font-family: "inter";
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -234,9 +243,8 @@ export const PClick = styled.button<iStyledButtonProps>`
   border-radius: 8px;
   color: var(--color-grey3);
   font-size: 18px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 20px;
+  font-family: "inter";
+  font-size: 17px;
   ${(props) => {
     switch (props.variant) {
       case "primary":
