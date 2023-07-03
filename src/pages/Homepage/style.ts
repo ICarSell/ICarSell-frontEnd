@@ -143,6 +143,8 @@ export const StyledHome = styled.main`
       /* width: 100%; */
       display: flex;
       flex-direction: row;
+      justify-content: space-evenly;
+
       gap: 28px;
 
       overflow-x: auto;
