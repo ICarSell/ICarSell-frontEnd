@@ -82,6 +82,11 @@ export const StyledHome = styled.main`
       flex-direction: row;
       width: 100%;
     }
+    @media (max-width: 426px) {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
 
     .filtro {
       display: none;
@@ -229,6 +234,9 @@ export const PClick = styled.button<iStyledButtonProps>`
   border-radius: 8px;
   color: var(--color-grey3);
   font-size: 18px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
   ${(props) => {
     switch (props.variant) {
       case "primary":
@@ -240,7 +248,7 @@ export const PClick = styled.button<iStyledButtonProps>`
       case "secondary":
         return `
         background-color: white;
-        color: black;
+        color: var(--color-grey3);
       `;
       case "success":
         return `
