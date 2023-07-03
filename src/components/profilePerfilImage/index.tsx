@@ -25,7 +25,7 @@ const StyledImagePerfil = styled.div<{ backgroundColor: string }>`
 `;
 
 export const ProfilePicture: React.FC<ProfilePictureProps> = ({ name }) => {
-  const initials = name.substr(0, 1).toUpperCase();
+  const initials = name[0].toUpperCase();
   const backgroundColor = generateColor(name);
 
   return (

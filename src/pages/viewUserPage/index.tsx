@@ -19,6 +19,8 @@ export const ViewUserPage = () => {
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
 
+
+
   if (!announcementUser) {
     return (
       <LoadigPage>

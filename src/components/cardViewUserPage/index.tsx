@@ -17,7 +17,7 @@ export const ListCarViewPage = ({
         onClick={() => {
           setAnnouncementId(car.id);
           localStorage.setItem("@CARID", car.id);
-          navigate("/product");
+          navigate(`/product/${car.id}`);
         }}
       >
         <div className="cardImg">
