@@ -24,7 +24,8 @@ export const ListCarViewPage = ({
           <img src={car.imgCover.path} alt={car.imgCover.fileName} />
           <div
             className={
-              parseFloat(car.price) < parseFloat(car.priceFipe) * 0.95
+              parseFloat(car.price) <
+              car.priceFipe.replace(/\B(?=(\d{3})+(?!\d))/g, ".") * 0.95
                 ? "lowestPriceFipe"
                 : "outFipe"
             }
