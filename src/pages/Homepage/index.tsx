@@ -71,7 +71,7 @@ export const Home = () => {
         filterByprice.sort((a: any, b: any) => {
           a.price = parseFloat(a.price).toFixed(3);
           b.price = parseFloat(b.price).toFixed(3);
-          console.log(a.price);
+
           return Number(a.price) - Number(b.price);
         });
       } else if (value === "Máximo") {
@@ -105,7 +105,7 @@ export const Home = () => {
         return element;
       }
     });
-    console.log(filteredAnnouncements);
+
     setKeysFilter([...keysFilter, value]);
     setFilterItens(filteredAnnouncements);
   };

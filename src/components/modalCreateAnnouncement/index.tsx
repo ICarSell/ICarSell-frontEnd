@@ -170,8 +170,6 @@ export const AnuncioCarroForm = ({ setModalAdd }: any) => {
         formData.append("gallery", gallery[i]);
       }
 
-      console.log(priceFipe);
-
       postAnnouncement(formData);
       setModalAdd(false);
     }
