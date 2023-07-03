@@ -10,11 +10,13 @@ export const ListCarHome = ({ announcements }: iDataAnnouncement) => {
   return (
     <>
       {announcements.map((car: any) => {
-        const carPrice = parseFloat(car.price).toFixed(3);
-        const carPriceFipe = parseFloat(car.priceFipe).toFixed(3);
+        const carPriceFipe = car.priceFipe.replace(
+          /\B(?=(\d{3})+(?!\d))/g,
+          "."
+        );
 
         const priceComparison =
-          Number(carPrice) < Number(carPriceFipe) * 0.95
+          Number(car.price) < Number(carPriceFipe) * 0.95
             ? "lowestPriceFipe"
             : "outFipe";
 
