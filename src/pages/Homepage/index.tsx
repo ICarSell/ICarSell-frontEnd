@@ -11,6 +11,7 @@ import { ModalUpdateUser } from "../../components/globalModal/updateUser";
 import { ToastContainer } from "react-toastify";
 import { ModalDeleteUser } from "../../components/globalModal/modalDeleteUSer";
 import { EmptyList } from "../../components/emptyList";
+import { ModalFilter } from "../../components/modalFilter";
 
 const km = ["Minima", "Máxima"];
 const preco = ["Minimo", "Máximo"];
@@ -28,6 +29,7 @@ export const Home = () => {
   const [announcements, setAnnouncements] = useState([]);
   const { openModalUpdateAddress, openModalUpdateUser, openModelDeleteUser } =
     useContext(ModalContext);
+  const [modalFilter, setModalFilter] = useState(false);
   const [keysFilter, setKeysFilter] = useState<string[]>([]);
 
   useEffect(() => {
@@ -97,12 +99,13 @@ export const Home = () => {
 
     const filteredAnnouncements = filterItens.filter((element: any) => {
       const itemValue = element[key].toLowerCase();
-      const searchValue = value;
+      const searchValue = value.toLowerCase();
       const itemIncludes = itemValue.includes(searchValue);
       if (itemIncludes) {
         return element;
       }
     });
+    console.log(filteredAnnouncements);
     setKeysFilter([...keysFilter, value]);
     setFilterItens(filteredAnnouncements);
   };
@@ -121,6 +124,31 @@ export const Home = () => {
   return (
     <>
       <Navbar />
+
+      {modalFilter && (
+        <ModalFilter
+          announcements={announcements}
+          setFilterItens={setFilterItens}
+          filterItens={filterItens}
+          setModalFilter={setModalFilter}
+          markColor={markColor}
+          setMarkColor={setMarkColor}
+          modelColor={modelColor}
+          setModelColor={setModelColor}
+          corColor={corColor}
+          setCorColor={setCorColor}
+          anoColor={anoColor}
+          setAnoColor={setAnoColor}
+          combustivelColor={combustivelColor}
+          setCombustivelColor={setCombustivelColor}
+          kmColor={kmColor}
+          setKmColor={setKmColor}
+          priceColor={priceColor}
+          setPriceColor={setPriceColor}
+          keysFilter={keysFilter}
+          setKeysFilter={setKeysFilter}
+        />
+      )}
       <ToastContainer />
       <StyledHome>
         {openModalUpdateAddress && <ModalUpdateAddress />}
@@ -338,7 +366,11 @@ export const Home = () => {
         </div>
 
         <div className="pagination">
-          <Button type="button" buttonVariation="filters">
+          <Button
+            onClick={() => setModalFilter(true)}
+            type="button"
+            buttonVariation="filters"
+          >
             Filtros
           </Button>
         </div>
