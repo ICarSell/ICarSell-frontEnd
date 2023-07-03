@@ -50,6 +50,7 @@ export const EditAnnouncementCarForm = ({
         mileage,
         color,
         price,
+        priceFipe,
         description,
         isActive,
       } = editCar;
@@ -60,6 +61,7 @@ export const EditAnnouncementCarForm = ({
       setFuel(fuel);
       setMileage(mileage);
       setColor(color);
+      setPriceFipe(priceFipe.replace(/\B(?=(\d{3})+(?!\d))/g, "."));
       setPrice(price);
       setDescription(description);
       setPublicado(isActive);
