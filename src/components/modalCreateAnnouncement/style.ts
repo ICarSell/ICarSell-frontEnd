@@ -109,6 +109,10 @@ export const StuledModalAnnouncement = styled.div`
         line-height: 0px;
 
         color: black;
+
+        @media (max-width: 425px) {
+          height: 20px;
+        }
       }
     }
 
@@ -146,6 +150,9 @@ export const StuledModalAnnouncement = styled.div`
         line-height: 0px;
 
         color: black;
+        @media (max-width: 425px) {
+          height: 20px;
+        }
       }
     }
 
@@ -252,24 +259,51 @@ export const StuledModalAnnouncement = styled.div`
   @media (max-width: 767px) {
     form {
       height: auto;
+      .divTitle {
+        height: 30px;
+      }
     }
   }
   @media (max-width: 425px) {
     form {
       height: auto;
-      width: 97%;
+      width: 89%;
       padding: 18px 15px;
+      margin-left: 8px;
+
+      .divTitle {
+        height: 30px;
+      }
       .yearfuel {
         width: 100%;
+
         gap: 10px;
         .year {
           input {
             width: 100%;
+            height: 20px;
           }
+        }
+      }
+      .description {
+        textarea {
+          height: 45px;
+        }
+      }
+      .imgCover {
+        label {
+          padding: 5px 20px;
         }
       }
       .buttons {
         justify-content: space-between;
+        .buttonCancelar {
+          width: 100px;
+          height: 35px;
+        }
+        .enviar {
+          height: 35px;
+        }
       }
     }
   }

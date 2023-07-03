@@ -152,10 +152,18 @@ export const StyledHome = styled.main`
 
       margin-top: 50px;
       margin-bottom: 50px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      @media (max-width: 426px) {
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 20px;
+      }
       @media (min-width: 900px) {
         overflow-x: hidden;
         flex-wrap: wrap;
-        /* width: 100%; */
+
         align-content: flex-start;
         gap: 86px 48px;
       }
