@@ -8,7 +8,7 @@ export const StyledHome = styled.main`
   align-items: flex-start;
   width: 100%;
 
-  @media (max-width: 426px) {
+  @media (max-width: 900px) {
     width: 100%;
   }
 
@@ -77,7 +77,7 @@ export const StyledHome = styled.main`
 
   .containerList {
     width: 100%;
-    @media (min-width: 426px) {
+    @media (min-width: 900px) {
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -101,7 +101,7 @@ export const StyledHome = styled.main`
           background-color: var(--color-brand1);
         }
       }
-      @media (min-width: 426px) {
+      @media (min-width: 900px) {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -117,7 +117,7 @@ export const StyledHome = styled.main`
         flex-direction: column;
       }
       .filterListContainer {
-        @media (min-width: 426px) {
+        @media (min-width: 900px) {
           display: flex;
           flex-direction: column;
           padding-left: 20px;
@@ -145,24 +145,30 @@ export const StyledHome = styled.main`
     }
 
     .carListContainar {
-      width: 100%;
+      /* width: 100%; */
       display: flex;
       flex-direction: row;
-      gap: 12px;
+      gap: 28px;
 
       overflow-x: auto;
 
-      padding-left: 25px;
-      padding-right: 25px;
+      /* padding-left: 25px;
+      padding-right: 25px; */
 
       margin-top: 50px;
       margin-bottom: 50px;
-    }
-    .carListContainar {
-      @media (min-width: 426px) {
+      margin-left: 10px;
+      margin-right: 10px;
+
+      @media (max-width: 426px) {
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 20px;
+      }
+      @media (min-width: 900px) {
         overflow-x: hidden;
         flex-wrap: wrap;
-        width: 100%;
+
         align-content: flex-start;
         gap: 86px 48px;
       }

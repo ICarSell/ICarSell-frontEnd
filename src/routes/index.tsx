@@ -14,9 +14,9 @@ export const RoutesMain = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/product" element={<ProductPage />} />
-      <Route path="/perfil-page" element={<PerfilPage />} />
-      <Route path="/page-user" element={<ViewUserPage />} />
+      <Route path="/product/:id" element={<ProductPage />} />
+      <Route path="/profile-page" element={<PerfilPage />} />
+      <Route path="/page/:name" element={<ViewUserPage />} />
       <Route path="/reset-password/:token" element={<ChangePassword />} />
       <Route path="/*" element={<ErrorPage />} />
     </Routes>

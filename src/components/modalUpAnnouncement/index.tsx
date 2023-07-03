@@ -38,6 +38,8 @@ export const EditAnnouncementCarForm = ({
   const [imgCover, setImgCover] = useState<File | null>(null);
   const [gallery, setGallery] = useState<Array<File>>([]);
 
+  const [formValid, setFormValid] = useState(true);
+
   useEffect(() => {
     if (editCar) {
       const {
@@ -149,32 +151,57 @@ export const EditAnnouncementCarForm = ({
     }
   };
 
+  const validateForm = () => {
+    if (
+      mark.trim() === "" ||
+      model.trim() === "" ||
+      mileage.trim() === "" ||
+      color.trim() === "" ||
+      price.trim() === "" ||
+      description.trim() === ""
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("mark", mark);
-    formData.append("model", model);
-    formData.append("year", year);
-    formData.append("fuel", fuel);
-    formData.append("mileage", mileage);
-    formData.append("color", color);
-    formData.append("priceFipe", priceFipe);
-    formData.append("price", price);
-    formData.append("description", description);
-    formData.append("isActive", publicado ? "true" : "false");
+    const isValid = validateForm();
 
-    if (imgCover) {
-      formData.append("imgCover", imgCover);
+    if (!isValid) {
+      setFormValid(false);
+      return;
+    } else {
+      setFormValid(true);
+      const km = mileage.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const p = price.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+      const formData = new FormData();
+      formData.append("mark", mark);
+      formData.append("model", model);
+      formData.append("year", year);
+      formData.append("fuel", fuel);
+      formData.append("mileage", km);
+      formData.append("color", color);
+      formData.append("priceFipe", priceFipe);
+      formData.append("price", p);
+      formData.append("description", description);
+      formData.append("isActive", publicado ? "true" : "false");
+
+      if (imgCover) {
+        formData.append("imgCover", imgCover);
+      }
+
+      for (let i = 0; i < gallery.length; i++) {
+        formData.append("gallery", gallery[i]);
+      }
+
+      const idCar: string = editCar.id;
+      updateAnnouncement(formData, idCar);
+      setModalEdit(false);
     }
-
-    for (let i = 0; i < gallery.length; i++) {
-      formData.append("gallery", gallery[i]);
-    }
-
-    const idCar: string = editCar.id;
-    updateAnnouncement(formData, idCar);
-    setModalEdit(false);
   };
 
   const excluir = () => {
@@ -193,7 +220,7 @@ export const EditAnnouncementCarForm = ({
         </div>
         <p>informações do veículo</p>
         <div className="mark">
-          <label>Marca:</label>
+          <label>Marca:*</label>
           <select value={mark} onChange={handleMarkChange}>
             <option value="">Selecione uma marca</option>
             {allMarks.map((mark) => (
@@ -204,7 +231,7 @@ export const EditAnnouncementCarForm = ({
           </select>
         </div>
         <div className="model">
-          <label>Modelo:</label>
+          <label>Modelo:*</label>
           <select value={model} onChange={handleModelChange}>
             <option value="">Selecione um modelo</option>
             {mark &&
@@ -239,16 +266,16 @@ export const EditAnnouncementCarForm = ({
         </div>
         <div className="yearfuel">
           <div className="year">
-            <label>Quilometragem:</label>
+            <label>Quilometragem:*</label>
             <input
-              type="text"
+              type="number"
               value={mileage}
               placeholder="30.000"
               onChange={(e) => setMileage(e.target.value)}
             />
           </div>
           <div className="year">
-            <label>Cor:</label>
+            <label>Cor:*</label>
             <input
               type="text"
               value={color}
@@ -269,9 +296,9 @@ export const EditAnnouncementCarForm = ({
             />
           </div>
           <div className="year">
-            <label>Preço Venda:</label>
+            <label>Preço Venda:*</label>
             <input
-              type="text"
+              type="number"
               value={price}
               placeholder="R$ 45.000"
               onChange={(e) => setPrice(e.target.value)}
@@ -279,7 +306,7 @@ export const EditAnnouncementCarForm = ({
           </div>
         </div>
         <div className="description">
-          <label>Descrição:</label>
+          <label>Descrição:*</label>
           <textarea
             value={description}
             placeholder="Descrição do veículo..."
@@ -327,6 +354,10 @@ export const EditAnnouncementCarForm = ({
             />
           </label>
         </div>
+
+        {formValid === false && (
+          <p className="error">Preencha todos os campos obrigatórios *</p>
+        )}
 
         <div className="buttons">
           <button

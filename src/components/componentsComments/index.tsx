@@ -4,6 +4,7 @@ import { UserContext } from "../../context/userContext/userContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { commentsData, commentsSchema } from "../../schemas/comments";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const AddComents = ({ announcementId }: any) => {
   const { user, postComments } = useContext(UserContext);
@@ -46,9 +47,7 @@ export const AddComents = ({ announcementId }: any) => {
       <div className="container">
         <div className="containerForm">
           <div className="user">
-            <div className="imgUser">
-              <p>{user?.name[0].toUpperCase()}</p>
-            </div>
+            <ProfilePicture name={user?.name} />
             <p>{user?.name}</p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>

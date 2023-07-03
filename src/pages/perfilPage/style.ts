@@ -28,16 +28,29 @@ export const PerfilPageStyle = styled.div`
     gap: 35px;
     height: auto;
     border-radius: 4px;
+    div:first-child {
+      height: 100px;
+      width: 100px;
+      p {
+        font-size: 40px;
+      }
+    }
+  }
+  .emptyWarning {
+    font-family: var(--font-family-lexend);
+    color: var(--color-brand1);
+    margin-top: 25px;
   }
   .card-list-cars {
     position: absolute;
     background-color: var(--color-grey8);
-    width: 90%;
+    width: 80%;
     top: calc(50% + 30vh);
     left: 50%;
     height: 900px;
     transform: translate(-50%, -50%);
     overflow-x: hidden;
+    border-radius: 4px;
 
     ul {
       display: flex;
@@ -156,7 +169,7 @@ export const PerfilPageStyle = styled.div`
       position: absolute;
       background-color: var(--color-grey7);
       width: 90%;
-      top: calc(45% + 30vh);
+      top: calc(45% + 45vh);
       left: 50%;
       height: 450px;
       transform: translate(-50%, -50%);

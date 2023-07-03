@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StyledListCar } from "./style";
 import { UserContext } from "../../context/userContext/userContext";
 import { iDataCarViewPage } from "../type";
+import { ProfilePicture } from "../profilePerfilImage";
 
 export const ListCarViewPage = ({
   car,
@@ -16,7 +17,7 @@ export const ListCarViewPage = ({
         onClick={() => {
           setAnnouncementId(car.id);
           localStorage.setItem("@CARID", car.id);
-          navigate("/product");
+          navigate(`/product/${car.id}`);
         }}
       >
         <div className="cardImg">
@@ -39,10 +40,8 @@ export const ListCarViewPage = ({
         </div>
         <p className="cardDescription">{car.description}</p>
         <div className="cardUser">
-          <div>
-            <p>{announcementName[0].toUpperCase()}</p>
-          </div>
-          <p>{announcementName}</p>
+          <ProfilePicture name={announcementName} />
+          <p className="userName">{announcementName}</p>
         </div>
         <div className="cardInfo">
           <div className="cardInfoDiv">
