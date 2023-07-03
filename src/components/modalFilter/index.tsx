@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PClick } from "../../pages/Homepage/style";
 import { ModalFilterStyled } from "./style";
 
@@ -54,7 +53,6 @@ export const ModalFilter = ({
         filterByprice.sort((a: any, b: any) => {
           a.price = parseFloat(a.price).toFixed(3);
           b.price = parseFloat(b.price).toFixed(3);
-          console.log(a.price);
           return Number(a.price) - Number(b.price);
         });
       } else if (value === "Máximo") {
