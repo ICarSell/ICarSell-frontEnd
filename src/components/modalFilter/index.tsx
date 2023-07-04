@@ -80,7 +80,7 @@ export const ModalFilter = ({
 
     const filteredAnnouncements = filterItens.filter((element: any) => {
       const itemValue = element[key].toLowerCase();
-      const searchValue = value;
+      const searchValue = value.toLowerCase();
       const itemIncludes = itemValue.includes(searchValue);
       if (itemIncludes) {
         return element;
